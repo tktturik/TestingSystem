@@ -19,3 +19,12 @@ C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInpu
 C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1.exe
 C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb
 C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\1\source\repos\WpfApp1\WpfApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\1\source\repos\WpfApp1\WpfApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete
+C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\Utilities\DataTemple.baml
+C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\App.baml
+C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\View\UserControls\Home.g.cs
+C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\View\UserControls\Home.baml
+C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\View\UserControls\ChoosingTest.g.cs
+C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\View\UserControls\ChoosingTest.baml

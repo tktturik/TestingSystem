@@ -3,12 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm ="clr-namespace:WpfApp1.ViewModels"
              xmlns:local="clr-namespace:WpfApp1.View.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              >
+    <UserControl.DataContext>
+        <vm:CreateTestVM />
+    </UserControl.DataContext>
     <Grid>
-        <ScrollViewer Margin="0,0,0,60">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0">
             <StackPanel x:Name="QuestionsContainer" VerticalAlignment="Top" Margin="0,0,0,40">
                 <ItemsControl ItemsSource="{Binding Questions}">
                     <ItemsControl.ItemTemplate>
@@ -32,7 +40,15 @@
                 </ItemsControl>
             </StackPanel>
         </ScrollViewer>
-        <Button Content="Добавить вопрос" Command="{Binding AddQuestionCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="120" Height="30" Margin="10"/>
-    
-</Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Добавить вопрос" Command="{Binding AddQuestionCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="120" Height="30" Margin="10"/>
+            <Button Grid.Column="1" Content="Сохранить тест" Command="{Binding SaveTestCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120" Height="30" Margin="10"/>
+            <TextBox Grid.Column="2" Text="{Binding TestTitle, UpdateSourceTrigger=PropertyChanged}"  ></TextBox>
+        </Grid>
+    </Grid>
 </UserControl>

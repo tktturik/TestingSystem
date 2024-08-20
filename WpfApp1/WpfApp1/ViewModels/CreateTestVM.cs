@@ -8,19 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
-
+using WpfApp1.Models;
+using WpfApp1.Utilities;
 
 namespace WpfApp1.ViewModels
 {
-    internal class CreateTestVM:INotifyPropertyChanged
+    internal class CreateTestVM:ViewModelBase
     {
         private ObservableCollection<Question> _questions;
+        private Test _test;
+        private string path = $"{Environment.CurrentDirectory}\\name.json";
+        private string _testTitle;
 
         public CreateTestVM()
         {
-            Questions = new ObservableCollection<Question>();
+            _test = new Test();
+            _questions = _test.questions;
             AddQuestionCommand = new RelayCommand(AddQuestion);
             AddAnswerCommand = new RelayCommand(AddAnswer);
+            SaveTestCommand = new RelayCommand(SaveTest);
         }
 
         public ObservableCollection<Question> Questions
@@ -32,9 +38,20 @@ namespace WpfApp1.ViewModels
                 OnPropertyChanged();
             }
         }
+        public string TestTitle
+        {
+            get { return _testTitle; }
+            set
+            {
+                _testTitle = value;
+                _test.Title = value; // Обновляем свойство Title в объекте Test
+                OnPropertyChanged();
+            }
+        }
 
         public ICommand AddQuestionCommand { get; }
         public ICommand AddAnswerCommand { get; }
+public ICommand SaveTestCommand { get; }
 
         private void AddQuestion(object parameter)
         {
@@ -48,11 +65,12 @@ namespace WpfApp1.ViewModels
                 question.Answers.Add(new Answer("Введите ответ"));
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void SaveTest(object parameter)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            path = path.Replace("name", _test.Title);
+            DataService.SaveQuestions(_test,path);
         }
+      
     }
 }
