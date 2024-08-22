@@ -17,7 +17,7 @@ namespace WpfApp1.ViewModels
     {
         private ObservableCollection<Question> _questions;
         private Test _test;
-        private string path = $"{Environment.CurrentDirectory}\\name.json";
+        private string path = $"{Environment.CurrentDirectory}\\Tests\\name.json";
         private string _testTitle;
 
         public CreateTestVM()

@@ -9,8 +9,12 @@ namespace WpfApp1
     public class Answer
     {
         public string Text { get; set; }
+        public bool IsCorrectAnswer { get; set; }
+        public bool IsSelected { get; set;  }
+
         public Answer(string text) { 
             Text = text;
+            IsCorrectAnswer = false;
         }
     }
 }

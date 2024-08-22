@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using WpfApp1.Models;
 using WpfApp1.Utilities;
@@ -43,7 +44,20 @@ namespace WpfApp1.ViewModels
 
         private void FinishTest(object parameter)
         {
-            
+            int CountCorrect = 0;
+            foreach (Question question in questions)
+            {
+                foreach (Answer answer in question.Answers)
+                {
+                    if(answer.IsCorrectAnswer && answer.IsSelected)
+                    {
+                        CountCorrect++;
+                    }
+                }
+
+            }
+            MessageBox.Show($"Верных ответов: {CountCorrect}");
+
         }
 
     

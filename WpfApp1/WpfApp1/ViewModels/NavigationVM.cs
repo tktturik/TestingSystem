@@ -39,6 +39,7 @@ namespace WpfApp1.ViewModels
         }
         private void ShowTakeTestView(object parameter)
         {
+            //хуйня
             ChoosingTestVM choosingTestVM1 = new ChoosingTestVM();
             choosingTestVM1.SetNavigationVM(this);
             UserControl = new ChoosingTest { DataContext = choosingTestVM1 };
@@ -52,7 +53,9 @@ namespace WpfApp1.ViewModels
         public void ShowSelectedTest(Test test)
         {
             if(test != null)
-            {   
+            {
+                //хуйня
+
                 TakingTestVM takingTest = new TakingTestVM();
                 takingTest.SetTest(test);
                 UserControl = new TakingTest() { DataContext =  takingTest };

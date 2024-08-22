@@ -12,7 +12,7 @@ namespace WpfApp1.ViewModels
 {
     internal class ChoosingTestVM : ViewModelBase
     {
-        private string path = $"{Environment.CurrentDirectory}\\";
+        private string path = $"{Environment.CurrentDirectory}\\Tests\\";
 
         private NavigationVM _navigationVM;
         private Test selectedTest;
