@@ -16,16 +16,17 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <ListView Grid.Row="0" ItemsSource="{Binding Tests}" SelectedItem="{Binding SelectedTest}">
+        <ListView Grid.Row="0" ItemsSource="{Binding Tests}" SelectedItem="{Binding SelectedTest}"
+                  Background="Transparent"
+                  BorderThickness="0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Title}"></TextBlock>
+                        <TextBlock Text="{Binding Title}" Style="{StaticResource TextStyle}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            
+
         </ListView>
-        <Button Content="Назад" Grid.Row="1" Width="80" ></Button>
     </Grid>
 </UserControl>

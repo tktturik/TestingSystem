@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\1\source\repos\WpfApp1\WpfApp1\obj\Debug\
+C:\Users\1\Source\Repos\Testik\WpfApp1\WpfApp1\obj\Debug\
 WpfApp1
 none
 false
 DEBUG;TRACE
-C:\Users\1\source\repos\WpfApp1\WpfApp1\App.xaml
-61677655557
+C:\Users\1\Source\Repos\Testik\WpfApp1\WpfApp1\App.xaml
+91404003558
 
 21-1639656100
-141142366643
-MainWindow.xaml;Utilities\DataTemple.xaml;View\UserControls\ChoosingTest.xaml;View\UserControls\CreateTest.xaml;View\UserControls\Home.xaml;View\UserControls\TakingTest.xaml;
+141722584863
+MainWindow.xaml;Styles\BtnStyle.xaml;Styles\PageStyle.xaml;Styles\TextStyle.xaml;Utilities\DataTemple.xaml;View\UserControls\ChoosingTest.xaml;View\UserControls\CreateTest.xaml;View\UserControls\Home.xaml;View\UserControls\TakingTest.xaml;
 
 True
 

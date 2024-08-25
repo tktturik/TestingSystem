@@ -11,7 +11,8 @@
 
                
                 <ResourceDictionary Source="Utilities/DataTemple.xaml" />
-
+                <ResourceDictionary Source="Styles/BtnStyle.xaml"/>
+                <ResourceDictionary Source="Styles/TextStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

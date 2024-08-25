@@ -3,36 +3,48 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:vm="clr-namespace:WpfApp1.ViewModels"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+         AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent">
 
     <Window.DataContext>
         <vm:NavigationVM/>
     </Window.DataContext>
-    
-   
 
-    <Grid>
+
+
+    <Grid Background="#212529">
        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid>
-            <StackPanel>
-                <Button Content="Home" Command="{Binding ShowHomeViewCommand}" Width="Auto" Height="50"></Button>
-            <Button Command="{Binding ShowCreateTestViewCommand}" 
-                Width="Auto" Height="50" 
-                Content="Create" 
+            
+            <StackPanel Background="#212529" HorizontalAlignment="Center" VerticalAlignment="Center">
                 
-                 />
+                <Button Style="{StaticResource BtnStyle}" Command="{Binding ShowHomeViewCommand}" >
+                    <TextBlock Style="{StaticResource TextStyle}" Text="Home" ></TextBlock>
+                </Button>
+                <Button Command="{Binding ShowCreateTestViewCommand}" Style="{StaticResource BtnStyle}">
+                    <TextBlock Style="{StaticResource TextStyle}" Text="Create"></TextBlock>
+                </Button>
 
-        <Button Command="{Binding ShowTakeTestViewCommand}" 
-                Width="Auto" Height="50" 
-                Content="Take" 
-                 />
-        </StackPanel>
+                <Button Command="{Binding ShowTakeTestViewCommand}" Style="{StaticResource BtnStyle}">
+                    <TextBlock Style="{StaticResource TextStyle}" Text="Take"></TextBlock>
+                </Button>
+            </StackPanel>
         </Grid>
         <Grid Grid.Column="1">
+            <Button Content="x" FontSize="30" 
+                    Foreground="White" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top" Margin="0,0,20,0" 
+                    BorderThickness="0"
+                    Background="Transparent" Click="Button_Click"
+                    Panel.ZIndex="1"></Button>
             <ContentControl Content="{Binding UserControl}"/>
         </Grid>
     </Grid>

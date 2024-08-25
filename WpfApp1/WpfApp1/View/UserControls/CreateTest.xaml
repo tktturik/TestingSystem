@@ -16,7 +16,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="0">
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="QuestionsContainer" VerticalAlignment="Top" Margin="0,0,0,40">
                 <ItemsControl ItemsSource="{Binding Questions}">
                     <ItemsControl.ItemTemplate>
@@ -28,7 +28,7 @@
                                         <DataTemplate>
                                             <StackPanel>
                                                 <CheckBox IsChecked="{Binding IsCorrectAnswer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="150,0,0,-50" />
-                                            <TextBox Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="300" Height="30" Margin="0,0,0,10"/>
+                                            <TextBox Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="300" Height="30" Margin="0,0,0,10"/>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
@@ -45,13 +45,17 @@
         </ScrollViewer>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"></ColumnDefinition>
-                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="200"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Добавить вопрос" Command="{Binding AddQuestionCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="120" Height="30" Margin="10"/>
-            <Button Grid.Column="1" Content="Сохранить тест" Command="{Binding SaveTestCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120" Height="30" Margin="10"/>
-            <TextBox Grid.Column="2" Text="{Binding TestTitle, UpdateSourceTrigger=PropertyChanged}"  ></TextBox>
+            <Button Grid.Column="0" Command="{Binding AddQuestionCommand}" Style="{StaticResource BtnStyle2}">
+                <TextBlock Text="Добавить вопрос" Style="{StaticResource TextStyle}"/>
+            </Button>
+            <Button Grid.Column="1" Command="{Binding SaveTestCommand}" Style="{StaticResource BtnStyle2}">
+                <TextBlock Text="Сохранить" Style="{StaticResource TextStyle}"/>
+            </Button>
+                <TextBox Grid.Column="2" Text="{Binding TestTitle, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="White" ></TextBox>
         </Grid>
     </Grid>
 </UserControl>
