@@ -13,49 +13,52 @@
     </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+        <Grid Grid.Row="0" HorizontalAlignment="Center">
+            <TextBox Tag="Введите название" Style="{StaticResource NameOfTestTB}" Text="{Binding TestTitle, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="QuestionsContainer" VerticalAlignment="Top" Margin="0,0,0,40">
                 <ItemsControl ItemsSource="{Binding Questions}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical" Margin="0,10,0,10">
-                                <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" Width="300" Height="30" Margin="0,0,0,10"/>
+                                <TextBox Tag="Введите вопрос" Style="{StaticResource QuestionTextBox}" Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" />
                                 <ItemsControl ItemsSource="{Binding Answers}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
-                                            <StackPanel>
-                                                <CheckBox IsChecked="{Binding IsCorrectAnswer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="150,0,0,-50" />
-                                            <TextBox Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="300" Height="30" Margin="0,0,0,10"/>
+                                            <StackPanel Margin="5">
+                                                <CheckBox Style="{StaticResource CustomCheckBoxStyle}" IsChecked="{Binding IsCorrectAnswer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                                                <TextBox Tag="Введите ответ" Style="{StaticResource AnswerTextBox}"  Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
-                                <Button Content="Добавить ответ" 
-                                        Command="{Binding DataContext.AddAnswerCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
-                                        CommandParameter="{Binding}" 
-                                        Width="120" Height="30" Margin="0,10,0,0"/>
+                                <Button Command="{Binding DataContext.AddAnswerCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                                        CommandParameter="{Binding}" Style="{StaticResource CreateTestBtn}" >
+                                    <TextBlock Style="{StaticResource TextStyle}" Text="Добавить ответ"></TextBlock>
+                                </Button>
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </StackPanel>
         </ScrollViewer>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="200"></ColumnDefinition>
+
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Command="{Binding AddQuestionCommand}" Style="{StaticResource BtnStyle2}">
+            <Button Grid.Column="0" Command="{Binding AddQuestionCommand}" Style="{StaticResource CreateTestBtn}">
                 <TextBlock Text="Добавить вопрос" Style="{StaticResource TextStyle}"/>
             </Button>
-            <Button Grid.Column="1" Command="{Binding SaveTestCommand}" Style="{StaticResource BtnStyle2}">
+            <Button Grid.Column="1" Command="{Binding SaveTestCommand}" Style="{StaticResource CreateTestBtn}">
                 <TextBlock Text="Сохранить" Style="{StaticResource TextStyle}"/>
             </Button>
-                <TextBox Grid.Column="2" Text="{Binding TestTitle, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="White" ></TextBox>
         </Grid>
     </Grid>
 </UserControl>

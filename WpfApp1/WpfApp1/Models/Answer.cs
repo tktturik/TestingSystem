@@ -12,8 +12,8 @@ namespace WpfApp1
         public bool IsCorrectAnswer { get; set; }
         public bool IsSelected { get; set;  }
 
-        public Answer(string text) { 
-            Text = text;
+        public Answer() 
+        {     
             IsCorrectAnswer = false;
         }
     }

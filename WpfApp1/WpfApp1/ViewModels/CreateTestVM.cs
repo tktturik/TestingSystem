@@ -55,14 +55,14 @@ public ICommand SaveTestCommand { get; }
 
         private void AddQuestion(object parameter)
         {
-            Questions.Add(new Question { Text = "Введите вопрос" });
+            Questions.Add(new Question());
         }
 
         private void AddAnswer(object parameter)
         {
             if (parameter is Question question)
             {
-                question.Answers.Add(new Answer("Введите ответ"));
+                question.Answers.Add(new Answer());
             }
         }
 

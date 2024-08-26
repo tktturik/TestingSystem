@@ -15,7 +15,7 @@
 
 
 
-    <Grid Background="#212529">
+    <Grid Background="#9a9548">
        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
@@ -23,23 +23,28 @@
         </Grid.ColumnDefinitions>
         <Grid>
             
-            <StackPanel Background="#212529" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 
-                <Button Style="{StaticResource BtnStyle}" Command="{Binding ShowHomeViewCommand}" >
+                <Button Style="{StaticResource NavigationBtn}" Command="{Binding ShowHomeViewCommand}" >
                     <TextBlock Style="{StaticResource TextStyle}" Text="Home" ></TextBlock>
                 </Button>
-                <Button Command="{Binding ShowCreateTestViewCommand}" Style="{StaticResource BtnStyle}">
+                <Button Command="{Binding ShowCreateTestViewCommand}" Style="{StaticResource NavigationBtn}">
                     <TextBlock Style="{StaticResource TextStyle}" Text="Create"></TextBlock>
                 </Button>
 
-                <Button Command="{Binding ShowTakeTestViewCommand}" Style="{StaticResource BtnStyle}">
+                <Button Command="{Binding ShowTakeTestViewCommand}" Style="{StaticResource NavigationBtn}">
                     <TextBlock Style="{StaticResource TextStyle}" Text="Take"></TextBlock>
                 </Button>
             </StackPanel>
         </Grid>
         <Grid Grid.Column="1">
+            <Border>
+                <Border.Background>
+                    <ImageBrush ImageSource="/Image/backgroundV1.png"></ImageBrush>
+                </Border.Background>
+            </Border>
             <Button Content="x" FontSize="30" 
-                    Foreground="White" 
+                    Foreground="Black" 
                     HorizontalAlignment="Right" 
                     VerticalAlignment="Top" Margin="0,0,20,0" 
                     BorderThickness="0"
