@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm ="clr-namespace:WpfApp1.ViewModels"
+             xmlns:u="clr-namespace:WpfApp1.Utilities"
              xmlns:local="clr-namespace:WpfApp1.View.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
@@ -11,6 +12,9 @@
     <UserControl.DataContext>
         <vm:CreateTestVM />
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <u:IntConverter x:Key="IntConvert"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -18,7 +22,7 @@
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" HorizontalAlignment="Center">
-            <TextBox Tag="Введите название" Style="{StaticResource NameOfTestTB}" Text="{Binding TestTitle, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Tag="Введите название" Style="{StaticResource NameOfTestTB}" Text="{Binding TestTitle, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="QuestionsContainer" VerticalAlignment="Top" Margin="0,0,0,40">
@@ -26,13 +30,14 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical" Margin="0,10,0,10">
-                                <TextBox Tag="Введите вопрос" Style="{StaticResource QuestionTextBox}" Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBox Tag="Введите вопрос" Style="{StaticResource QuestionTextBox}" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                 <ItemsControl ItemsSource="{Binding Answers}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Margin="5">
                                                 <CheckBox Style="{StaticResource CustomCheckBoxStyle}" IsChecked="{Binding IsCorrectAnswer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                                                 <TextBox Tag="Введите ответ" Style="{StaticResource AnswerTextBox}"  Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                                <TextBox Text="{Binding Points, Mode=TwoWay, Converter={StaticResource IntConvert}, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource AnswerTextBox}"  />
                                             </StackPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>

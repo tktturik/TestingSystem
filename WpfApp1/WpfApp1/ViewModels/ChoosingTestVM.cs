@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using WpfApp1.Utilities;
 using WpfApp1.Models;
 using System.Windows;
+using System.Windows.Input;
+using System.Diagnostics;
 
 namespace WpfApp1.ViewModels
 {
@@ -37,15 +39,36 @@ namespace WpfApp1.ViewModels
                 OnPropertyChanged();
                 if (selectedTest != null)
                 {
-                    _navigationVM.ShowSelectedTest(selectedTest);
+                    TakingTestVM takingTestVM = new TakingTestVM();
+                    takingTestVM.SetTest(selectedTest);
+                    _navigationVM.ShowSelectedTest(takingTestVM);
                 }
             }
         }
-        public void SetNavigationVM(NavigationVM navigationVM)
+        public ICommand EditTestCommand { get; }
+        public ICommand DeleteTestCommand { get; }
+        
+        private void EditTest(object parametr)
         {
-            navigation = navigationVM;
+            if(parametr is Test testToUpdate)
+            {
+                Debug.WriteLine("check");
+
+                CreateTestVM createTestVM = new CreateTestVM();
+                createTestVM.Test = testToUpdate;
+                _navigationVM.ShowSelectedTest(createTestVM);
+            }
+            
         }
-     
+        private void DeleteTest(object parametr)
+        {
+            if (parametr is Test testToDelete)
+            {
+                Tests.Remove(testToDelete);
+                bool isDeleted = DataService.RemoveTest(path + testToDelete.Title+".json");
+                Debug.WriteLine(isDeleted);
+            }
+        }
         public ObservableCollection<Test> Tests
         {
             get { return tests; }
@@ -58,7 +81,13 @@ namespace WpfApp1.ViewModels
         public ChoosingTestVM()
         {
             Tests = DataService.LoadTests(path);
+            EditTestCommand=new RelayCommand(EditTest);
+            DeleteTestCommand=new RelayCommand(DeleteTest);
         }
+        public void SetNavigationVM(NavigationVM navigationVM)
+        {
+            navigation = navigationVM;
 
+        }
     }
 }

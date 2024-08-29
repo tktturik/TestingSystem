@@ -44,19 +44,22 @@ namespace WpfApp1.ViewModels
 
         private void FinishTest(object parameter)
         {
-            int CountCorrect = 0;
+            //int CountCorrect = 0;
+            int sumOfPoints = 0;
             foreach (Question question in questions)
             {
                 foreach (Answer answer in question.Answers)
                 {
                     if(answer.IsCorrectAnswer && answer.IsSelected)
                     {
-                        CountCorrect++;
+                        //CountCorrect++;
+                        sumOfPoints += answer.Points;
                     }
                 }
 
             }
-            MessageBox.Show($"Верных ответов: {CountCorrect}");
+            //MessageBox.Show($"Верных ответов: {CountCorrect}");
+            MessageBox.Show($"Набранные баллы:  {sumOfPoints}");
 
         }
 

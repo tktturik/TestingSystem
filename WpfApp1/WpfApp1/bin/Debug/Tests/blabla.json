@@ -1,0 +1,29 @@
+{
+  "Title": "blabla",
+  "AmountQuestions": 0,
+  "questions": [
+    {
+      "Text": "dfff",
+      "Answers": [
+        {
+          "Text": null,
+          "IsCorrectAnswer": false,
+          "IsSelected": false,
+          "Points": 23231
+        },
+        {
+          "Text": null,
+          "IsCorrectAnswer": true,
+          "IsSelected": false,
+          "Points": 22322
+        },
+        {
+          "Text": null,
+          "IsCorrectAnswer": false,
+          "IsSelected": false,
+          "Points": 20
+        }
+      ]
+    }
+  ]
+}

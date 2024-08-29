@@ -11,10 +11,12 @@ namespace WpfApp1
         public string Text { get; set; }
         public bool IsCorrectAnswer { get; set; }
         public bool IsSelected { get; set;  }
+        public int Points { get; set; }
 
         public Answer() 
         {     
             IsCorrectAnswer = false;
+            Points = 0;
         }
     }
 }

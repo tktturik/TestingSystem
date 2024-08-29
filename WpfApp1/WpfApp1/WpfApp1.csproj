@@ -61,6 +61,7 @@
     <Compile Include="Utilities\DataService.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Test.cs" />
+    <Compile Include="Utilities\IntConvert.cs" />
     <Compile Include="Utilities\ViewModelBase.cs" />
     <Compile Include="ViewModels\ChoosingTestVM.cs" />
     <Compile Include="ViewModels\CreateTestVM.cs" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -20,8 +21,19 @@ namespace WpfApp1.ViewModels
         private string path = $"{Environment.CurrentDirectory}\\Tests\\name.json";
         private string _testTitle;
 
+
+        public Test Test {  
+            get { return _test; } 
+            set 
+            { 
+                _test = value; 
+                _questions = _test.questions; 
+                OnPropertyChanged(); 
+            } 
+        }
         public CreateTestVM()
         {
+            Debug.WriteLine("Создан CreateTest");
             _test = new Test();
             _questions = _test.questions;
             AddQuestionCommand = new RelayCommand(AddQuestion);
@@ -51,7 +63,7 @@ namespace WpfApp1.ViewModels
 
         public ICommand AddQuestionCommand { get; }
         public ICommand AddAnswerCommand { get; }
-public ICommand SaveTestCommand { get; }
+        public ICommand SaveTestCommand { get; }
 
         private void AddQuestion(object parameter)
         {

@@ -49,16 +49,17 @@ namespace WpfApp1.ViewModels
         {
             UserControl = new HomePageVM();
         }
-
-        public void ShowSelectedTest(Test test)
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        public void ShowSelectedTest(object test)
         {
-            if(test != null)
+            if (test != null && test is TakingTestVM takingTest)
             {
-                //хуйня
-
-                TakingTestVM takingTest = new TakingTestVM();
-                takingTest.SetTest(test);
-                UserControl = new TakingTest() { DataContext =  takingTest };
+                //хуйня 
+                UserControl = new TakingTest() { DataContext = takingTest };
+            }
+            else if (test != null && test is CreateTestVM createTest)
+            {
+                UserControl = new CreateTest() { DataContext = createTest };
             }
         }
 

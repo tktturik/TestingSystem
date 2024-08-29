@@ -125,3 +125,8 @@ C:\Users\1\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\WpfApp1.exe
 C:\Users\1\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb
 C:\Users\1\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\TextBoxStyle.baml
 C:\Users\1\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\CheckBoxStyle.baml
+C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\BtnStyle.baml
+C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\CheckBoxStyle.baml
+C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\PageStyle.baml
+C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\TextBoxStyle.baml
+C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\TextStyle.baml

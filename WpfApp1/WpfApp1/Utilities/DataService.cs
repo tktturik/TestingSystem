@@ -9,6 +9,8 @@ using System.Xml;
 using System.IO;
 using WpfApp1.Models;
 using System.Diagnostics;
+using System.IO.Packaging;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WpfApp1
 {
@@ -49,6 +51,18 @@ namespace WpfApp1
                 Debug.WriteLine($"{tests.Count} tests");
             }
             return tests;
+        }
+        public static bool RemoveTest(string _filePath) 
+        {
+            if (File.Exists(_filePath))
+            {
+                File.Delete(_filePath);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
