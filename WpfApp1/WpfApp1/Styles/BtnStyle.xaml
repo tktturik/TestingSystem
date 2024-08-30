@@ -14,7 +14,7 @@
             <ControlTemplate TargetType="Button">
                 <Border x:Name="Border"
                         Height="50"
-                        Width="100"
+                        Width="120"
                         BorderThickness="0">
                     <Border.Background>
                         <SolidColorBrush x:Name="BorderBackground"

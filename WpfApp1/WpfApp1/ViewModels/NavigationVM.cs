@@ -32,10 +32,32 @@ namespace WpfApp1.ViewModels
         public ICommand ShowCreateTestViewCommand { get; }
         public ICommand ShowTakeTestViewCommand { get; }
         public ICommand ShowHomeViewCommand { get; }
+        public ICommand ShowMyFilesViewCommand { get; }
+        public ICommand ShowSettingsViewCommand { get; }
+        public ICommand ShowPersonalAccountViewCommand { get; }
+        public ICommand ShowTasksViewCommand { get; }
+
+
 
         private void ShowCreateTestView(object parameter)
         {
             UserControl = new CreateTestVM();
+        }
+        private void ShowMyFilesView(object parameter)
+        {
+            UserControl = new MyFilesVM();
+        }
+        private void ShowPersonalAccountView(object parameter)
+        {
+            UserControl = new PersonalAccountVM();
+        }
+        private void ShowTasksView(object parameter)
+        {
+            UserControl = new TasksVM();
+        }
+        private void ShowSettingsView(object parameter)
+        {
+            UserControl = new SettingsVM();
         }
         private void ShowTakeTestView(object parameter)
         {
@@ -68,6 +90,10 @@ namespace WpfApp1.ViewModels
             ShowCreateTestViewCommand = new RelayCommand(ShowCreateTestView);
             ShowTakeTestViewCommand = new RelayCommand(ShowTakeTestView);
             ShowHomeViewCommand = new RelayCommand(ShowHomeView);
+            ShowMyFilesViewCommand = new RelayCommand(ShowMyFilesView);
+            ShowSettingsViewCommand = new RelayCommand(ShowSettingsView);
+            ShowPersonalAccountViewCommand = new RelayCommand(ShowPersonalAccountView);
+            ShowTasksViewCommand = new RelayCommand(ShowTasksView);
 
             UserControl = new HomePageVM();
         }

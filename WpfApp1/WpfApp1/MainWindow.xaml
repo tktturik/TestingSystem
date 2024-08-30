@@ -18,12 +18,12 @@
     <Grid Background="#9a9548">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid>
 
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
 
                 <Button Style="{StaticResource NavigationBtn}" Command="{Binding ShowHomeViewCommand}" >
                     <TextBlock Style="{StaticResource TextStyle}" Text="Главная" ></TextBlock>
@@ -34,6 +34,18 @@
 
                 <Button Command="{Binding ShowTakeTestViewCommand}" Style="{StaticResource NavigationBtn}">
                     <TextBlock Style="{StaticResource TextStyle}" Text="Пройти"></TextBlock>
+                </Button>
+                <Button Command="{Binding ShowMyFilesViewCommand}" Style="{StaticResource NavigationBtn}">
+                    <TextBlock Style="{StaticResource TextStyle}" Text="Мои файлы"></TextBlock>
+                </Button>
+                <Button Command="{Binding ShowTasksViewCommand}" Style="{StaticResource NavigationBtn}">
+                    <TextBlock Style="{StaticResource TextStyle}" Text="Задания"></TextBlock>
+                </Button>
+                <Button Command="{Binding ShowPersonalAccountViewCommand}" Style="{StaticResource NavigationBtn}">
+                    <TextBlock Style="{StaticResource TextStyle}" Text="Личный Каб"></TextBlock>
+                </Button>
+                <Button Command="{Binding ShowSettingsViewCommand}" Style="{StaticResource NavigationBtn}">
+                    <TextBlock Style="{StaticResource TextStyle}" Text="Настройки"></TextBlock>
                 </Button>
             </StackPanel>
         </Grid>

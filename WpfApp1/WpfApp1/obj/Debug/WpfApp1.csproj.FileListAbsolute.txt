@@ -131,3 +131,11 @@ C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\Pa
 C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\TextBoxStyle.baml
 C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\TextStyle.baml
 C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\ImageStyle.baml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserControls\MyFiles.g.cs
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserControls\PersonalAccount.g.cs
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserControls\Settings.g.cs
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserControls\Tasks.g.cs
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserControls\MyFiles.baml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserControls\PersonalAccount.baml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserControls\Settings.baml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserControls\Tasks.baml

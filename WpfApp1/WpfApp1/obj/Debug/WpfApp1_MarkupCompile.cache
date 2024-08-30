@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\App.xaml
-12-5511889
+16-580646234
 
-21-594309332
+29-1191560082
 141079826101
-MainWindow.xaml;Styles\BtnStyle.xaml;Styles\CheckBoxStyle.xaml;Styles\ImageStyle.xaml;Styles\PageStyle.xaml;Styles\TextBoxStyle.xaml;Styles\TextStyle.xaml;Utilities\DataTemple.xaml;View\UserControls\ChoosingTest.xaml;View\UserControls\CreateTest.xaml;View\UserControls\Home.xaml;View\UserControls\TakingTest.xaml;
+MainWindow.xaml;Styles\BtnStyle.xaml;Styles\CheckBoxStyle.xaml;Styles\ImageStyle.xaml;Styles\PageStyle.xaml;Styles\TextBoxStyle.xaml;Styles\TextStyle.xaml;Utilities\DataTemple.xaml;View\UserControls\ChoosingTest.xaml;View\UserControls\CreateTest.xaml;View\UserControls\Home.xaml;View\UserControls\MyFiles.xaml;View\UserControls\PersonalAccount.xaml;View\UserControls\Settings.xaml;View\UserControls\TakingTest.xaml;View\UserControls\Tasks.xaml;
 
 False
 

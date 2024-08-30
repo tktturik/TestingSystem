@@ -18,6 +18,22 @@
     <DataTemplate DataType="{x:Type vm:ChoosingTestVM}">
         <view:ChoosingTest/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:TasksVM}">
+        <view:Tasks/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:SettingsVM}">
+        <view:Settings/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:MyFilesVM}">
+        <view:MyFiles/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:PersonalAccountVM}">
+        <view:PersonalAccount/>
+    </DataTemplate>
+
+
+
+
 
 
 
