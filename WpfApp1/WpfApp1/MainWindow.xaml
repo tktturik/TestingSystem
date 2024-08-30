@@ -42,7 +42,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button Content="x" FontSize="30" 
+            <Button Grid.Row="0" 
+                Content="x" FontSize="30" 
                 Foreground="Black" 
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Top" Margin="0,0,20,0" 
@@ -54,7 +55,7 @@
                     <ImageBrush ImageSource="/Image/backgroundV1.png"></ImageBrush>
                 </Border.Background>
             </Border>
-            <ContentControl Content="{Binding UserControl}" Grid.RowSpan="2"/>
+            <ContentControl Content="{Binding UserControl}" Grid.Row="1"/>
         </Grid>
     </Grid>
 </Window>

@@ -23,7 +23,7 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="600" />
+                            <ColumnDefinition Width="550" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
@@ -32,8 +32,12 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
-                            <Button Content="Edit" Margin="5" Command="{Binding DataContext.EditTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}"/>
-                            <Button Content="Delete" Margin="5" Command="{Binding DataContext.DeleteTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}"/>
+                            <Button Command="{Binding DataContext.EditTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0">
+                                <Image Source="/Image/EditIcon.png" Style="{StaticResource ImageStyle}"></Image>
+                            </Button>
+                            <Button  Command="{Binding DataContext.DeleteTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0">
+                                <Image Source="/Image/RemoveIcon.png" Style="{StaticResource ImageStyle}"></Image>
+                            </Button>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

@@ -130,3 +130,4 @@ C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\Ch
 C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\PageStyle.baml
 C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\TextBoxStyle.baml
 C:\Users\Skynet\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\TextStyle.baml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\Styles\ImageStyle.baml
