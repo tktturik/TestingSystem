@@ -139,3 +139,17 @@ C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserContr
 C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserControls\PersonalAccount.baml
 C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserControls\Settings.baml
 C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\View\UserControls\Tasks.baml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.Auth.dll
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.Core.dll
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.dll
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.Drive.v3.dll
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\System.CodeDom.dll
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.pdb
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.xml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.Auth.pdb
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.Auth.xml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.Core.pdb
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.Core.xml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.Drive.v3.pdb
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Google.Apis.Drive.v3.xml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\System.CodeDom.xml

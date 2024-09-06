@@ -1,68 +1,105 @@
-﻿using Newtonsoft.Json;
+﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Drive.v3;
+using Google.Apis.Drive.v3.Data;
+using Google.Apis.Services;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.IO;
-using WpfApp1.Models;
 using System.Diagnostics;
-using System.IO.Packaging;
-using static System.Net.Mime.MediaTypeNames;
+using System.IO;
+using System.Threading;
+using WpfApp1.Models;
 
-namespace WpfApp1
+public class DataService
 {
-    public  class DataService
+    private static DriveService _driveService;
+
+    static DataService()
     {
+        InitializeDriveService();
+    }
 
-
-        public static Test LoadQuestions(string _filePath)
+    private static void InitializeDriveService()
+    {
+        UserCredential credential;
+        using (var stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
         {
-            if (!File.Exists(_filePath))
-                return new Test();
-
-            string json = File.ReadAllText(_filePath);
-            return JsonConvert.DeserializeObject<Test>(json);
+            credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                GoogleClientSecrets.Load(stream).Secrets,
+                new[] { DriveService.Scope.Drive },
+                "medvedshura1@gmail.com",
+                CancellationToken.None).Result;
         }
 
-        public static void SaveQuestions(Test questions, string _filePath)
+        _driveService = new DriveService(new BaseClientService.Initializer()
         {
-            string json = JsonConvert.SerializeObject(questions, Newtonsoft.Json.Formatting.Indented);
-            File.WriteAllText(_filePath, json);
-        }
-        public static ObservableCollection<Test> LoadTests(string _filePath)
-        {
-            ObservableCollection<Test> tests = new ObservableCollection<Test>();
-            if (Directory.Exists(_filePath))
-            {
-                foreach(var file in Directory.GetFiles(_filePath,"*.json")) { 
-                    tests.Add(LoadQuestions(file));
+            HttpClientInitializer = credential,
+            ApplicationName = "YourApplicationName"
+        });
+    }
 
-                }
-            }
-            if (tests.Count == 0)
-            {
-                Debug.WriteLine("СПИСОК ПУСТ");
-            }
-            else
-            {
-                Debug.WriteLine($"{tests.Count} tests");
-            }
-            return tests;
-        }
-        public static bool RemoveTest(string _filePath) 
+    public static Test LoadQuestions(string fileId)
+    {
+        var request = _driveService.Files.Get(fileId);
+        using (var stream = new MemoryStream())
         {
-            if (File.Exists(_filePath))
+            request.Download(stream);
+            stream.Position = 0;
+            using (var reader = new StreamReader(stream))
             {
-                File.Delete(_filePath);
-                return true;
+                string json = reader.ReadToEnd();
+                return JsonConvert.DeserializeObject<Test>(json);
             }
-            else
-            {
-                return false;
-            }
+        }
+    }
+
+    public static void SaveQuestions(Test questions, string fileId)
+    {
+        string json = JsonConvert.SerializeObject(questions, Newtonsoft.Json.Formatting.Indented);
+        var fileMetadata = new Google.Apis.Drive.v3.Data.File()
+        {
+            Name = "questions.json",
+            Id = fileId
+        };
+        var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(json));
+        var request = _driveService.Files.Update(fileMetadata, fileId, stream, "application/json");
+        request.Upload();
+    }
+
+    public static ObservableCollection<Test> LoadTests(string folderId)
+    {
+        ObservableCollection<Test> tests = new ObservableCollection<Test>();
+        var request = _driveService.Files.List();
+        request.Q = $"'{folderId}' in parents and mimeType='application/json'";
+        var files = request.Execute().Files;
+
+        foreach (var file in files)
+        {
+            tests.Add(LoadQuestions(file.Id));
+        }
+
+        if (tests.Count == 0)
+        {
+            Debug.WriteLine("СПИСОК ПУСТ");
+        }
+        else
+        {
+            Debug.WriteLine($"{tests.Count} tests");
+        }
+
+        return tests;
+    }
+
+    public static bool RemoveTest(string fileId)
+    {
+        try
+        {
+            _driveService.Files.Delete(fileId).Execute();
+            return true;
+        }
+        catch
+        {
+            return false;
         }
     }
 }

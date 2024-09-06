@@ -65,8 +65,8 @@ namespace WpfApp1.ViewModels
             if (parametr is Test testToDelete)
             {
                 Tests.Remove(testToDelete);
-                bool isDeleted = DataService.RemoveTest(path + testToDelete.Title+".json");
-                Debug.WriteLine(isDeleted);
+                //bool isDeleted = DataService.RemoveTest(path + testToDelete.Title+".json");
+                //Debug.WriteLine(isDeleted);
             }
         }
         public ObservableCollection<Test> Tests
@@ -80,7 +80,7 @@ namespace WpfApp1.ViewModels
         }
         public ChoosingTestVM()
         {
-            Tests = DataService.LoadTests(path);
+            Tests = DataService.LoadTests("1ZsvGd8t9DMTyCwY8QrOWoLCbja5S6Yv-");
             EditTestCommand=new RelayCommand(EditTest);
             DeleteTestCommand=new RelayCommand(DeleteTest);
         }
