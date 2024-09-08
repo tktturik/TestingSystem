@@ -35,7 +35,9 @@
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Margin="5">
-                                                <CheckBox Style="{StaticResource CustomCheckBoxStyle}" IsChecked="{Binding IsCorrectAnswer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                                                <CheckBox Style="{StaticResource CustomCheckBoxStyle}" IsChecked="{Binding IsCorrectAnswer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                          Command="{Binding DataContext.UpdatePointsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                          CommandParameter="{Binding}" />
                                                 <TextBox Tag="Введите ответ" Style="{StaticResource AnswerTextBox}"  Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                                 <TextBox Text="{Binding Points, Mode=TwoWay, Converter={StaticResource IntConvert}, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource AnswerTextBox}"  />
                                             </StackPanel>

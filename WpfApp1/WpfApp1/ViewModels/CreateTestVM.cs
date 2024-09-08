@@ -41,6 +41,7 @@ namespace WpfApp1.ViewModels
             AddQuestionCommand = new RelayCommand(AddQuestion);
             AddAnswerCommand = new RelayCommand(AddAnswer);
             SaveTestCommand = new RelayCommand(SaveTest);
+            UpdatePointsCommand=new RelayCommand(UpdatePoints);
         }
 
         public ObservableCollection<Question> Questions
@@ -66,6 +67,7 @@ namespace WpfApp1.ViewModels
         public ICommand AddQuestionCommand { get; }
         public ICommand AddAnswerCommand { get; }
         public ICommand SaveTestCommand { get; }
+        public ICommand UpdatePointsCommand { get; }
 
         private void AddQuestion(object parameter)
         {
@@ -85,6 +87,15 @@ namespace WpfApp1.ViewModels
             path = path.Replace("name", _test.Title);
             DataService.SaveQuestions(_test);
         }
-      
+        private void UpdatePoints(object parameter)
+        {
+            if (parameter is Answer answer)
+            {
+                Debug.WriteLine("xh");
+                answer.Points = answer.IsCorrectAnswer ? 1 : 0;
+                Debug.WriteLine(answer.Points);
+            }
+        }
+
     }
 }
