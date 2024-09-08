@@ -210,3 +210,7 @@ C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\WpfApp1.
 C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
 C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
 C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.Up2Date
+C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\DocumentFormat.OpenXml.Framework.dll
+C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\DocumentFormat.OpenXml.Framework.xml

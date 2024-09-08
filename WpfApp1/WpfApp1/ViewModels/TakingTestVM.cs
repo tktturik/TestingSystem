@@ -12,8 +12,15 @@ using System.Windows;
 using System.Windows.Input;
 using WpfApp1.Models;
 using WpfApp1.Utilities;
-using static System.Net.Mime.MediaTypeNames;
 using System.Diagnostics;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+using System.IO;
+using Text = DocumentFormat.OpenXml.Wordprocessing.Text;
 
 namespace WpfApp1.ViewModels
 {
@@ -58,13 +65,14 @@ namespace WpfApp1.ViewModels
             }
         }
        
-private void SendEmail( string body)
+private void SendEmail( string body,string path)
     {
 
             string smtpServer = "smtp.gmail.com";
             int smtpPort = 587;
             string smtpUsername = "avkhvbg@gmail.com";
             string smtpPassword = "qdultocmhecowxdu";
+            
 
             using (SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort))
             {
@@ -77,7 +85,8 @@ private void SendEmail( string body)
                     mailMessage.To.Add("medvedshura1@gmail.com");
                     mailMessage.Subject = $"Результаты теста {_test.Title} ученика {experienced}";
                     mailMessage.Body = body;
-
+                    Attachment attachment = new Attachment(path);
+                    mailMessage.Attachments.Add(attachment);
                     try
                     {
                         smtpClient.Send(mailMessage);
@@ -88,11 +97,51 @@ private void SendEmail( string body)
                         Debug.WriteLine("Сообщение не отправлено" + ex.Message);
 
                     }
+                    finally
+                    {
+                        attachment.Dispose();
+                        File.Delete(path);
+
+                    }
 
                 }
             }
            }
+        private void CreateWordDocument(Test test, int resultPoints, int maxPoints, string filePath)
+        {
+            using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document))
+            {
+                MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
+                mainPart.Document = new Document();
+                Body body = mainPart.Document.AppendChild(new Body());
 
+                // Добавляем заголовок
+                Paragraph title = body.AppendChild(new Paragraph());
+                Run titleRun = title.AppendChild(new Run());
+                titleRun.AppendChild(new Text($"Результаты теста ученика {experienced}:\nНабрано баллов {resultPoints} из {maxPoints}, что соответствует {resultPoints * 100 / maxPoints}%"));
+
+                // Добавляем вопросы и ответы
+                foreach (Question question in test.questions)
+                {
+                    Paragraph questionPara = body.AppendChild(new Paragraph());
+                    Run questionRun = questionPara.AppendChild(new Run());
+                    questionRun.AppendChild(new Text($"Вопрос: {question.Text}"));
+
+                    foreach (Answer answer in question.Answers)
+                    {
+                        Paragraph answerPara = body.AppendChild(new Paragraph());
+                        Run answerRun = answerPara.AppendChild(new Run());
+                        string symbol = "";
+                        if (answer.IsCorrectAnswer && answer.IsSelected) symbol = "🎉";
+                        else if (answer.IsCorrectAnswer && !answer.IsSelected) symbol = "✅";
+                        else if (!answer.IsCorrectAnswer && answer.IsSelected) symbol = "✔️";
+                        answerRun.AppendChild(new Text($"- {answer.Text} {symbol} {(answer.IsCorrectAnswer ? $"({answer.Points} баллов)" : "")}"));
+                    }
+
+                    body.AppendChild(new Paragraph()); // Добавляем пустую строку между вопросами
+                }
+            }
+        }
         private string FormatTestResults(Test test,int resultPoints, int maxPoints)
         {
             StringBuilder sb = new StringBuilder();
@@ -143,11 +192,11 @@ private void SendEmail( string body)
             }
             string resultMessage = $"Набранные баллы: {sumOfPoints}";
             MessageBox.Show(resultMessage);
-
             // Отправка результатов на почту
             string body = FormatTestResults(_test,sumOfPoints,maxPoints);
-
-            SendEmail(body);
+            string tempFilePath = $"{Environment.CurrentDirectory}\\Tests\\{Experienced}_{_test.Title}.docx";
+            CreateWordDocument(_test, sumOfPoints, maxPoints, tempFilePath);
+            SendEmail(body,tempFilePath);
             //MessageBox.Show($"Верных ответов: {CountCorrect}");
             MessageBox.Show($"Набранные баллы:  {sumOfPoints}");
 
