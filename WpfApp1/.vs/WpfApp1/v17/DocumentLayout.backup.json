@@ -1,114 +1,102 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\",
+  "WorkspaceRootPath": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\viewmodels\\choosingtestvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\viewmodels\\choosingtestvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\choosingtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\view\\usercontrols\\choosingtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|c:\\users\\skynet\\source\\repos\\tktturik\\testik\\wpfapp1\\wpfapp1\\viewmodels\\navigationvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\viewmodels\\navigationvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\utilities\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\utilities\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\createtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\view\\usercontrols\\createtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\viewmodels\\createtestvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\viewmodels\\createtestvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\viewmodels\\createtestvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\viewmodels\\takingtestvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\viewmodels\\takingtestvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\viewmodels\\choosingtestvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\viewmodels\\choosingtestvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\createtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\view\\usercontrols\\createtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|c:\\users\\skynet\\source\\repos\\tktturik\\testik\\wpfapp1\\wpfapp1\\utilities\\intconvert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\utilities\\intconvert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|c:\\users\\tkturik\\source\\repos\\tktturik\\testik\\wpfapp1\\wpfapp1\\utilities\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\utilities\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|c:\\users\\tkturik\\source\\repos\\tktturik\\testik\\wpfapp1\\wpfapp1\\utilities\\googleapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\utilities\\googleapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|c:\\users\\skynet\\source\\repos\\tktturik\\testik\\wpfapp1\\wpfapp1\\styles\\textstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\styles\\textstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\choosingtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\view\\usercontrols\\choosingtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|c:\\users\\skynet\\source\\repos\\tktturik\\testik\\wpfapp1\\wpfapp1\\styles\\pagestyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\styles\\pagestyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|c:\\users\\skynet\\source\\repos\\tktturik\\testik\\wpfapp1\\wpfapp1\\styles\\btnstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\styles\\btnstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|c:\\users\\skynet\\source\\repos\\tktturik\\testik\\wpfapp1\\wpfapp1\\styles\\textboxstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\styles\\textboxstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\takingtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\view\\usercontrols\\takingtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\viewmodels\\homepagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\viewmodels\\homepagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\viewmodels\\homepagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\utilities\\datatemple.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\utilities\\datatemple.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\utilities\\intconvert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\utilities\\intconvert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\models\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\choosingtest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\view\\usercontrols\\choosingtest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\viewmodels\\navigationvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\viewmodels\\navigationvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\viewmodels\\takingtestvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\viewmodels\\takingtestvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\models\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\takingtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\view\\usercontrols\\takingtest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\view\\usercontrols\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\takingtest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\takingtest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\view\\usercontrols\\takingtest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\createtest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\view\\usercontrols\\createtest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\view\\usercontrols\\createtest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\utilities\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\utilities\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\utilities\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\utilities\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\utilities\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\utilities\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\wpfapp1\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10B96D7F-7FE0-4E11-831F-AEDC5719C275}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -121,343 +109,293 @@
           "SelectedChildIndex": 4,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ChoosingTest.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\ChoosingTest.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\View\\UserControls\\ChoosingTest.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\ChoosingTest.xaml",
-              "RelativeToolTip": "WpfApp1\\View\\UserControls\\ChoosingTest.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-21T07:34:21.846Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "NavigationVM.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\NavigationVM.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\NavigationVM.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\NavigationVM.cs*",
-              "RelativeToolTip": "WpfApp1\\ViewModels\\NavigationVM.cs*",
-              "ViewState": "AgIAACMAAAAAAAAAAAAkwDMAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T07:34:21.483Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ChoosingTestVM.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\ChoosingTestVM.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\ChoosingTestVM.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\ChoosingTestVM.cs*",
-              "RelativeToolTip": "WpfApp1\\ViewModels\\ChoosingTestVM.cs*",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAAwDoAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T07:34:21.296Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\App.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\App.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\App.xaml",
-              "RelativeToolTip": "WpfApp1\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-21T07:34:21.85Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "TextStyle.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\Source\\Repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Styles\\TextStyle.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\Styles\\TextStyle.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\Source\\Repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Styles\\TextStyle.xaml",
-              "RelativeToolTip": "WpfApp1\\Styles\\TextStyle.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-29T03:46:51.859Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CreateTestVM.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\CreateTestVM.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\CreateTestVM.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\CreateTestVM.cs",
-              "RelativeToolTip": "WpfApp1\\ViewModels\\CreateTestVM.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwEgAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T07:34:21.293Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TakingTestVM.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\TakingTestVM.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\TakingTestVM.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\TakingTestVM.cs",
-              "RelativeToolTip": "WpfApp1\\ViewModels\\TakingTestVM.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAswBoAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T07:34:21.845Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml",
-              "RelativeToolTip": "WpfApp1\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-21T07:34:21.294Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "CreateTest.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\CreateTest.xaml",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\CreateTest.xaml",
               "RelativeDocumentMoniker": "WpfApp1\\View\\UserControls\\CreateTest.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\CreateTest.xaml",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\CreateTest.xaml",
               "RelativeToolTip": "WpfApp1\\View\\UserControls\\CreateTest.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-21T07:34:21.844Z",
+              "WhenOpened": "2024-09-05T10:00:04.501Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "DataService.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\DataService.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\DataService.cs",
               "RelativeDocumentMoniker": "WpfApp1\\Utilities\\DataService.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\DataService.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\DataService.cs",
               "RelativeToolTip": "WpfApp1\\Utilities\\DataService.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAowEEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADoAAAAAAAAAAAAiwFoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T07:34:21.844Z",
+              "WhenOpened": "2024-09-05T10:00:04.499Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "TakingTest.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\TakingTest.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\View\\UserControls\\TakingTest.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\TakingTest.xaml",
-              "RelativeToolTip": "WpfApp1\\View\\UserControls\\TakingTest.xaml",
+              "DocumentIndex": 5,
+              "Title": "ChoosingTest.xaml",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\ChoosingTest.xaml",
+              "RelativeDocumentMoniker": "WpfApp1\\View\\UserControls\\ChoosingTest.xaml",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\ChoosingTest.xaml",
+              "RelativeToolTip": "WpfApp1\\View\\UserControls\\ChoosingTest.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-21T07:34:21.848Z"
+              "WhenOpened": "2024-09-05T10:00:04.504Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Answer.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Answer.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Answer.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Answer.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Answer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ChoosingTestVM.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\ChoosingTestVM.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\ChoosingTestVM.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\ChoosingTestVM.cs",
+              "RelativeToolTip": "WpfApp1\\ViewModels\\ChoosingTestVM.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAiwGEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T07:34:21.852Z",
+              "WhenOpened": "2024-09-05T10:00:04.07Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateTestVM.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\CreateTestVM.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\CreateTestVM.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\CreateTestVM.cs*",
+              "RelativeToolTip": "WpfApp1\\ViewModels\\CreateTestVM.cs*",
+              "ViewState": "AgIAAB4AAAAAAAAAAADwvyUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T10:00:04.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HomePageVM.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\HomePageVM.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\HomePageVM.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\HomePageVM.cs",
+              "RelativeToolTip": "WpfApp1\\ViewModels\\HomePageVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T10:00:04.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IntConvert.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\IntConvert.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Utilities\\IntConvert.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\IntConvert.cs",
+              "RelativeToolTip": "WpfApp1\\Utilities\\IntConvert.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T04:56:42.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GoogleAPI.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\GoogleAPI.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Utilities\\GoogleAPI.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\GoogleAPI.cs",
+              "RelativeToolTip": "WpfApp1\\Utilities\\GoogleAPI.cs",
+              "ViewState": "AgIAALMAAAAAAAAAAAAiwNMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T06:06:13.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ChoosingTest.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\ChoosingTest.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\View\\UserControls\\ChoosingTest.xaml.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\ChoosingTest.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\View\\UserControls\\ChoosingTest.xaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAjwBkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T10:00:04.496Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "IntConvert.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\IntConvert.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Utilities\\IntConvert.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\IntConvert.cs",
-              "RelativeToolTip": "WpfApp1\\Utilities\\IntConvert.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAANAAAAAAAAAA==",
+              "Title": "NavigationVM.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\NavigationVM.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\NavigationVM.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\NavigationVM.cs",
+              "RelativeToolTip": "WpfApp1\\ViewModels\\NavigationVM.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAmwDkAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T04:24:47.701Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-05T10:00:04.201Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "TextBoxStyle.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\Source\\Repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Styles\\TextBoxStyle.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\Styles\\TextBoxStyle.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\Source\\Repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Styles\\TextBoxStyle.xaml",
-              "RelativeToolTip": "WpfApp1\\Styles\\TextBoxStyle.xaml",
+              "DocumentIndex": 11,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml",
+              "RelativeToolTip": "WpfApp1\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-29T03:21:41.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "BtnStyle.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\Source\\Repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Styles\\BtnStyle.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\Styles\\BtnStyle.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\Source\\Repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Styles\\BtnStyle.xaml",
-              "RelativeToolTip": "WpfApp1\\Styles\\BtnStyle.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-29T03:34:43.716Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "PageStyle.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Styles\\PageStyle.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\Styles\\PageStyle.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Styles\\PageStyle.xaml",
-              "RelativeToolTip": "WpfApp1\\Styles\\PageStyle.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-29T03:34:45.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Question.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Question.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Question.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Question.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Question.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T07:34:21.846Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "HomePageVM.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\HomePageVM.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\HomePageVM.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\HomePageVM.cs",
-              "RelativeToolTip": "WpfApp1\\ViewModels\\HomePageVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T07:34:21.847Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "DataTemple.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\DataTemple.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\Utilities\\DataTemple.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\DataTemple.xaml",
-              "RelativeToolTip": "WpfApp1\\Utilities\\DataTemple.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-21T07:34:21.843Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "RelayCommand.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\RelayCommand.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Utilities\\RelayCommand.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\RelayCommand.cs",
-              "RelativeToolTip": "WpfApp1\\Utilities\\RelayCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADtSURBVDhPYxgFCHDh4YX/sQtj/6u3qP9XblL\u002BHzk/8j9UiuHtx7f/VZpVwHxkNggwgohLjy79D18SzmAua86QZJbEwM/Bz3D91XWGCNMIRpAGo34jsGJkwMrMynCn9g5YP0PK0pT/3tO9/3/58gVuMjLA5wImEHH68WkGN3U3Bh4eHoiJJACwAb/\u002B/gI7CRuAeeH3398M8g3ycDayKxjC5oX9D54TjNX5IIDPC2Ann7x78n/E4ggGDw0PhgiDCLBrLj2/xJBhl0HQS3AFe67t\u002BT/lyBSGO2/uMHCxcTHYK9szdAd2kxwmIw8wMAAAESl0qwYO77cAAAAASUVORK5CYII=",
-              "WhenOpened": "2024-08-21T07:34:21.113Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Test.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Test.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Test.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Test.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Test.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADtSURBVDhPYxgFCHDh4YX/sQtj/6u3qP9XblL\u002BHzk/8j9UiuHtx7f/VZpVwHxkNggwgohLjy79D18SzmAua86QZJbEwM/Bz3D91XWGCNMIRpAGo34jsGJkwMrMynCn9g5YP0PK0pT/3tO9/3/58gVuMjLA5wImEHH68WkGN3U3Bh4eHoiJJACwAb/\u002B/gI7CRuAeeH3398M8g3ycDayKxjC5oX9D54TjNX5IIDPC2Ann7x78n/E4ggGDw0PhgiDCLBrLj2/xJBhl0HQS3AFe67t\u002BT/lyBSGO2/uMHCxcTHYK9szdAd2kxwmIw8wMAAAESl0qwYO77cAAAAASUVORK5CYII=",
-              "WhenOpened": "2024-08-21T07:34:21.847Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml.cs",
-              "RelativeToolTip": "WpfApp1\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAYwBoAAAAiAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADjSURBVDhPY0AGretv/t9x7tl/KJd0sOfii/\u002Bimfv\u002Bbzv7lGhDGBlid2Eo1pTkZNiSLsVQWVkJFWFgYGdnZygoKGAwNjZmhAphgt0XnsFd8P79\u002B/9Pnz6F47CwsP/R0dH/z549i2IhE5QGg1P3PzMsTtVgsFTiYvj27RtUFAF\u002B//7N0NfXx4BsCIoBIVoMDOaKnFg1wwDIkAkTJkB5oDBAAnFxcf/b29uhPNygsLCQYdWqVWC9KC748eMHlEU8QDGAHDBqABUMQEkHmZmZ/9\u002B\u002BfQvl4QbCwsIM06dPx50niAcMDADfJl5g9BqhpwAAAABJRU5ErkJggg==",
-              "WhenOpened": "2024-08-21T07:34:21.848Z"
+              "WhenOpened": "2024-09-05T10:00:04.067Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 21,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Utilities\\RelayCommand.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\RelayCommand.cs",
+              "RelativeToolTip": "WpfApp1\\Utilities\\RelayCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALNSURBVDhP7VNdSFNhGH7POds8znNy080/BIXldAbJcEkXiaChXRRCCIGK6E1CV/lDeZHl8EowxYtAIgxC7CIvRIe48kLDC5Vz41EmbhpDS51uudOmubNztr7vuILqoiDoyufie3nP9/B8z/tz4Bz/DCoRYc23xlTdqUpXl6rZ6NUoa6g0sJabFrasrkzjmnJ9xZxgMKhnKhi9\u002B6JbI8wJkc7OTuN28fYF\u002BbIMh/OHIuaQ\u002BMAQT8RWJM9JGolTkSpOikkcQRKcilINJigggzyI72gVPRgOhw2RWGRGDWouQkVaExQg8MF7\u002BW7nprNxZXfFTFM0FGcWA5PEABKFiBRxtJS2NGGxoYWhG/Nb85neI68PifLWXGu559BDH50cuUmCHN18vNmrOFz8uHjFG/Ca4/E41JhrwiU5JU\u002BtOVZ7gaHAnsVkvU5NTY3G4rHVbDZbMDJGIAhC0Gq0fJGxKMomsdjWLpLZwloK6l7UTda/rI/bHXZfKBR6hXqVlrj6CYEvgcm\u002Bt31xU69p6iB8kB0QAp\u002BaR5tx3pOgnPVww78BGpUGdFrdMsuyTTqd7rNymwByTqKHMvxhP30sHqMPQA8vDGf4Qj5KlEVkkGByn\u002BQqJhRBSZZwANRwJf6K7wMYeD9QPs6PQzQWvTayOOJsGGswcDscyDH5Lh4U5iqC\u002Bfp8OJVOgd/ncfobUlJSBOTqYe2lWr7CVIEfXjUbzQ\u002B6KruEQmMhoIE4UF\u002BfYa5iqbqoGlz7LnAfuM1tb9p6cM5oGEAlwl5oz02S5BiivQsEAwa0CYUkkG7nPeekP\u002Bg3Tq9Ps6jmOc8jzzLWUtZm6cNS94xrphEttzlNmwaWDAskq5NxaSBKoqP9evstzPsbKIIYs\u002BuzHWh1OiZWJ2BH2AGKpMCUboI8fd5s/\u002B3\u002BpgTtj/jxp9BAP0fBRkqkDfXEhiZro\u002BKUTY7K988Y5/g/APgG2Ocp0eSbumcAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-09-05T10:00:03.945Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TakingTestVM.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\ViewModels\\TakingTestVM.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\TakingTestVM.cs",
+              "ToolTip": "C:\\Users\\1\\source\\repos\\WpfApp1\\WpfApp1\\ViewModels\\TakingTestVM.cs*",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\1\\source\\repos\\WpfApp1\\WpfApp1\\ViewModels\\TakingTestVM.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAcwA8AAAAMAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALNSURBVDhP7VNdSFNhGH7POds8znNy080/BIXldAbJcEkXiaChXRRCCIGK6E1CV/lDeZHl8EowxYtAIgxC7CIvRIe48kLDC5Vz41EmbhpDS51uudOmubNztr7vuILqoiDoyufie3nP9/B8z/tz4Bz/DCoRYc23xlTdqUpXl6rZ6NUoa6g0sJabFrasrkzjmnJ9xZxgMKhnKhi9\u002B6JbI8wJkc7OTuN28fYF\u002BbIMh/OHIuaQ\u002BMAQT8RWJM9JGolTkSpOikkcQRKcilINJigggzyI72gVPRgOhw2RWGRGDWouQkVaExQg8MF7\u002BW7nprNxZXfFTFM0FGcWA5PEABKFiBRxtJS2NGGxoYWhG/Nb85neI68PifLWXGu559BDH50cuUmCHN18vNmrOFz8uHjFG/Ca4/E41JhrwiU5JU\u002BtOVZ7gaHAnsVkvU5NTY3G4rHVbDZbMDJGIAhC0Gq0fJGxKMomsdjWLpLZwloK6l7UTda/rI/bHXZfKBR6hXqVlrj6CYEvgcm\u002Bt31xU69p6iB8kB0QAp\u002BaR5tx3pOgnPVww78BGpUGdFrdMsuyTTqd7rNymwByTqKHMvxhP30sHqMPQA8vDGf4Qj5KlEVkkGByn\u002BQqJhRBSZZwANRwJf6K7wMYeD9QPs6PQzQWvTayOOJsGGswcDscyDH5Lh4U5iqC\u002Bfp8OJVOgd/ncfobUlJSBOTqYe2lWr7CVIEfXjUbzQ\u002B6KruEQmMhoIE4UF\u002BfYa5iqbqoGlz7LnAfuM1tb9p6cM5oGEAlwl5oz02S5BiivQsEAwa0CYUkkG7nPeekP\u002Bg3Tq9Ps6jmOc8jzzLWUtZm6cNS94xrphEttzlNmwaWDAskq5NxaSBKoqP9evstzPsbKIIYs\u002BuzHWh1OiZWJ2BH2AGKpMCUboI8fd5s/\u002B3\u002BpgTtj/jxp9BAP0fBRkqkDfXEhiZro\u002BKUTY7K988Y5/g/APgG2Ocp0eSbumcAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-09-05T10:00:04.503Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Question.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Question.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Models\\Question.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Question.cs",
+              "RelativeToolTip": "WpfApp1\\Models\\Question.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAZAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALNSURBVDhP7VNdSFNhGH7POds8znNy080/BIXldAbJcEkXiaChXRRCCIGK6E1CV/lDeZHl8EowxYtAIgxC7CIvRIe48kLDC5Vz41EmbhpDS51uudOmubNztr7vuILqoiDoyufie3nP9/B8z/tz4Bz/DCoRYc23xlTdqUpXl6rZ6NUoa6g0sJabFrasrkzjmnJ9xZxgMKhnKhi9\u002B6JbI8wJkc7OTuN28fYF\u002BbIMh/OHIuaQ\u002BMAQT8RWJM9JGolTkSpOikkcQRKcilINJigggzyI72gVPRgOhw2RWGRGDWouQkVaExQg8MF7\u002BW7nprNxZXfFTFM0FGcWA5PEABKFiBRxtJS2NGGxoYWhG/Nb85neI68PifLWXGu559BDH50cuUmCHN18vNmrOFz8uHjFG/Ca4/E41JhrwiU5JU\u002BtOVZ7gaHAnsVkvU5NTY3G4rHVbDZbMDJGIAhC0Gq0fJGxKMomsdjWLpLZwloK6l7UTda/rI/bHXZfKBR6hXqVlrj6CYEvgcm\u002Bt31xU69p6iB8kB0QAp\u002BaR5tx3pOgnPVww78BGpUGdFrdMsuyTTqd7rNymwByTqKHMvxhP30sHqMPQA8vDGf4Qj5KlEVkkGByn\u002BQqJhRBSZZwANRwJf6K7wMYeD9QPs6PQzQWvTayOOJsGGswcDscyDH5Lh4U5iqC\u002Bfp8OJVOgd/ncfobUlJSBOTqYe2lWr7CVIEfXjUbzQ\u002B6KruEQmMhoIE4UF\u002BfYa5iqbqoGlz7LnAfuM1tb9p6cM5oGEAlwl5oz02S5BiivQsEAwa0CYUkkG7nPeekP\u002Bg3Tq9Ps6jmOc8jzzLWUtZm6cNS94xrphEttzlNmwaWDAskq5NxaSBKoqP9evstzPsbKIIYs\u002BuzHWh1OiZWJ2BH2AGKpMCUboI8fd5s/\u002B3\u002BpgTtj/jxp9BAP0fBRkqkDfXEhiZro\u002BKUTY7K988Y5/g/APgG2Ocp0eSbumcAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-09-05T10:00:04.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Test.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Test.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Models\\Test.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Test.cs",
+              "RelativeToolTip": "WpfApp1\\Models\\Test.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALNSURBVDhP7VNdSFNhGH7POds8znNy080/BIXldAbJcEkXiaChXRRCCIGK6E1CV/lDeZHl8EowxYtAIgxC7CIvRIe48kLDC5Vz41EmbhpDS51uudOmubNztr7vuILqoiDoyufie3nP9/B8z/tz4Bz/DCoRYc23xlTdqUpXl6rZ6NUoa6g0sJabFrasrkzjmnJ9xZxgMKhnKhi9\u002B6JbI8wJkc7OTuN28fYF\u002BbIMh/OHIuaQ\u002BMAQT8RWJM9JGolTkSpOikkcQRKcilINJigggzyI72gVPRgOhw2RWGRGDWouQkVaExQg8MF7\u002BW7nprNxZXfFTFM0FGcWA5PEABKFiBRxtJS2NGGxoYWhG/Nb85neI68PifLWXGu559BDH50cuUmCHN18vNmrOFz8uHjFG/Ca4/E41JhrwiU5JU\u002BtOVZ7gaHAnsVkvU5NTY3G4rHVbDZbMDJGIAhC0Gq0fJGxKMomsdjWLpLZwloK6l7UTda/rI/bHXZfKBR6hXqVlrj6CYEvgcm\u002Bt31xU69p6iB8kB0QAp\u002BaR5tx3pOgnPVww78BGpUGdFrdMsuyTTqd7rNymwByTqKHMvxhP30sHqMPQA8vDGf4Qj5KlEVkkGByn\u002BQqJhRBSZZwANRwJf6K7wMYeD9QPs6PQzQWvTayOOJsGGswcDscyDH5Lh4U5iqC\u002Bfp8OJVOgd/ncfobUlJSBOTqYe2lWr7CVIEfXjUbzQ\u002B6KruEQmMhoIE4UF\u002BfYa5iqbqoGlz7LnAfuM1tb9p6cM5oGEAlwl5oz02S5BiivQsEAwa0CYUkkG7nPeekP\u002Bg3Tq9Ps6jmOc8jzzLWUtZm6cNS94xrphEttzlNmwaWDAskq5NxaSBKoqP9evstzPsbKIIYs\u002BuzHWh1OiZWJ2BH2AGKpMCUboI8fd5s/\u002B3\u002BpgTtj/jxp9BAP0fBRkqkDfXEhiZro\u002BKUTY7K988Y5/g/APgG2Ocp0eSbumcAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-09-05T10:00:04.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAYwBoAAAAiAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH\u002BSURBVDhP7ZRPaNNQHMe/TdNma2NrW1jUFYZYN0YKHqZischAMCCjh94siEfp0buIeBZ2LYKXHvSWQ4toDkKC0F7EU93NQyEthkFnG9uuaf6YhIcusknBHTz4gR\u002B/x\u002B/7e1/ee8l7IRzhmbi3s0TTzc3zcYQpp3R3K9sk0sJQJPtscgmcSzJ4\u002BeErPvemj99\u002B6t0j0sKEcF96SsbgV\u002BOX\u002BQvxyvu9A9zaSOL2\u002BrK8Zn9R6vU66QBomkYul0OpVNJns9mLYrGoE8mHhhPaImNoI4Nboikcmjb29TkYOr6dZtPbPM\u002BTDmAwGGAymaDb7Q44jttvt9tSoVDQiOyu8AhvPqo7\u002BqHVfP5OReXGCgQ\u002BiRU2BMMwSAcgSZIfiUQC5XIZLMs\u002BSKVSYj6f/\u002B7pgTPs9CbofTPw6E4WQj6JTAyYz\u002BdE/YXjONB1HaIoQtO03el0\u002BpBIQcPrq6Ybbr64jLOMA8e2/MnHYds2RqMR3C2nG43GGVJGmGSfm1evrI8PtMqltSzoMOVPOo5MJuN/GC/6/T5UVVU6nY7saYEVyrKMVquF8Xh8oplnIgjCz/DMTdMk6m\u002BGlmX5Z3bSNhchYHga/Df8e/59Q5pkn2g0CoqioCgKGIYh1T8zHA4Ri7mXnhB4barV6jX3hjzxmryffBG8VycSibyu1WqvSOk0AX4A4Q67Z\u002BxJ14gAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-09-05T10:00:04.511Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TakingTest.xaml",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\TakingTest.xaml",
+              "RelativeDocumentMoniker": "WpfApp1\\View\\UserControls\\TakingTest.xaml",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\TakingTest.xaml",
+              "RelativeToolTip": "WpfApp1\\View\\UserControls\\TakingTest.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-05T10:00:04.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "Home.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\Home.xaml",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\Home.xaml",
               "RelativeDocumentMoniker": "WpfApp1\\View\\UserControls\\Home.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\Home.xaml",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\Home.xaml",
               "RelativeToolTip": "WpfApp1\\View\\UserControls\\Home.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-21T07:34:21.849Z",
+              "WhenOpened": "2024-09-05T10:00:04.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Utilities\\ViewModelBase.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\ViewModelBase.cs",
+              "RelativeToolTip": "WpfApp1\\Utilities\\ViewModelBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALNSURBVDhP7VNdSFNhGH7POds8znNy080/BIXldAbJcEkXiaChXRRCCIGK6E1CV/lDeZHl8EowxYtAIgxC7CIvRIe48kLDC5Vz41EmbhpDS51uudOmubNztr7vuILqoiDoyufie3nP9/B8z/tz4Bz/DCoRYc23xlTdqUpXl6rZ6NUoa6g0sJabFrasrkzjmnJ9xZxgMKhnKhi9\u002B6JbI8wJkc7OTuN28fYF\u002BbIMh/OHIuaQ\u002BMAQT8RWJM9JGolTkSpOikkcQRKcilINJigggzyI72gVPRgOhw2RWGRGDWouQkVaExQg8MF7\u002BW7nprNxZXfFTFM0FGcWA5PEABKFiBRxtJS2NGGxoYWhG/Nb85neI68PifLWXGu559BDH50cuUmCHN18vNmrOFz8uHjFG/Ca4/E41JhrwiU5JU\u002BtOVZ7gaHAnsVkvU5NTY3G4rHVbDZbMDJGIAhC0Gq0fJGxKMomsdjWLpLZwloK6l7UTda/rI/bHXZfKBR6hXqVlrj6CYEvgcm\u002Bt31xU69p6iB8kB0QAp\u002BaR5tx3pOgnPVww78BGpUGdFrdMsuyTTqd7rNymwByTqKHMvxhP30sHqMPQA8vDGf4Qj5KlEVkkGByn\u002BQqJhRBSZZwANRwJf6K7wMYeD9QPs6PQzQWvTayOOJsGGswcDscyDH5Lh4U5iqC\u002Bfp8OJVOgd/ncfobUlJSBOTqYe2lWr7CVIEfXjUbzQ\u002B6KruEQmMhoIE4UF\u002BfYa5iqbqoGlz7LnAfuM1tb9p6cM5oGEAlwl5oz02S5BiivQsEAwa0CYUkkG7nPeekP\u002Bg3Tq9Ps6jmOc8jzzLWUtZm6cNS94xrphEttzlNmwaWDAskq5NxaSBKoqP9evstzPsbKIIYs\u002BuzHWh1OiZWJ2BH2AGKpMCUboI8fd5s/\u002B3\u002BpgTtj/jxp9BAP0fBRkqkDfXEhiZro\u002BKUTY7K988Y5/g/APgG2Ocp0eSbumcAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-09-05T10:00:04.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "TakingTest.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\TakingTest.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\View\\UserControls\\TakingTest.xaml.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\TakingTest.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\View\\UserControls\\TakingTest.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAKAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH\u002BSURBVDhP7ZRPaNNQHMe/TdNma2NrW1jUFYZYN0YKHqZischAMCCjh94siEfp0buIeBZ2LYKXHvSWQ4toDkKC0F7EU93NQyEthkFnG9uuaf6YhIcusknBHTz4gR\u002B/x\u002B/7e1/ee8l7IRzhmbi3s0TTzc3zcYQpp3R3K9sk0sJQJPtscgmcSzJ4\u002BeErPvemj99\u002B6t0j0sKEcF96SsbgV\u002BOX\u002BQvxyvu9A9zaSOL2\u002BrK8Zn9R6vU66QBomkYul0OpVNJns9mLYrGoE8mHhhPaImNoI4Nboikcmjb29TkYOr6dZtPbPM\u002BTDmAwGGAymaDb7Q44jttvt9tSoVDQiOyu8AhvPqo7\u002BqHVfP5OReXGCgQ\u002BiRU2BMMwSAcgSZIfiUQC5XIZLMs\u002BSKVSYj6f/\u002B7pgTPs9CbofTPw6E4WQj6JTAyYz\u002BdE/YXjONB1HaIoQtO03el0\u002BpBIQcPrq6Ybbr64jLOMA8e2/MnHYds2RqMR3C2nG43GGVJGmGSfm1evrI8PtMqltSzoMOVPOo5MJuN/GC/6/T5UVVU6nY7saYEVyrKMVquF8Xh8oplnIgjCz/DMTdMk6m\u002BGlmX5Z3bSNhchYHga/Df8e/59Q5pkn2g0CoqioCgKGIYh1T8zHA4Ri7mXnhB4barV6jX3hjzxmryffBG8VycSibyu1WqvSOk0AX4A4Q67Z\u002BxJ14gAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-09-05T10:00:04.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\App.xaml",
+              "RelativeDocumentMoniker": "WpfApp1\\App.xaml",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\App.xaml",
+              "RelativeToolTip": "WpfApp1\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-05T10:00:04.517Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ViewModelBase.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\ViewModelBase.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Utilities\\ViewModelBase.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Utilities\\ViewModelBase.cs",
-              "RelativeToolTip": "WpfApp1\\Utilities\\ViewModelBase.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADtSURBVDhPYxgFCHDh4YX/sQtj/6u3qP9XblL\u002BHzk/8j9UiuHtx7f/VZpVwHxkNggwgohLjy79D18SzmAua86QZJbEwM/Bz3D91XWGCNMIRpAGo34jsGJkwMrMynCn9g5YP0PK0pT/3tO9/3/58gVuMjLA5wImEHH68WkGN3U3Bh4eHoiJJACwAb/\u002B/gI7CRuAeeH3398M8g3ycDayKxjC5oX9D54TjNX5IIDPC2Ann7x78n/E4ggGDw0PhgiDCLBrLj2/xJBhl0HQS3AFe67t\u002BT/lyBSGO2/uMHCxcTHYK9szdAd2kxwmIw8wMAAAESl0qwYO77cAAAAASUVORK5CYII=",
-              "WhenOpened": "2024-08-21T07:34:21.849Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "TakingTest.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\TakingTest.xaml.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\View\\UserControls\\TakingTest.xaml.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\TakingTest.xaml.cs",
-              "RelativeToolTip": "WpfApp1\\View\\UserControls\\TakingTest.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAKAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADjSURBVDhPY0AGretv/t9x7tl/KJd0sOfii/\u002Bimfv\u002Bbzv7lGhDGBlid2Eo1pTkZNiSLsVQWVkJFWFgYGdnZygoKGAwNjZmhAphgt0XnsFd8P79\u002B/9Pnz6F47CwsP/R0dH/z549i2IhE5QGg1P3PzMsTtVgsFTiYvj27RtUFAF\u002B//7N0NfXx4BsCIoBIVoMDOaKnFg1wwDIkAkTJkB5oDBAAnFxcf/b29uhPNygsLCQYdWqVWC9KC748eMHlEU8QDGAHDBqABUMQEkHmZmZ/9\u002B\u002BfQvl4QbCwsIM06dPx50niAcMDADfJl5g9BqhpwAAAABJRU5ErkJggg==",
-              "WhenOpened": "2024-08-21T07:34:21.85Z"
+              "DocumentIndex": 19,
+              "Title": "CreateTest.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\CreateTest.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\View\\UserControls\\CreateTest.xaml.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\CreateTest.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\View\\UserControls\\CreateTest.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAJAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH\u002BSURBVDhP7ZRPaNNQHMe/TdNma2NrW1jUFYZYN0YKHqZischAMCCjh94siEfp0buIeBZ2LYKXHvSWQ4toDkKC0F7EU93NQyEthkFnG9uuaf6YhIcusknBHTz4gR\u002B/x\u002B/7e1/ee8l7IRzhmbi3s0TTzc3zcYQpp3R3K9sk0sJQJPtscgmcSzJ4\u002BeErPvemj99\u002B6t0j0sKEcF96SsbgV\u002BOX\u002BQvxyvu9A9zaSOL2\u002BrK8Zn9R6vU66QBomkYul0OpVNJns9mLYrGoE8mHhhPaImNoI4Nboikcmjb29TkYOr6dZtPbPM\u002BTDmAwGGAymaDb7Q44jttvt9tSoVDQiOyu8AhvPqo7\u002BqHVfP5OReXGCgQ\u002BiRU2BMMwSAcgSZIfiUQC5XIZLMs\u002BSKVSYj6f/\u002B7pgTPs9CbofTPw6E4WQj6JTAyYz\u002BdE/YXjONB1HaIoQtO03el0\u002BpBIQcPrq6Ybbr64jLOMA8e2/MnHYds2RqMR3C2nG43GGVJGmGSfm1evrI8PtMqltSzoMOVPOo5MJuN/GC/6/T5UVVU6nY7saYEVyrKMVquF8Xh8oplnIgjCz/DMTdMk6m\u002BGlmX5Z3bSNhchYHga/Df8e/59Q5pkn2g0CoqioCgKGIYh1T8zHA4Ri7mXnhB4barV6jX3hjzxmryffBG8VycSibyu1WqvSOk0AX4A4Q67Z\u002BxJ14gAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-09-05T10:00:04.521Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 23,
-              "Title": "CreateTest.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\CreateTest.xaml.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\View\\UserControls\\CreateTest.xaml.cs",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\View\\UserControls\\CreateTest.xaml.cs",
-              "RelativeToolTip": "WpfApp1\\View\\UserControls\\CreateTest.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAJAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADjSURBVDhPY0AGretv/t9x7tl/KJd0sOfii/\u002Bimfv\u002Bbzv7lGhDGBlid2Eo1pTkZNiSLsVQWVkJFWFgYGdnZygoKGAwNjZmhAphgt0XnsFd8P79\u002B/9Pnz6F47CwsP/R0dH/z549i2IhE5QGg1P3PzMsTtVgsFTiYvj27RtUFAF\u002B//7N0NfXx4BsCIoBIVoMDOaKnFg1wwDIkAkTJkB5oDBAAnFxcf/b29uhPNygsLCQYdWqVWC9KC748eMHlEU8QDGAHDBqABUMQEkHmZmZ/9\u002B\u002BfQvl4QbCwsIM06dPx50niAcMDADfJl5g9BqhpwAAAABJRU5ErkJggg==",
-              "WhenOpened": "2024-08-21T07:34:21.851Z"
+              "Title": "Answer.cs",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Answer.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Models\\Answer.cs",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\Models\\Answer.cs",
+              "RelativeToolTip": "WpfApp1\\Models\\Answer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAYAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALNSURBVDhP7VNdSFNhGH7POds8znNy080/BIXldAbJcEkXiaChXRRCCIGK6E1CV/lDeZHl8EowxYtAIgxC7CIvRIe48kLDC5Vz41EmbhpDS51uudOmubNztr7vuILqoiDoyufie3nP9/B8z/tz4Bz/DCoRYc23xlTdqUpXl6rZ6NUoa6g0sJabFrasrkzjmnJ9xZxgMKhnKhi9\u002B6JbI8wJkc7OTuN28fYF\u002BbIMh/OHIuaQ\u002BMAQT8RWJM9JGolTkSpOikkcQRKcilINJigggzyI72gVPRgOhw2RWGRGDWouQkVaExQg8MF7\u002BW7nprNxZXfFTFM0FGcWA5PEABKFiBRxtJS2NGGxoYWhG/Nb85neI68PifLWXGu559BDH50cuUmCHN18vNmrOFz8uHjFG/Ca4/E41JhrwiU5JU\u002BtOVZ7gaHAnsVkvU5NTY3G4rHVbDZbMDJGIAhC0Gq0fJGxKMomsdjWLpLZwloK6l7UTda/rI/bHXZfKBR6hXqVlrj6CYEvgcm\u002Bt31xU69p6iB8kB0QAp\u002BaR5tx3pOgnPVww78BGpUGdFrdMsuyTTqd7rNymwByTqKHMvxhP30sHqMPQA8vDGf4Qj5KlEVkkGByn\u002BQqJhRBSZZwANRwJf6K7wMYeD9QPs6PQzQWvTayOOJsGGswcDscyDH5Lh4U5iqC\u002Bfp8OJVOgd/ncfobUlJSBOTqYe2lWr7CVIEfXjUbzQ\u002B6KruEQmMhoIE4UF\u002BfYa5iqbqoGlz7LnAfuM1tb9p6cM5oGEAlwl5oz02S5BiivQsEAwa0CYUkkG7nPeekP\u002Bg3Tq9Ps6jmOc8jzzLWUtZm6cNS94xrphEttzlNmwaWDAskq5NxaSBKoqP9evstzPsbKIIYs\u002BuzHWh1OiZWJ2BH2AGKpMCUboI8fd5s/\u002B3\u002BpgTtj/jxp9BAP0fBRkqkDfXEhiZro\u002BKUTY7K988Y5/g/APgG2Ocp0eSbumcAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-09-05T10:00:04.523Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 22,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml",
               "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Skynet\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\tkturik\\source\\repos\\tktturik\\Testik\\WpfApp1\\WpfApp1\\MainWindow.xaml",
               "RelativeToolTip": "WpfApp1\\MainWindow.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-21T07:34:21.852Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-05T10:00:04.526Z"
             }
           ]
         }

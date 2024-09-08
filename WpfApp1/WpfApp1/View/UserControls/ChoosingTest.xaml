@@ -42,7 +42,10 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-
         </ListView>
+        <Button Command="{Binding SyncFilesCommand}" BorderThickness="0" Background="Transparent" VerticalAlignment="Bottom" Height="Auto" Width="Auto">
+            <Image Source="\Image\syncIcon.png" Style="{StaticResource ImageStyle}"></Image>
+        </Button>
     </Grid>
 </UserControl>
+

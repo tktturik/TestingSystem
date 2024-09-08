@@ -4,78 +4,59 @@ using Google.Apis.Drive.v3.Data;
 using Google.Apis.Services;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using WpfApp1.Models;
+using WpfApp1.Utilities;
 
 public class DataService
 {
-    private static DriveService _driveService;
+    private static string path;
+
+    private static bool _isInitialized;
 
     static DataService()
     {
-        InitializeDriveService();
+        InitializeConfiguration();
     }
-
-    private static void InitializeDriveService()
+    private static void InitializeConfiguration()
     {
-        UserCredential credential;
-        using (var stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
-        {
-            credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                GoogleClientSecrets.Load(stream).Secrets,
-                new[] { DriveService.Scope.Drive },
-                "medvedshura1@gmail.com",
-                CancellationToken.None).Result;
-        }
-
-        _driveService = new DriveService(new BaseClientService.Initializer()
-        {
-            HttpClientInitializer = credential,
-            ApplicationName = "YourApplicationName"
-        });
+        path = $"{Environment.CurrentDirectory}\\Tests\\";
     }
-
-    public static Test LoadQuestions(string fileId)
+    public static void Initialize()
     {
-        var request = _driveService.Files.Get(fileId);
-        using (var stream = new MemoryStream())
+        if (!_isInitialized)
         {
-            request.Download(stream);
-            stream.Position = 0;
-            using (var reader = new StreamReader(stream))
-            {
-                string json = reader.ReadToEnd();
-                return JsonConvert.DeserializeObject<Test>(json);
-            }
+            GoogleAPI.LoadTestsToLocalFolder(path);
+            _isInitialized = true;
         }
     }
 
-    public static void SaveQuestions(Test questions, string fileId)
+    public static void SaveQuestions(Test test)
     {
-        string json = JsonConvert.SerializeObject(questions, Newtonsoft.Json.Formatting.Indented);
-        var fileMetadata = new Google.Apis.Drive.v3.Data.File()
-        {
-            Name = "questions.json",
-            Id = fileId
-        };
-        var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(json));
-        var request = _driveService.Files.Update(fileMetadata, fileId, stream, "application/json");
-        request.Upload();
+        string json = JsonConvert.SerializeObject(test, Newtonsoft.Json.Formatting.Indented);
+        string filePath = Path.Combine(path, test.Title + ".json");
+        System.IO.File.WriteAllText(filePath, json);
     }
 
-    public static ObservableCollection<Test> LoadTests(string folderId)
+
+    public static ObservableCollection<Test> LoadTestsFromFolder()
     {
         ObservableCollection<Test> tests = new ObservableCollection<Test>();
-        var request = _driveService.Files.List();
-        request.Q = $"'{folderId}' in parents and mimeType='application/json'";
-        var files = request.Execute().Files;
 
-        foreach (var file in files)
+        var files = Directory.GetFiles(path, "*.json");
+
+        foreach (var filePath in files)
         {
-            tests.Add(LoadQuestions(file.Id));
+            string json = System.IO.File.ReadAllText(filePath);
+
+            Test test = JsonConvert.DeserializeObject<Test>(json);
+
+            tests.Add(test);
         }
 
         if (tests.Count == 0)
@@ -90,16 +71,21 @@ public class DataService
         return tests;
     }
 
-    public static bool RemoveTest(string fileId)
+    public static bool RemoveTest(Test test)
     {
-        try
+        string filePath = Path.Combine(path, test.Title + ".json");
+        if (System.IO.File.Exists(filePath))
         {
-            _driveService.Files.Delete(fileId).Execute();
+            System.IO.File.Delete(filePath);
             return true;
         }
-        catch
-        {
-            return false;
-        }
+        return false;
     }
+
+    public static void SyncFiles()
+    {
+        var a = GoogleAPI.SyncLocalFilesWithGoogleDrive(path);
+    }
+
+
 }

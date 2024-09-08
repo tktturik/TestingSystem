@@ -27,7 +27,8 @@ namespace WpfApp1.ViewModels
             set 
             { 
                 _test = value; 
-                _questions = _test.questions; 
+                _questions = _test.questions;
+                TestTitle = _test.Title;
                 OnPropertyChanged(); 
             } 
         }
@@ -35,7 +36,8 @@ namespace WpfApp1.ViewModels
         {
             Debug.WriteLine("Создан CreateTest");
             _test = new Test();
-            _questions = _test.questions;
+            Questions = _test.questions;
+            TestTitle = _test.Title;
             AddQuestionCommand = new RelayCommand(AddQuestion);
             AddAnswerCommand = new RelayCommand(AddAnswer);
             SaveTestCommand = new RelayCommand(SaveTest);
@@ -81,7 +83,7 @@ namespace WpfApp1.ViewModels
         private void SaveTest(object parameter)
         {
             path = path.Replace("name", _test.Title);
-            DataService.SaveQuestions(_test,path);
+            DataService.SaveQuestions(_test);
         }
       
     }

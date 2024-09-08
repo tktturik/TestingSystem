@@ -77,6 +77,7 @@
     <Compile Include="Utilities\DataService.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Test.cs" />
+    <Compile Include="Utilities\GoogleAPI.cs" />
     <Compile Include="Utilities\IntConvert.cs" />
     <Compile Include="Utilities\ViewModelBase.cs" />
     <Compile Include="ViewModels\ChoosingTestVM.cs" />
@@ -220,6 +221,9 @@
   <ItemGroup>
     <Resource Include="Image\EditIcon.png" />
     <Resource Include="Image\RemoveIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\syncIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/test.svg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/syncicon.png")]
 
 

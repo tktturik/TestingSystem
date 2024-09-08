@@ -14,13 +14,10 @@ namespace WpfApp1.ViewModels
 {
     internal class ChoosingTestVM : ViewModelBase
     {
-        private string path = $"{Environment.CurrentDirectory}\\Tests\\";
 
         private NavigationVM _navigationVM;
         private Test selectedTest;
         private ObservableCollection<Test> tests { get; set; }
-
-
         public NavigationVM navigation
         {
             get { return _navigationVM; }
@@ -47,10 +44,15 @@ namespace WpfApp1.ViewModels
         }
         public ICommand EditTestCommand { get; }
         public ICommand DeleteTestCommand { get; }
-        
+        public ICommand SyncFilesCommand { get; }
+        private void SyncFiles(object parametr)
+        {
+            DataService.SyncFiles();
+        }
+
         private void EditTest(object parametr)
         {
-            if(parametr is Test testToUpdate)
+            if (parametr is Test testToUpdate)
             {
                 Debug.WriteLine("check");
 
@@ -58,15 +60,14 @@ namespace WpfApp1.ViewModels
                 createTestVM.Test = testToUpdate;
                 _navigationVM.ShowSelectedTest(createTestVM);
             }
-            
+
         }
         private void DeleteTest(object parametr)
         {
             if (parametr is Test testToDelete)
             {
                 Tests.Remove(testToDelete);
-                //bool isDeleted = DataService.RemoveTest(path + testToDelete.Title+".json");
-                //Debug.WriteLine(isDeleted);
+                DataService.RemoveTest(testToDelete);
             }
         }
         public ObservableCollection<Test> Tests
@@ -80,10 +81,13 @@ namespace WpfApp1.ViewModels
         }
         public ChoosingTestVM()
         {
-            Tests = DataService.LoadTests("1ZsvGd8t9DMTyCwY8QrOWoLCbja5S6Yv-");
-            EditTestCommand=new RelayCommand(EditTest);
-            DeleteTestCommand=new RelayCommand(DeleteTest);
+
+            Tests = DataService.LoadTestsFromFolder();
+            EditTestCommand = new RelayCommand(EditTest);
+            DeleteTestCommand = new RelayCommand(DeleteTest);
+            SyncFilesCommand = new RelayCommand(SyncFiles);
         }
+
         public void SetNavigationVM(NavigationVM navigationVM)
         {
             navigation = navigationVM;
