@@ -3,8 +3,19 @@
 
     <Style x:Key="TextStyle"
            TargetType="TextBlock">
-
-    
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="Foreground"
+                Value="#47046e" />
+        <Setter Property="FontSize"
+                Value="20" />
+        <Setter Property="FontWeight"
+                Value="Bold"/>
+    </Style>
+    <Style x:Key="TextStyleBtn"
+           TargetType="TextBlock">
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="HorizontalAlignment"
@@ -13,11 +24,23 @@
                 Value="Black" />
         <Setter Property="FontSize"
                 Value="20" />
-        <Setter Property="Margin"
-                Value="0,0,0,0" />
         <Setter Property="FontWeight"
                 Value="Bold"/>
-
+    </Style>
+    <Style x:Key="TakingTestText"
+           TargetType="TextBlock">
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="Foreground"
+                Value="#47046e" />
+        <Setter Property="FontSize"
+                Value="20" />
+        <Setter Property="Margin"
+                Value="10" />
+        <Setter Property="FontWeight"
+                Value="Bold"/>
     </Style>
 
 </ResourceDictionary>

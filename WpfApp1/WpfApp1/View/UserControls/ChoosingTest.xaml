@@ -43,7 +43,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Command="{Binding SyncFilesCommand}" BorderThickness="0" Background="Transparent" VerticalAlignment="Bottom" Height="Auto" Width="Auto">
+        <Button Command="{Binding SyncFilesCommand}" BorderThickness="0" Background="Transparent" VerticalAlignment="Bottom" Height="30" Width="30">
             <Image Source="\Image\syncIcon.png" Style="{StaticResource ImageStyle}"></Image>
         </Button>
     </Grid>

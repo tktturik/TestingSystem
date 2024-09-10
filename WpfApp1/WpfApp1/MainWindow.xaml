@@ -15,7 +15,7 @@
 
 
 
-    <Grid Background="#9a9548">
+    <Grid Background="#fdd330">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -64,7 +64,7 @@
                 Panel.ZIndex="1"></Button>
             <Border Grid.RowSpan="2">
                 <Border.Background>
-                    <ImageBrush ImageSource="/Image/backgroundV1.png"></ImageBrush>
+                    <ImageBrush ImageSource="/Image/backgroundV2.png"></ImageBrush>
                 </Border.Background>
             </Border>
             <ContentControl Content="{Binding UserControl}" Grid.Row="1"/>

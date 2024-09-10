@@ -222,14 +222,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\backgroundV1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Image\EditIcon.png" />
     <Resource Include="Image\RemoveIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\syncIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\backgroundv2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\addAnswerIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

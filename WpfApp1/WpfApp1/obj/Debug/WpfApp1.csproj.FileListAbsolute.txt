@@ -214,3 +214,7 @@ C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\Document
 C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\DocumentFormat.OpenXml.Framework.dll
 C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\tkturik\Source\Repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\DocumentFormat.OpenXml.Framework.xml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\DocumentFormat.OpenXml.Framework.dll
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\1\source\repos\tktturik\Testik\WpfApp1\WpfApp1\bin\Debug\DocumentFormat.OpenXml.Framework.xml

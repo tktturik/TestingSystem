@@ -18,7 +18,7 @@
                         BorderThickness="0">
                     <Border.Background>
                         <SolidColorBrush x:Name="BorderBackground"
-                                         Color="#9a9548"
+                                         Color="#fdd330"
                                          />
                     </Border.Background>
 
@@ -44,8 +44,8 @@
                                 <Storyboard>
                                     <ColorAnimation Storyboard.TargetName="BorderBackground"
                                                     Storyboard.TargetProperty="Color"
-                                                    From="#9a9548"
-                                                    To="#86823a"
+                                                    From="#fdd330"
+                                                    To="#ddb93b"
                                                     Duration="0:0:0.3">
 
                                     </ColorAnimation>
@@ -59,8 +59,8 @@
                                     <ColorAnimation
                                         Storyboard.TargetName="BorderBackground"
                                         Storyboard.TargetProperty="Color"
-                                        From="#86823a"
-                                        To="#9a9548"
+                                        From="#ddb93b"
+                                        To="#fdd330"
                                         Duration="0:0:0.3">
                                     </ColorAnimation>
                                 </Storyboard>
