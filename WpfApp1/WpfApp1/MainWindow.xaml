@@ -35,16 +35,16 @@
                 <Button Command="{Binding ShowTakeTestViewCommand}" Style="{StaticResource NavigationBtn}">
                     <TextBlock Style="{StaticResource TextStyle}" Text="Пройти"></TextBlock>
                 </Button>
-                <Button Command="{Binding ShowMyFilesViewCommand}" Style="{StaticResource NavigationBtn}">
+                <Button Command="{Binding ShowMyFilesViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Collapsed" IsEnabled="False">
                     <TextBlock Style="{StaticResource TextStyle}" Text="Мои файлы"></TextBlock>
                 </Button>
-                <Button Command="{Binding ShowTasksViewCommand}" Style="{StaticResource NavigationBtn}">
+                <Button Command="{Binding ShowTasksViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Collapsed" IsEnabled="False">
                     <TextBlock Style="{StaticResource TextStyle}" Text="Задания"></TextBlock>
                 </Button>
-                <Button Command="{Binding ShowPersonalAccountViewCommand}" Style="{StaticResource NavigationBtn}">
+                <Button Command="{Binding ShowPersonalAccountViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Collapsed" IsEnabled="False">
                     <TextBlock Style="{StaticResource TextStyle}" Text="Личный Каб"></TextBlock>
                 </Button>
-                <Button Command="{Binding ShowSettingsViewCommand}" Style="{StaticResource NavigationBtn}">
+                <Button Command="{Binding ShowSettingsViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Collapsed" IsEnabled="False">
                     <TextBlock Style="{StaticResource TextStyle}" Text="Настройки"></TextBlock>
                 </Button>
             </StackPanel>
