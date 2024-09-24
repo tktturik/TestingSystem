@@ -1,4 +1,5 @@
 ﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2.Responses;
 using Google.Apis.Drive.v3;
 using Google.Apis.Drive.v3.Data;
 using Google.Apis.Services;
@@ -10,6 +11,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfApp1.Models;
 using WpfApp1.Utilities;
 
@@ -25,14 +27,36 @@ public class DataService
     }
     private static void InitializeConfiguration()
     {
-        path = $"{Environment.CurrentDirectory}\\Tests\\";
+        
+        path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Tests\\";
+        if(!Directory.Exists(path))
+        {
+           Directory.CreateDirectory(path);
+        }
     }
     public static void Initialize()
     {
         if (!_isInitialized)
         {
-            GoogleAPI.LoadTestsToLocalFolder(path);
-            _isInitialized = true;
+            InitializeConfiguration();
+            try
+            {
+
+                GoogleAPI.LoadTestsToLocalFolder(path);
+                _isInitialized = true;
+            }
+            catch (TokenResponseException ex)
+            {
+                MessageBox.Show($"Ошибка аутентификации: {ex.Message}");
+                Debug.WriteLine(" ");
+                Debug.WriteLine($"Ошибка аутентификации: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Непредвиденная ошибка: {ex.Message}");
+                Debug.WriteLine(" ");
+                Debug.WriteLine($"Непредвиденная ошибка: {ex.Message}");
+            }
         }
     }
 
@@ -61,7 +85,7 @@ public class DataService
 
         if (tests.Count == 0)
         {
-            Debug.WriteLine("СПИСОК ПУСТ");
+            Debug.WriteLine("СПИСОК ПУСТ ФФФ");
         }
         else
         {

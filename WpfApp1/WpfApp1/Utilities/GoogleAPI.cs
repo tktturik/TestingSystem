@@ -1,6 +1,8 @@
 ﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2.Responses;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
+using Google.Apis.Util.Store;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -32,23 +34,39 @@ namespace WpfApp1.Utilities
             nameApiKey = "credentials.json";
         }
 
-        private static void InitializeDriveService()
+        public static void InitializeDriveService()
         {
             UserCredential credential;
-            using (var stream = new FileStream(nameApiKey, FileMode.Open, FileAccess.Read))
+            try
             {
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.Load(stream).Secrets,
-                    new[] { DriveService.Scope.Drive },
-                    "medvedshura1@gmail.com",
-                    CancellationToken.None).Result;
-            }
+                using (var stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+                {
+                    string credPath = "token.json";
+                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                        GoogleClientSecrets.Load(stream).Secrets,
+                        new[] { DriveService.Scope.Drive },
+                        "user",
+                        CancellationToken.None,
+                        new FileDataStore(credPath, true)).Result;
+                    Console.WriteLine("Credential file saved to: " + credPath);
+                }
 
-            _driveService = new DriveService(new BaseClientService.Initializer()
+                _driveService = new DriveService(new BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = "YourApplicationName"
+                });
+            }
+            catch (TokenResponseException ex)
             {
-                HttpClientInitializer = credential,
-                ApplicationName = "YourApplicationName"
-            });
+                Debug.WriteLine($"Ошибка аутентификации: {ex.Message}");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Непредвиденная ошибка: {ex.Message}");
+                throw;
+            }
         }
         public static void LoadTestsToLocalFolder(string path)
         {
@@ -59,7 +77,7 @@ namespace WpfApp1.Utilities
 
             if (files.Count == 0)
             {
-                Debug.WriteLine("СПИСОК ПУСТ");
+                Debug.WriteLine("СПИСОК ПУСТ DDDD");
                 return;
             }
 
@@ -84,7 +102,7 @@ namespace WpfApp1.Utilities
 
             using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
             {
-                request.Download(fileStream);
+                 request.Download(fileStream);
             }
 
             Debug.WriteLine($"Файл {fileName} загружен на локальный диск.");

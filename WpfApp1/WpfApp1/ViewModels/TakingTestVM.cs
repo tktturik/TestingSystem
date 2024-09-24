@@ -61,109 +61,132 @@ namespace WpfApp1.ViewModels
                 OnPropertyChanged();
             }
         }
-       
-private void SendEmail( string body,string path)
-    {
 
-            string smtpServer = "smtp.gmail.com";
-            int smtpPort = 587;
-            string smtpUsername = "avkhvbg@gmail.com";
-            string smtpPassword = "qdultocmhecowxdu";
-            
-
-            using (SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort))
+        private void SendEmail(string body, string path)
+        {
+            try
             {
-                smtpClient.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
-                smtpClient.EnableSsl = true;
+                string smtpServer = "smtp.gmail.com";
+                int smtpPort = 587;
+                string smtpUsername = "avkhvbg@gmail.com";
+                string smtpPassword = "qdultocmhecowxdu";
 
-                using (MailMessage mailMessage = new MailMessage())
+                using (SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort))
                 {
-                    mailMessage.From = new MailAddress(smtpUsername);
-                    mailMessage.To.Add("medvedshura1@gmail.com");
-                    mailMessage.Subject = $"Результаты теста {_test.Title} ученика {experienced}";
-                    mailMessage.Body = body;
-                    Attachment attachment = new Attachment(path);
-                    mailMessage.Attachments.Add(attachment);
-                    try
-                    {
-                        smtpClient.Send(mailMessage);
-                        Debug.WriteLine("Сообщение отправлено");
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine("Сообщение не отправлено" + ex.Message);
+                    smtpClient.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
+                    smtpClient.EnableSsl = true;
 
-                    }
-                    finally
+                    using (MailMessage mailMessage = new MailMessage())
                     {
-                        attachment.Dispose();
-                        File.Delete(path);
+                        mailMessage.From = new MailAddress(smtpUsername);
+                        mailMessage.To.Add("medvedshura1@gmail.com");
+                        mailMessage.Subject = $"Результаты теста {_test.Title} ученика {experienced}";
+                        mailMessage.Body = body;
+                        Attachment attachment = new Attachment(path);
+                        mailMessage.Attachments.Add(attachment);
 
+                        try
+                        {
+                            smtpClient.Send(mailMessage);
+                            Debug.WriteLine("Сообщение отправлено");
+                            MessageBox.Show("Сообщение отправлено");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Сообщение не отправлено: {ex.Message}");
+                            Debug.WriteLine($"Сообщение не отправлено: {ex.Message}");
+                        }
+                        finally
+                        {
+                            attachment.Dispose();
+                            File.Delete(path);
+                        }
                     }
-
                 }
             }
-           }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка в SendEmail: {ex.Message}");
+                Debug.WriteLine($"Ошибка в SendEmail: {ex.Message}");
+            }
+        }
         private void CreateWordDocument(Test test, int resultPoints, int maxPoints, string filePath)
         {
-            using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document))
+            try
             {
-                MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
-                mainPart.Document = new Document();
-                Body body = mainPart.Document.AppendChild(new Body());
+                using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document))
+                {
+                    MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
+                    mainPart.Document = new Document();
+                    Body body = mainPart.Document.AppendChild(new Body());
 
-                // Добавляем заголовок
-                Paragraph title = body.AppendChild(new Paragraph());
-                Run titleRun = title.AppendChild(new Run());
-                titleRun.AppendChild(new Text($"Результаты теста ученика {experienced}:\nНабрано баллов {resultPoints} из {maxPoints}, что соответствует {resultPoints * 100 / maxPoints}%"));
+                    // Добавляем заголовок
+                    Paragraph title = body.AppendChild(new Paragraph());
+                    Run titleRun = title.AppendChild(new Run());
+                    titleRun.AppendChild(new Text($"Результаты теста ученика {experienced}:\nНабрано баллов {resultPoints} из {maxPoints}, что соответствует {resultPoints * 100 / maxPoints}%"));
 
-                // Добавляем вопросы и ответы
+                    // Добавляем вопросы и ответы
+                    foreach (Question question in test.questions)
+                    {
+                        Paragraph questionPara = body.AppendChild(new Paragraph());
+                        Run questionRun = questionPara.AppendChild(new Run());
+                        questionRun.AppendChild(new Text($"Вопрос: {question.Text}"));
+
+                        foreach (Answer answer in question.Answers)
+                        {
+                            Paragraph answerPara = body.AppendChild(new Paragraph());
+                            Run answerRun = answerPara.AppendChild(new Run());
+                            string symbol = "";
+                            if (answer.IsCorrectAnswer && answer.IsSelected) symbol = "🎉";
+                            else if (answer.IsCorrectAnswer && !answer.IsSelected) symbol = "✅";
+                            else if (!answer.IsCorrectAnswer && answer.IsSelected) symbol = "✔️";
+                            answerRun.AppendChild(new Text($"- {answer.Text} {symbol} {(answer.IsCorrectAnswer ? $"({answer.Points} баллов)" : "")}"));
+                        }
+
+                        body.AppendChild(new Paragraph()); // Добавляем пустую строку между вопросами
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка в CreateWordDocument: {ex.Message}");
+                Debug.WriteLine($"Ошибка в CreateWordDocument: {ex.Message}");
+            }
+        }
+        private string FormatTestResults(Test test, int resultPoints, int maxPoints)
+        {
+            try
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine($"Результаты теста ученика {experienced}:\nНабрано баллов {resultPoints} из {maxPoints}, " +
+                    $"что соответствует {resultPoints * 100 }%");
+                sb.AppendLine();
+
                 foreach (Question question in test.questions)
                 {
-                    Paragraph questionPara = body.AppendChild(new Paragraph());
-                    Run questionRun = questionPara.AppendChild(new Run());
-                    questionRun.AppendChild(new Text($"Вопрос: {question.Text}"));
+                    sb.AppendLine($"Вопрос: {question.Text}");
+                    sb.AppendLine("Ответы:");
 
                     foreach (Answer answer in question.Answers)
                     {
-                        Paragraph answerPara = body.AppendChild(new Paragraph());
-                        Run answerRun = answerPara.AppendChild(new Run());
                         string symbol = "";
                         if (answer.IsCorrectAnswer && answer.IsSelected) symbol = "🎉";
                         else if (answer.IsCorrectAnswer && !answer.IsSelected) symbol = "✅";
                         else if (!answer.IsCorrectAnswer && answer.IsSelected) symbol = "✔️";
-                        answerRun.AppendChild(new Text($"- {answer.Text} {symbol} {(answer.IsCorrectAnswer ? $"({answer.Points} баллов)" : "")}"));
+                        sb.AppendLine($"- {answer.Text} {symbol} {(answer.IsCorrectAnswer ? $"({answer.Points} баллов)" : "")}");
                     }
 
-                    body.AppendChild(new Paragraph()); // Добавляем пустую строку между вопросами
+                    sb.AppendLine("\n\n");
                 }
-            }
-        }
-        private string FormatTestResults(Test test,int resultPoints, int maxPoints)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Результаты теста ученика {experienced}:\nНабрано баллов {resultPoints} из {maxPoints}, " +
-                $"что соответствует {resultPoints*100/maxPoints}%");
-            sb.AppendLine();
 
-            foreach (Question question in test.questions)
+                return sb.ToString();
+            }
+            catch (Exception ex)
             {
-                sb.AppendLine($"Вопрос: {question.Text}");
-                sb.AppendLine("Ответы:");
-
-                foreach (Answer answer in question.Answers)
-                {
-                    string symbol = "";
-                    if (answer.IsCorrectAnswer && answer.IsSelected) symbol = "🎉";
-                    else if (answer.IsCorrectAnswer && !answer.IsSelected) symbol = "✅";
-                    else if (!answer.IsCorrectAnswer && answer.IsSelected) symbol = "✔️";
-                    sb.AppendLine($"- {answer.Text} {symbol} {(answer.IsCorrectAnswer ? $"({answer.Points} баллов)" : "")}");
-                }
-
-                sb.AppendLine("\n\n");
+                MessageBox.Show($"Ошибка в FormatTestResults: {ex.Message}");
+                Debug.WriteLine($"Ошибка в FormatTestResults: {ex.Message}");
+                return string.Empty;
             }
-
-            return sb.ToString();
         }
         private void FinishTest(object parameter)
         {
@@ -191,11 +214,10 @@ private void SendEmail( string body,string path)
             MessageBox.Show(resultMessage);
             // Отправка результатов на почту
             string body = FormatTestResults(_test,sumOfPoints,maxPoints);
-            string tempFilePath = $"{Environment.CurrentDirectory}\\Tests\\{Experienced}_{_test.Title}.docx";
+            string tempFilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Tests\\{Experienced}_{_test.Title}.docx";
             CreateWordDocument(_test, sumOfPoints, maxPoints, tempFilePath);
             SendEmail(body,tempFilePath);
             //MessageBox.Show($"Верных ответов: {CountCorrect}");
-            MessageBox.Show($"Набранные баллы:  {sumOfPoints}");
 
         }
 

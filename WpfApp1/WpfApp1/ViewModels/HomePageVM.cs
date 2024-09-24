@@ -9,7 +9,9 @@ namespace WpfApp1.ViewModels
 {
     public class HomePageVM:ViewModelBase
     {
-
+        public HomePageVM() { 
+            DataService.Initialize();
+        }
 
     }
 }
