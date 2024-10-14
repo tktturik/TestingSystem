@@ -39,6 +39,8 @@ public class DataService
         if (!_isInitialized)
         {
             InitializeConfiguration();
+            GoogleAPI.InitializeDriveService();
+            GoogleAPI.RefreshAccessTokenAsync();
             try
             {
 

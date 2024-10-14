@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Shapes;
 using WpfApp1.Models;
 
@@ -37,18 +38,39 @@ namespace WpfApp1.Utilities
         public static void InitializeDriveService()
         {
             UserCredential credential;
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string appFolderPath = System.IO.Path.Combine(appDataPath, "Test");
+            Directory.CreateDirectory(appFolderPath); // Создаем директорию, если она не существует
+
+            // Путь к файлам credentials.json и token.json
+            string credPath = System.IO.Path.Combine(appFolderPath, "credentials.json");
+            string tokenPath = System.IO.Path.Combine(appFolderPath, "token");
+
             try
             {
-                using (var stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+                // Проверяем, существуют ли файлы
+                if (!File.Exists(credPath))
                 {
-                    string credPath = "token.json";
+                    MessageBox.Show($"Файл credentials.json не найден по пути: {credPath}");
+                    throw new FileNotFoundException($"Файл credentials.json не найден по пути: {credPath}");
+                }
+              
+                if (!Directory.Exists(tokenPath))
+                {
+                    MessageBox.Show($"Файл token.json не найден по пути: {tokenPath}");
+                    throw new DirectoryNotFoundException($"Файл token.json не найден по пути: {tokenPath}");
+                }
+               
+
+                using (var stream = new FileStream(credPath, FileMode.Open, FileAccess.Read))
+                {
                     credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                         GoogleClientSecrets.Load(stream).Secrets,
                         new[] { DriveService.Scope.Drive },
                         "user",
                         CancellationToken.None,
-                        new FileDataStore(credPath, true)).Result;
-                    Console.WriteLine("Credential file saved to: " + credPath);
+                        new FileDataStore(tokenPath, true)).Result;
+                    Console.WriteLine("Credential file saved to: " + tokenPath);
                 }
 
                 _driveService = new DriveService(new BaseClientService.Initializer()
@@ -59,14 +81,51 @@ namespace WpfApp1.Utilities
             }
             catch (TokenResponseException ex)
             {
-                Debug.WriteLine($"Ошибка аутентификации: {ex.Message}");
+                MessageBox.Show($"Ошибка аутентификации: {ex.Message}");
                 throw;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Непредвиденная ошибка: {ex.Message}");
+                MessageBox.Show($"Непредвиденная ошибка: {ex.Message}");
                 throw;
             }
+        }
+        public static async Task RefreshAccessTokenAsync()
+        {
+            if (_driveService == null)
+            {
+                InitializeDriveService();
+            }
+
+            var credential = _driveService.HttpClientInitializer as UserCredential;
+            if (credential != null)
+            {
+                try
+                {
+                    var refreshedToken = await credential.GetAccessTokenForRequestAsync();
+                    if (refreshedToken != null)
+                    {
+                        Console.WriteLine("Токен доступа успешно обновлен.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Не удалось обновить токен доступа.");
+                    }
+                }
+                catch (TokenResponseException ex)
+                {
+                    Console.WriteLine($"Ошибка при обновлении токена: {ex.Message}");
+                    throw;
+                }
+            }
+        }
+        public static DriveService GetDriveService()
+        {
+            if (_driveService == null)
+            {
+                InitializeDriveService();
+            }
+            return _driveService;
         }
         public static void LoadTestsToLocalFolder(string path)
         {
@@ -212,7 +271,7 @@ namespace WpfApp1.Utilities
                 }
             }
 
-            Debug.WriteLine("Синхронизация завершена.");
+            MessageBox.Show("Синхронизация завершена.");
         }
 
 

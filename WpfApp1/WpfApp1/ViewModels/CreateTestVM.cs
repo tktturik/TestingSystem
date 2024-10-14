@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WpfApp1.Models;
@@ -86,6 +87,7 @@ namespace WpfApp1.ViewModels
         {
             path = path.Replace("name", _test.Title);
             DataService.SaveQuestions(_test);
+            MessageBox.Show($"тест {_test.Title} сохранен");
         }
         private void UpdatePoints(object parameter)
         {
