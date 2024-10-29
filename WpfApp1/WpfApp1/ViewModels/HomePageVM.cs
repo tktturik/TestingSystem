@@ -12,14 +12,9 @@ namespace WpfApp1.ViewModels
     {
         public HomePageVM()
         {
-            try
-            {
+            
                 DataService.Initialize();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
             
         }
 

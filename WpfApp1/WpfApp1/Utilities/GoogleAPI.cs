@@ -1,21 +1,16 @@
-﻿using DocumentFormat.OpenXml.Wordprocessing;
-using Google.Apis.Auth.OAuth2;
+﻿using Google.Apis.Auth.OAuth2;
 using Google.Apis.Auth.OAuth2.Responses;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Shapes;
-using WpfApp1.Models;
 
 namespace WpfApp1.Utilities
 {
@@ -25,13 +20,13 @@ namespace WpfApp1.Utilities
         private static DriveService _driveService;
         private static string nameApiKey;
 
-     
         public static void Initialize()
         {
             InitializeConfiguration();
             InitializeDriveService();
             RefreshAccessTokenAsync();
         }
+
         private static void InitializeConfiguration()
         {
             mainIdFolder = "1ZsvGd8t9DMTyCwY8QrOWoLCbja5S6Yv-";
@@ -59,7 +54,6 @@ namespace WpfApp1.Utilities
                     MessageBox.Show($"Директория token не найдена по пути: {tokenPath}");
                 }
 
-
                 using (var stream = new FileStream(credPath, FileMode.Open, FileAccess.Read))
                 {
                     credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
@@ -78,14 +72,15 @@ namespace WpfApp1.Utilities
             }
             catch (TokenResponseException ex)
             {
-                MessageBox.Show($"Ошибка аутентификации: {ex.Message}");
+                DeleteToken(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SkyNetTS", "token"));
+                InitializeDriveService();
             }
-            
             catch (Exception ex)
             {
                 MessageBox.Show($"Непредвиденная ошибка: {ex.Message}");
             }
         }
+
         public static async Task RefreshAccessTokenAsync()
         {
             if (_driveService == null)
@@ -114,6 +109,7 @@ namespace WpfApp1.Utilities
                 }
             }
         }
+
         public static DriveService GetDriveService()
         {
             if (_driveService == null)
@@ -122,29 +118,54 @@ namespace WpfApp1.Utilities
             }
             return _driveService;
         }
+
         public static void LoadDirFromGoogleDrive(string path)
         {
             var request = _driveService.Files.List();
             request.Q = $"'{mainIdFolder}' in parents and mimeType='application/vnd.google-apps.folder'";
-            var files = request.Execute().Files;
 
-            if (files.Count == 0)
+            try
             {
-                Debug.WriteLine("СПИСОК ПУСТ DDDD");
-                return;
-            }
-            else
-            {
-                foreach (var folder in files)
+                var files = request.Execute().Files;
+
+                if (files.Count == 0)
                 {
-                    string pathFolder = System.IO.Path.Combine(path, folder.Name);
-                    LoadTestsToLocalFolder(pathFolder, folder.Id);
+                    Debug.WriteLine("СПИСОК ПУСТ DDDD");
+                    return;
+                }
+                else
+                {
+                    foreach (var folder in files)
+                    {
+                        string pathFolder = System.IO.Path.Combine(path, folder.Name);
+                        LoadTestsToLocalFolder(pathFolder, folder.Id);
+                    }
                 }
             }
+            catch (TokenResponseException ex)
+            {
+                
+                    DeleteToken(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SkyNetTS", "token"));
+                    InitializeDriveService();
+                    LoadDirFromGoogleDrive(path);
+             
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Непредвиденная ошибка: {ex.Message}");
+            }
         }
+
+        private static void DeleteToken(string tokenPath)
+        {
+            if (File.Exists(tokenPath))
+            {
+                File.Delete(Path.Combine(tokenPath, "*.TokenResponse-user"));
+            }
+        }
+
         public static void LoadTestsToLocalFolder(string path, string idFolder)
         {
-
             var request = _driveService.Files.List();
             request.Q = $"'{idFolder}' in parents and mimeType='application/json'";
             var files = request.Execute().Files;
@@ -182,13 +203,11 @@ namespace WpfApp1.Utilities
             Debug.WriteLine($"Файл {fileName} загружен на локальный диск.");
         }
 
-  
         public static async Task SyncLocalFilesWithGoogleDrive(string localFolderPath)
         {
             var googleFolders = await GetFoldersInFolder(mainIdFolder);
             var localFolders = Directory.GetDirectories(localFolderPath);
 
-         
             foreach (var localFolder in localFolders)
             {
                 var folderName = new DirectoryInfo(localFolder).Name;
@@ -198,7 +217,6 @@ namespace WpfApp1.Utilities
                 {
                     await SyncFilesInFolder(googleFolder.Id, localFolder);
                 }
-           
             }
             MessageBox.Show("Синхронизация завершена.");
         }
@@ -243,9 +261,6 @@ namespace WpfApp1.Utilities
             var response = await request.ExecuteAsync();
             return response.Files.ToList();
         }
-
-
-
 
         private static async Task<List<Google.Apis.Drive.v3.Data.File>> GetFilesInFolder(string folderId)
         {
@@ -302,4 +317,3 @@ namespace WpfApp1.Utilities
         }
     }
 }
-
