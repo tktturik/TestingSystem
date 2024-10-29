@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Shapes;
 using WpfApp1.Models;
 using WpfApp1.Utilities;
 
@@ -19,8 +20,19 @@ namespace WpfApp1.ViewModels
     {
         private ObservableCollection<Question> _questions;
         private Test _test;
-        private string path = $"{Environment.CurrentDirectory}\\Tests\\name.json";
         private string _testTitle;
+        private string _selectedItem;
+
+
+        public string SelectedComboBoxItem
+        {
+            get { return _selectedItem; }
+            set 
+            {
+                _selectedItem = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public Test Test {  
@@ -60,7 +72,7 @@ namespace WpfApp1.ViewModels
             set
             {
                 _testTitle = value;
-                _test.Title = value; // Обновляем свойство Title в объекте Test
+                _test.Title = value;
                 OnPropertyChanged();
             }
         }
@@ -85,15 +97,31 @@ namespace WpfApp1.ViewModels
 
         private void SaveTest(object parameter)
         {
-            path = path.Replace("name", _test.Title);
-            DataService.SaveQuestions(_test);
+            switch (_selectedItem)
+            {
+                case "Python":
+                    _test.Section = "Python";
+                    break;
+
+                case "Roblox Studio":
+                    _test.Section = "RobloxStudio";
+                    break;
+
+                case "Компьютерная грамотность":
+                    _test.Section = "ComputerLiteracy";
+                    break;
+                default:
+                    _test.Section = "";
+                    break;
+            }
+            string dirPath = System.IO.Path.Combine(_test.Section,$"{_test.Title}.json");
+            DataService.SaveTest(_test, dirPath);
             MessageBox.Show($"тест {_test.Title} сохранен");
         }
         private void UpdatePoints(object parameter)
         {
             if (parameter is Answer answer)
             {
-                Debug.WriteLine("xh");
                 answer.Points = answer.IsCorrectAnswer ? 1 : 0;
                 Debug.WriteLine(answer.Points);
             }

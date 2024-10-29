@@ -26,7 +26,9 @@
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
-                                                <CheckBox Style="{StaticResource CustomCheckBoxStyle}" IsChecked="{Binding IsSelected, Mode=OneWayToSource}" />
+                                                <CheckBox Style="{StaticResource CustomCheckBoxStyle}" IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                                  Command="{Binding DataContext.SaveTemporaryFileCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                />
                                                 <TextBlock Text="{Binding Text}" Style="{StaticResource TakingTestText}" />
                                             </StackPanel>
                                         </DataTemplate>

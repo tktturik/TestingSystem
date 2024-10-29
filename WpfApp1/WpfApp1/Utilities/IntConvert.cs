@@ -25,14 +25,14 @@ namespace WpfApp1.Utilities
             {
                 if (string.IsNullOrEmpty(strValue))
                 {
-                    return 0; // или return DependencyProperty.UnsetValue; для отмены привязки
+                    return 0;
                 }
                 if (int.TryParse(strValue, out int result))
                 {
                     return result;
                 }
             }
-            return 0; // или return DependencyProperty.UnsetValue; для отмены привязки
+            return 0;
         }
     }
 }

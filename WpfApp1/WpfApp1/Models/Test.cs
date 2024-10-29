@@ -11,7 +11,7 @@ namespace WpfApp1.Models
     {
         public string Title { get; set; }
         public int AmountQuestions { get; set; }
-
+        public string Section { get; set; }
         public ObservableCollection<Question> questions { get; set; } = new ObservableCollection<Question>();
 
     }

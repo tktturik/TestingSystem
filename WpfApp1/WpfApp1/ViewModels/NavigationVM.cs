@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WpfApp1.Models;
+using System.IO;
 using WpfApp1.Utilities;
 using WpfApp1.View.UserControls;
 
@@ -61,10 +62,20 @@ namespace WpfApp1.ViewModels
         }
         private void ShowTakeTestView(object parameter)
         {
-            //хуйня
-            ChoosingTestVM choosingTestVM1 = new ChoosingTestVM();
-            choosingTestVM1.SetNavigationVM(this);
-            UserControl = new ChoosingTest { DataContext = choosingTestVM1 };
+            if (DataService.FileExists("tempTest.json"))
+            {
+                string json = File.ReadAllText($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SkyNetTS\\Tests\\tempTest.json");
+                Test tmpTest = DataService.JsonConverter(json);
+                TakingTestVM tt = new TakingTestVM();
+                tt.SetTest(tmpTest);
+                ShowSelectedTest(tt);
+            }
+            else
+            {
+                ChoosingTestVM choosingTestVM1 = new ChoosingTestVM();
+                choosingTestVM1.SetNavigationVM(this);
+                UserControl = new ChoosingTest { DataContext = choosingTestVM1 };
+            }
 
         }
         private void ShowHomeView(object parameter)
@@ -76,7 +87,6 @@ namespace WpfApp1.ViewModels
         {
             if (test != null && test is TakingTestVM takingTest)
             {
-                //хуйня 
                 UserControl = new TakingTest() { DataContext = takingTest };
             }
             else if (test != null && test is CreateTestVM createTest)

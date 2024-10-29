@@ -9,6 +9,8 @@ using WpfApp1.Models;
 using System.Windows;
 using System.Windows.Input;
 using System.Diagnostics;
+using DocumentFormat.OpenXml.Wordprocessing;
+using System.IO;
 
 namespace WpfApp1.ViewModels
 {
@@ -45,9 +47,21 @@ namespace WpfApp1.ViewModels
         public ICommand EditTestCommand { get; }
         public ICommand DeleteTestCommand { get; }
         public ICommand SyncFilesCommand { get; }
+        public ICommand SelectTabCommand { get; }
+        public ICommand DownloadFilesCommand { get; }
+        private void DownloadFiles(object parametr)
+        {
+            DataService.LoadFiles();
+        }
         private void SyncFiles(object parametr)
         {
             DataService.SyncFiles();
+        }
+        private void SelectTab(object parametr)
+        {
+            string folder = Convert.ToString(parametr);
+
+            Tests = DataService.LoadTestsFromFolder(folder);
         }
 
         private void EditTest(object parametr)
@@ -67,7 +81,7 @@ namespace WpfApp1.ViewModels
             if (parametr is Test testToDelete)
             {
                 Tests.Remove(testToDelete);
-                DataService.RemoveTest(testToDelete);
+                DataService.RemoveTest(testToDelete,Path.Combine(testToDelete.Section,$"{testToDelete.Title}.json"));
             }
         }
         public ObservableCollection<Test> Tests
@@ -81,11 +95,12 @@ namespace WpfApp1.ViewModels
         }
         public ChoosingTestVM()
         {
-
-            Tests = DataService.LoadTestsFromFolder();
+            Tests = DataService.LoadTestsFromFolder("Python");
             EditTestCommand = new RelayCommand(EditTest);
             DeleteTestCommand = new RelayCommand(DeleteTest);
             SyncFilesCommand = new RelayCommand(SyncFiles);
+            SelectTabCommand = new RelayCommand(SelectTab);
+            DownloadFilesCommand = new RelayCommand(DownloadFiles);
         }
 
         public void SetNavigationVM(NavigationVM navigationVM)

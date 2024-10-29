@@ -82,11 +82,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utilities\ComboBoxItemConverter.cs" />
     <Compile Include="Utilities\DataService.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Utilities\GoogleAPI.cs" />
     <Compile Include="Utilities\IntConvert.cs" />
+    <Compile Include="Utilities\TabBtn.cs" />
     <Compile Include="Utilities\ViewModelBase.cs" />
     <Compile Include="ViewModels\ChoosingTestVM.cs" />
     <Compile Include="ViewModels\CreateTestVM.cs" />

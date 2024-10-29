@@ -14,7 +14,9 @@
     </UserControl.DataContext>
     <UserControl.Resources>
         <u:IntConverter x:Key="IntConvert"/>
+        <u:ComboBoxItemContentConverter x:Key="ComboBoxItemConverter"/>
     </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -67,5 +69,12 @@
                 <TextBlock Text="Сохранить" Style="{StaticResource TextStyleBtn}"/>
             </Button>
         </Grid>
+        <ComboBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="140" Height="45"
+          SelectedItem="{Binding SelectedComboBoxItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ComboBoxItemConverter}}"
+                  >
+            <ComboBoxItem Content="Python" Name="dd" />
+            <ComboBoxItem Content="Roblox Studio" />
+            <ComboBoxItem Content="Компьютерная грамотность" />
+        </ComboBox>
     </Grid>
 </UserControl>

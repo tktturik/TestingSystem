@@ -1,14 +1,11 @@
-﻿using Google.Apis.Auth.OAuth2;
-using Google.Apis.Auth.OAuth2.Responses;
-using Google.Apis.Drive.v3;
-using Google.Apis.Drive.v3.Data;
-using Google.Apis.Services;
+﻿using Google.Apis.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,66 +25,57 @@ public class DataService
     private static void InitializeConfiguration()
     {
         
-        path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Tests\\";
+        path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SkyNetTS\\Tests";
         if(!Directory.Exists(path))
         {
            Directory.CreateDirectory(path);
         }
+    }
+    public static void LoadFiles()
+    {
+        GoogleAPI.LoadDirFromGoogleDrive(path);
     }
     public static void Initialize()
     {
         if (!_isInitialized)
         {
             InitializeConfiguration();
-            GoogleAPI.InitializeDriveService();
-            GoogleAPI.RefreshAccessTokenAsync();
-            try
-            {
+            GoogleAPI.Initialize();
+            GoogleAPI.LoadDirFromGoogleDrive(path);
 
-                GoogleAPI.LoadTestsToLocalFolder(path);
-                _isInitialized = true;
-            }
-            catch (TokenResponseException ex)
-            {
-                MessageBox.Show($"Ошибка аутентификации: {ex.Message}");
-                Debug.WriteLine(" ");
-                Debug.WriteLine($"Ошибка аутентификации: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Непредвиденная ошибка: {ex.Message}");
-                Debug.WriteLine(" ");
-                Debug.WriteLine($"Непредвиденная ошибка: {ex.Message}");
-            }
+            _isInitialized = true;
         }
     }
 
-    public static void SaveQuestions(Test test)
+    public  static Task SaveTest(Test test, string secondPartPath)
     {
-        string json = JsonConvert.SerializeObject(test, Newtonsoft.Json.Formatting.Indented);
-        string filePath = Path.Combine(path, test.Title + ".json");
-        System.IO.File.WriteAllText(filePath, json);
+        return Task.Run(() =>
+        {
+            string json = JsonConvert.SerializeObject(test, Newtonsoft.Json.Formatting.Indented);
+            string filePath = Path.Combine(path, secondPartPath);
+            File.WriteAllText(filePath, json);
+        });
     }
 
 
-    public static ObservableCollection<Test> LoadTestsFromFolder()
+    public static ObservableCollection<Test> LoadTestsFromFolder(string folder)
     {
         ObservableCollection<Test> tests = new ObservableCollection<Test>();
-
-        var files = Directory.GetFiles(path, "*.json");
-
-        foreach (var filePath in files)
+        string dirPath = Path.Combine(path, folder);
+        string[] files = Directory.GetFiles(dirPath, "*.json");
+        //MessageBox.Show($"По пути {dirPath} находится {files.Length}");
+        foreach (string filePath in files)
         {
-            string json = System.IO.File.ReadAllText(filePath);
+            string json = File.ReadAllText(filePath);
 
-            Test test = JsonConvert.DeserializeObject<Test>(json);
+            Test test = JsonConverter(json);
 
             tests.Add(test);
         }
 
         if (tests.Count == 0)
         {
-            Debug.WriteLine("СПИСОК ПУСТ ФФФ");
+            Debug.WriteLine("СПИСОК ПУСТ");
         }
         else
         {
@@ -96,13 +84,19 @@ public class DataService
 
         return tests;
     }
-
-    public static bool RemoveTest(Test test)
+    public static Test JsonConverter(string json)
     {
-        string filePath = Path.Combine(path, test.Title + ".json");
-        if (System.IO.File.Exists(filePath))
+
+        return JsonConvert.DeserializeObject<Test>(json);
+    }
+
+
+    public static bool RemoveTest(Test test, string secondPartPath)
+    {
+        string filePath = Path.Combine(path, secondPartPath);
+        if (File.Exists(filePath))
         {
-            System.IO.File.Delete(filePath);
+            File.Delete(filePath);
             return true;
         }
         return false;
@@ -111,6 +105,18 @@ public class DataService
     public static void SyncFiles()
     {
         var a = GoogleAPI.SyncLocalFilesWithGoogleDrive(path);
+    }
+    public static bool FileExists(string secondPartPath)
+    {
+        return File.Exists(Path.Combine(path, secondPartPath));
+    }
+    public static void DeleteTempFile()
+    {
+        var files = Directory.GetFiles(path, "temp*");
+        foreach (var file in files) 
+        {
+            File.Delete(file);
+        }
     }
 
 

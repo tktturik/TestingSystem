@@ -41,6 +41,7 @@ namespace WpfApp1.ViewModels
         {
           
             FinishTestCommand = new RelayCommand(FinishTest);
+            SaveTemporaryFileCommand = new RelayCommand(SaveTemporaryFile);
         }
 
         public void SetTest(Test test)
@@ -50,6 +51,7 @@ namespace WpfApp1.ViewModels
         }
 
         public ICommand FinishTestCommand { get; }
+        public ICommand SaveTemporaryFileCommand { get; }
 
         public ObservableCollection<Question> Questions
         {
@@ -57,7 +59,6 @@ namespace WpfApp1.ViewModels
             set
             {
                 questions = value;
-
                 OnPropertyChanged();
             }
         }
@@ -120,12 +121,10 @@ namespace WpfApp1.ViewModels
                     mainPart.Document = new Document();
                     Body body = mainPart.Document.AppendChild(new Body());
 
-                    // Добавляем заголовок
                     Paragraph title = body.AppendChild(new Paragraph());
                     Run titleRun = title.AppendChild(new Run());
                     titleRun.AppendChild(new Text($"Результаты теста ученика {experienced}:\nНабрано баллов {resultPoints} из {maxPoints}, что соответствует {resultPoints * 100 / maxPoints}%"));
 
-                    // Добавляем вопросы и ответы
                     foreach (Question question in test.questions)
                     {
                         Paragraph questionPara = body.AppendChild(new Paragraph());
@@ -143,7 +142,7 @@ namespace WpfApp1.ViewModels
                             answerRun.AppendChild(new Text($"- {answer.Text} {symbol} {(answer.IsCorrectAnswer ? $"({answer.Points} баллов)" : "")}"));
                         }
 
-                        body.AppendChild(new Paragraph()); // Добавляем пустую строку между вопросами
+                        body.AppendChild(new Paragraph());
                     }
                 }
             }
@@ -153,13 +152,17 @@ namespace WpfApp1.ViewModels
                 Debug.WriteLine($"Ошибка в CreateWordDocument: {ex.Message}");
             }
         }
+        private async void SaveTemporaryFile(object parameter)
+        {
+            await DataService.SaveTest(_test, "tempTest.json");
+        }
         private string FormatTestResults(Test test, int resultPoints, int maxPoints)
         {
             try
             {
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine($"Результаты теста ученика {experienced}:\nНабрано баллов {resultPoints} из {maxPoints}, " +
-                    $"что соответствует {resultPoints * 100 }%");
+                    $"что соответствует {resultPoints* 100 / maxPoints  }%");
                 sb.AppendLine();
 
                 foreach (Question question in test.questions)
@@ -190,34 +193,37 @@ namespace WpfApp1.ViewModels
         }
         private void FinishTest(object parameter)
         {
+            if (string.IsNullOrWhiteSpace(Experienced) || Experienced.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length < 2)
+            {
+                MessageBox.Show("Пожалуйста, введите свое имя и фамилию.");
+                return;
+            }
             //int CountCorrect = 0;
             int sumOfPoints = 0;
             int maxPoints = 0;
             foreach (Question question in questions)
             {
-                foreach (Answer answer in question.Answers)
+                int correctAnswersCount = question.Answers.Count(a => a.IsCorrectAnswer);
+                int selectedAnswersCount = question.Answers.Count(a=>a.IsSelected);
+                maxPoints += question.Answers.Sum(a => a.Points);
+                if (selectedAnswersCount <= correctAnswersCount)
                 {
-                    if(answer.IsCorrectAnswer && answer.IsSelected)
+                    foreach (Answer answer in question.Answers)
                     {
-                        //CountCorrect++;
-                        sumOfPoints += answer.Points;
-                        maxPoints += answer.Points;
-                    }
-                    else
-                    {
-                        maxPoints += answer.Points;
+                        if (answer.IsCorrectAnswer && answer.IsSelected)
+                        {
+                            sumOfPoints += answer.Points;
+                        }
                     }
                 }
-
             }
             string resultMessage = $"Набранные баллы: {sumOfPoints}";
             MessageBox.Show(resultMessage);
-            // Отправка результатов на почту
             string body = FormatTestResults(_test,sumOfPoints,maxPoints);
             string tempFilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Tests\\{Experienced}_{_test.Title}.docx";
             CreateWordDocument(_test, sumOfPoints, maxPoints, tempFilePath);
             SendEmail(body,tempFilePath);
-            //MessageBox.Show($"Верных ответов: {CountCorrect}");
+            DataService.RemoveTest(_test, "tempTest.json");
 
         }
 

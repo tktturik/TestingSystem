@@ -1,4 +1,5 @@
-﻿using Google.Apis.Auth.OAuth2;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using Google.Apis.Auth.OAuth2;
 using Google.Apis.Auth.OAuth2.Responses;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
@@ -20,47 +21,44 @@ namespace WpfApp1.Utilities
 {
     public static class GoogleAPI
     {
-        private static string idFolder;
+        private static string mainIdFolder;
         private static DriveService _driveService;
         private static string nameApiKey;
 
-        static GoogleAPI()
+     
+        public static void Initialize()
         {
             InitializeConfiguration();
             InitializeDriveService();
+            RefreshAccessTokenAsync();
         }
         private static void InitializeConfiguration()
         {
-            idFolder = "1ZsvGd8t9DMTyCwY8QrOWoLCbja5S6Yv-";
+            mainIdFolder = "1ZsvGd8t9DMTyCwY8QrOWoLCbja5S6Yv-";
             nameApiKey = "credentials.json";
         }
 
-        public static void InitializeDriveService()
+        private static void InitializeDriveService()
         {
             UserCredential credential;
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string appFolderPath = System.IO.Path.Combine(appDataPath, "Test");
-            Directory.CreateDirectory(appFolderPath); // Создаем директорию, если она не существует
+            string appFolderPath = System.IO.Path.Combine(appDataPath, "SkyNetTS");
 
-            // Путь к файлам credentials.json и token.json
             string credPath = System.IO.Path.Combine(appFolderPath, "credentials.json");
             string tokenPath = System.IO.Path.Combine(appFolderPath, "token");
 
             try
             {
-                // Проверяем, существуют ли файлы
                 if (!File.Exists(credPath))
                 {
                     MessageBox.Show($"Файл credentials.json не найден по пути: {credPath}");
-                    throw new FileNotFoundException($"Файл credentials.json не найден по пути: {credPath}");
                 }
-              
+
                 if (!Directory.Exists(tokenPath))
                 {
-                    MessageBox.Show($"Файл token.json не найден по пути: {tokenPath}");
-                    throw new DirectoryNotFoundException($"Файл token.json не найден по пути: {tokenPath}");
+                    MessageBox.Show($"Директория token не найдена по пути: {tokenPath}");
                 }
-               
+
 
                 using (var stream = new FileStream(credPath, FileMode.Open, FileAccess.Read))
                 {
@@ -70,24 +68,22 @@ namespace WpfApp1.Utilities
                         "user",
                         CancellationToken.None,
                         new FileDataStore(tokenPath, true)).Result;
-                    Console.WriteLine("Credential file saved to: " + tokenPath);
                 }
 
                 _driveService = new DriveService(new BaseClientService.Initializer()
                 {
                     HttpClientInitializer = credential,
-                    ApplicationName = "YourApplicationName"
+                    ApplicationName = "TestingSystem"
                 });
             }
             catch (TokenResponseException ex)
             {
                 MessageBox.Show($"Ошибка аутентификации: {ex.Message}");
-                throw;
             }
+            
             catch (Exception ex)
             {
                 MessageBox.Show($"Непредвиденная ошибка: {ex.Message}");
-                throw;
             }
         }
         public static async Task RefreshAccessTokenAsync()
@@ -115,7 +111,6 @@ namespace WpfApp1.Utilities
                 catch (TokenResponseException ex)
                 {
                     Console.WriteLine($"Ошибка при обновлении токена: {ex.Message}");
-                    throw;
                 }
             }
         }
@@ -127,7 +122,27 @@ namespace WpfApp1.Utilities
             }
             return _driveService;
         }
-        public static void LoadTestsToLocalFolder(string path)
+        public static void LoadDirFromGoogleDrive(string path)
+        {
+            var request = _driveService.Files.List();
+            request.Q = $"'{mainIdFolder}' in parents and mimeType='application/vnd.google-apps.folder'";
+            var files = request.Execute().Files;
+
+            if (files.Count == 0)
+            {
+                Debug.WriteLine("СПИСОК ПУСТ DDDD");
+                return;
+            }
+            else
+            {
+                foreach (var folder in files)
+                {
+                    string pathFolder = System.IO.Path.Combine(path, folder.Name);
+                    LoadTestsToLocalFolder(pathFolder, folder.Id);
+                }
+            }
+        }
+        public static void LoadTestsToLocalFolder(string path, string idFolder)
         {
 
             var request = _driveService.Files.List();
@@ -161,48 +176,86 @@ namespace WpfApp1.Utilities
 
             using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
             {
-                 request.Download(fileStream);
+                request.Download(fileStream);
             }
 
             Debug.WriteLine($"Файл {fileName} загружен на локальный диск.");
         }
 
-        public static async void UploadQuestionsAsync(Test questions, string fileName)
+  
+        public static async Task SyncLocalFilesWithGoogleDrive(string localFolderPath)
         {
-            string json = JsonConvert.SerializeObject(questions, Newtonsoft.Json.Formatting.Indented);
+            var googleFolders = await GetFoldersInFolder(mainIdFolder);
+            var localFolders = Directory.GetDirectories(localFolderPath);
 
-            var fileMetadata = new Google.Apis.Drive.v3.Data.File()
+         
+            foreach (var localFolder in localFolders)
             {
-                Name = fileName,
-                Parents = new List<string> { idFolder }
-            };
+                var folderName = new DirectoryInfo(localFolder).Name;
+                var googleFolder = googleFolders.FirstOrDefault(f => f.Name == folderName);
 
-            var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(json));
-
-            var request = _driveService.Files.Create(fileMetadata, stream, "application/json");
-
-
-            var file = await request.UploadAsync();
-
-            if (file.Status == Google.Apis.Upload.UploadStatus.Completed)
-            {
-                Debug.WriteLine("Файл успешно загружен.");
+                if (googleFolder != null)
+                {
+                    await SyncFilesInFolder(googleFolder.Id, localFolder);
+                }
+           
             }
-            else
+            MessageBox.Show("Синхронизация завершена.");
+        }
+
+        private static async Task SyncFilesInFolder(string folderId, string localFolderPath)
+        {
+            var googleFiles = await GetFilesInFolder(folderId);
+            string[] localFiles = Directory.GetFiles(localFolderPath, "*.json");
+
+            foreach (var localFilePath in localFiles)
             {
-                Debug.WriteLine("Ошибка при загрузке файла.");
+                string fileName = System.IO.Path.GetFileName(localFilePath);
+                var googleFile = googleFiles.FirstOrDefault(f => f.Name == fileName);
+
+                if (googleFile != null)
+                {
+                    if (IsFileModified(localFilePath, googleFile.ModifiedTimeDateTimeOffset.GetValueOrDefault()))
+                    {
+                        await UpdateFileOnGoogleDriveAsync(googleFile.Id, localFilePath);
+                    }
+                }
+                else
+                {
+                    await CreateFileOnGoogleDriveAsync(localFilePath, folderId, fileName);
+                }
+            }
+
+            foreach (var googleFile in googleFiles)
+            {
+                if (!localFiles.Any(f => System.IO.Path.GetFileName(f) == googleFile.Name))
+                {
+                    await DeleteFileAsync(googleFile.Id);
+                }
             }
         }
+
+        private static async Task<List<Google.Apis.Drive.v3.Data.File>> GetFoldersInFolder(string folderId)
+        {
+            var request = _driveService.Files.List();
+            request.Q = $"'{folderId}' in parents and mimeType='application/vnd.google-apps.folder'";
+            request.Fields = "files(id, name)";
+            var response = await request.ExecuteAsync();
+            return response.Files.ToList();
+        }
+
+
+
+
         private static async Task<List<Google.Apis.Drive.v3.Data.File>> GetFilesInFolder(string folderId)
         {
-
             var request = _driveService.Files.List();
             request.Q = $"'{folderId}' in parents and trashed=false";
             request.Fields = "files(id, name, modifiedTime)";
             var response = await request.ExecuteAsync();
-            var files = response.Files;
-            return files.ToList();
+            return response.Files.ToList();
         }
+
         private static async Task UpdateFileOnGoogleDriveAsync(string fileId, string localFilePath)
         {
             var fileMetadata = new Google.Apis.Drive.v3.Data.File()
@@ -218,6 +271,7 @@ namespace WpfApp1.Utilities
 
             Debug.WriteLine($"Файл {fileId} обновлен на Google Диске.");
         }
+
         private static async Task CreateFileOnGoogleDriveAsync(string localFilePath, string folderId, string fileName)
         {
             var fileMetadata = new Google.Apis.Drive.v3.Data.File()
@@ -234,55 +288,18 @@ namespace WpfApp1.Utilities
 
             Debug.WriteLine($"Файл {fileName} загружен на Google Диске.");
         }
+
         private static async Task DeleteFileAsync(string fileId)
         {
             await _driveService.Files.Delete(fileId).ExecuteAsync();
             Debug.WriteLine($"Файл {fileId} удален с Google Диска.");
         }
-        public static async Task SyncLocalFilesWithGoogleDrive(string localFolderPath)
-        {
-
-            var googleFiles = await GetFilesInFolder(idFolder);
-            var localFiles = Directory.GetFiles(localFolderPath, "*.json");
-
-            foreach (var localFilePath in localFiles)
-            {
-                string fileName = System.IO.Path.GetFileName(localFilePath);
-                var googleFile = googleFiles.FirstOrDefault(f => f.Name == fileName);
-
-                if (googleFile != null)
-                {
-                    if (IsFileModified(localFilePath, googleFile.ModifiedTimeDateTimeOffset.GetValueOrDefault()))
-                    {
-                        await UpdateFileOnGoogleDriveAsync(googleFile.Id, localFilePath);
-                    }
-                }
-                else
-                {
-                    await CreateFileOnGoogleDriveAsync(localFilePath, idFolder, fileName);
-                }
-            }
-
-            foreach (var googleFile in googleFiles)
-            {
-                if (!localFiles.Any(f => System.IO.Path.GetFileName(f) == googleFile.Name))
-                {
-                    await DeleteFileAsync(googleFile.Id);
-                }
-            }
-
-            MessageBox.Show("Синхронизация завершена.");
-        }
-
-
-
 
         private static bool IsFileModified(string localFilePath, DateTimeOffset googleModifiedTime)
         {
             var localModifiedTime = File.GetLastWriteTimeUtc(localFilePath);
             return localModifiedTime > googleModifiedTime.UtcDateTime;
         }
-
     }
 }
 
