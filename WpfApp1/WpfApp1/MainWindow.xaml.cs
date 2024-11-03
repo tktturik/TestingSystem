@@ -31,7 +31,7 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DataService.DeleteTempFile();
-            this.Close();
+            Application.Current.Shutdown();
         }
     }
 }

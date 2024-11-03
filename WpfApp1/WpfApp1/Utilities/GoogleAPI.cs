@@ -24,7 +24,6 @@ namespace WpfApp1.Utilities
         {
             InitializeConfiguration();
             InitializeDriveService();
-            RefreshAccessTokenAsync();
         }
 
         private static void InitializeConfiguration()
@@ -35,33 +34,21 @@ namespace WpfApp1.Utilities
 
         private static void InitializeDriveService()
         {
-            UserCredential credential;
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string appFolderPath = System.IO.Path.Combine(appDataPath, "SkyNetTS");
-
-            string credPath = System.IO.Path.Combine(appFolderPath, "credentials.json");
-            string tokenPath = System.IO.Path.Combine(appFolderPath, "token");
+            string credPath = System.IO.Path.Combine(appFolderPath, nameApiKey);
 
             try
             {
                 if (!File.Exists(credPath))
                 {
-                    MessageBox.Show($"Файл credentials.json не найден по пути: {credPath}");
+                    throw new FileNotFoundException($"Файл credentials.json не найден по пути: {credPath}");
                 }
 
-                if (!Directory.Exists(tokenPath))
-                {
-                    MessageBox.Show($"Директория token не найдена по пути: {tokenPath}");
-                }
-
+                GoogleCredential credential;
                 using (var stream = new FileStream(credPath, FileMode.Open, FileAccess.Read))
                 {
-                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                        GoogleClientSecrets.Load(stream).Secrets,
-                        new[] { DriveService.Scope.Drive },
-                        "user",
-                        CancellationToken.None,
-                        new FileDataStore(tokenPath, true)).Result;
+                    credential = GoogleCredential.FromStream(stream).CreateScoped(DriveService.Scope.Drive);
                 }
 
                 _driveService = new DriveService(new BaseClientService.Initializer()
@@ -70,54 +57,12 @@ namespace WpfApp1.Utilities
                     ApplicationName = "TestingSystem"
                 });
             }
-            catch (TokenResponseException ex)
-            {
-                DeleteToken(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SkyNetTS", "token"));
-                InitializeDriveService();
-            }
             catch (Exception ex)
             {
-                MessageBox.Show($"Непредвиденная ошибка: {ex.Message}");
+                throw new Exception($"Ошибка при инициализации DriveService: {ex.Message}", ex);
             }
         }
 
-        public static async Task RefreshAccessTokenAsync()
-        {
-            if (_driveService == null)
-            {
-                InitializeDriveService();
-            }
-
-            var credential = _driveService.HttpClientInitializer as UserCredential;
-            if (credential != null)
-            {
-                try
-                {
-                    var refreshedToken = await credential.GetAccessTokenForRequestAsync();
-                    if (refreshedToken != null)
-                    {
-                        Console.WriteLine("Токен доступа успешно обновлен.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Не удалось обновить токен доступа.");
-                    }
-                }
-                catch (TokenResponseException ex)
-                {
-                    Console.WriteLine($"Ошибка при обновлении токена: {ex.Message}");
-                }
-            }
-        }
-
-        public static DriveService GetDriveService()
-        {
-            if (_driveService == null)
-            {
-                InitializeDriveService();
-            }
-            return _driveService;
-        }
 
         public static void LoadDirFromGoogleDrive(string path)
         {
@@ -130,6 +75,7 @@ namespace WpfApp1.Utilities
 
                 if (files.Count == 0)
                 {
+                    Debug.WriteLine("Папок нет");
                     Debug.WriteLine("СПИСОК ПУСТ DDDD");
                     return;
                 }
@@ -145,7 +91,7 @@ namespace WpfApp1.Utilities
             catch (TokenResponseException ex)
             {
                 
-                    DeleteToken(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SkyNetTS", "token"));
+
                     InitializeDriveService();
                     LoadDirFromGoogleDrive(path);
              
@@ -156,13 +102,7 @@ namespace WpfApp1.Utilities
             }
         }
 
-        private static void DeleteToken(string tokenPath)
-        {
-            if (File.Exists(tokenPath))
-            {
-                File.Delete(Path.Combine(tokenPath, "*.TokenResponse-user"));
-            }
-        }
+      
 
         public static void LoadTestsToLocalFolder(string path, string idFolder)
         {
