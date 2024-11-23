@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +13,12 @@ namespace WpfApp1.ViewModels
     {
         public HomePageVM()
         {
-            
-                DataService.Initialize();
-            
-            
+            Task.Run(Initialize);
+        }
+        private async Task Initialize()
+        {
+            await DataService.Initialize();
+;
         }
 
     }

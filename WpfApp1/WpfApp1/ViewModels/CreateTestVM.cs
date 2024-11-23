@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Shapes;
 using WpfApp1.Models;
@@ -55,7 +57,11 @@ namespace WpfApp1.ViewModels
             AddAnswerCommand = new RelayCommand(AddAnswer);
             SaveTestCommand = new RelayCommand(SaveTest);
             UpdatePointsCommand=new RelayCommand(UpdatePoints);
+            LoadImageCommand = new RelayCommand(LoadImage);
+            DeleteQuestionCommand = new RelayCommand(DeleteQuestion);
+            DeleteAnswerCommand = new RelayCommand(DeleteAnswer);
         }
+
 
         public ObservableCollection<Question> Questions
         {
@@ -76,12 +82,47 @@ namespace WpfApp1.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        public ICommand DeleteAnswerCommand { get; }
+        public ICommand DeleteQuestionCommand { get; }
+        public ICommand LoadImageCommand { get; }
         public ICommand AddQuestionCommand { get; }
         public ICommand AddAnswerCommand { get; }
         public ICommand SaveTestCommand { get; }
         public ICommand UpdatePointsCommand { get; }
 
+        private void LoadImage(object parameter)
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image files (*.png;*.jpeg;*.jpg;*.bmp)|*.png;*.jpeg;*.jpg;*.bmp|All files (*.*)|*.*"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                var filePath = openFileDialog.FileName;
+                var imageBytes = System.IO.File.ReadAllBytes(filePath);
+                if (parameter is Question curQues) 
+                { 
+                    curQues.ImageBytes = imageBytes;
+                    OnPropertyChanged(nameof(curQues.ImageBytes));
+                }
+            }
+        }
+        private void DeleteAnswer(object parameter)
+        {
+            if(parameter is Answer delAnswer)
+            {
+                Question question = Questions.FirstOrDefault(q => q.Answers.Contains(delAnswer));
+                question.Answers.Remove(delAnswer);
+            }
+        }
+        private void DeleteQuestion(object parameter)
+        {
+            if(parameter is Question delQuestion)
+            {
+                Questions.Remove(delQuestion);
+            }
+        }
         private void AddQuestion(object parameter)
         {
             Questions.Add(new Question());
@@ -111,7 +152,7 @@ namespace WpfApp1.ViewModels
                     _test.Section = "ComputerLiteracy";
                     break;
                 default:
-                    _test.Section = "";
+                    _test.Section = "Python";
                     break;
             }
             string dirPath = System.IO.Path.Combine(_test.Section,$"{_test.Title}.json");

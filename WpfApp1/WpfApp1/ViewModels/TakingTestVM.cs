@@ -18,6 +18,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using DocumentFormat.OpenXml;
 using System.IO;
 using Text = DocumentFormat.OpenXml.Wordprocessing.Text;
+using System.Configuration;
 
 namespace WpfApp1.ViewModels
 {
@@ -80,7 +81,7 @@ namespace WpfApp1.ViewModels
                     using (MailMessage mailMessage = new MailMessage())
                     {
                         mailMessage.From = new MailAddress(smtpUsername);
-                        mailMessage.To.Add("medvedshura1@gmail.com");
+                        mailMessage.To.Add("skynet.college@mail.ru");
                         mailMessage.Subject = $"Результаты теста {_test.Title} ученика {experienced}";
                         mailMessage.Body = body;
                         Attachment attachment = new Attachment(path);
@@ -100,7 +101,6 @@ namespace WpfApp1.ViewModels
                         finally
                         {
                             attachment.Dispose();
-                            File.Delete(path);
                         }
                     }
                 }
@@ -220,9 +220,12 @@ namespace WpfApp1.ViewModels
             string resultMessage = $"Набранные баллы: {sumOfPoints}";
             MessageBox.Show(resultMessage);
             string body = FormatTestResults(_test,sumOfPoints,maxPoints);
-            string tempFilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Tests\\{Experienced}_{_test.Title}.docx";
+            string tempFilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SkyNetTS\\Tests\\{Experienced}_{_test.Title}_{DateTime.Now}.docx";
             CreateWordDocument(_test, sumOfPoints, maxPoints, tempFilePath);
-            SendEmail(body,tempFilePath);
+            if (MessageBox.Show("Отправлять результат?", "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                SendEmail(body, tempFilePath);
+            }
             DataService.RemoveTest(_test, "tempTest.json");
 
         }

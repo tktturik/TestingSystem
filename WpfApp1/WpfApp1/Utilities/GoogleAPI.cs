@@ -20,19 +20,19 @@ namespace WpfApp1.Utilities
         private static DriveService _driveService;
         private static string nameApiKey;
 
-        public static void Initialize()
+        public static async Task Initialize()
         {
-            InitializeConfiguration();
-            InitializeDriveService();
+            await InitializeConfiguration();
+            await InitializeDriveService();
         }
 
-        private static void InitializeConfiguration()
+        private static async Task InitializeConfiguration()
         {
             mainIdFolder = "1ZsvGd8t9DMTyCwY8QrOWoLCbja5S6Yv-";
             nameApiKey = "credentials.json";
         }
 
-        private static void InitializeDriveService()
+        private static async Task InitializeDriveService()
         {
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string appFolderPath = System.IO.Path.Combine(appDataPath, "SkyNetTS");
@@ -42,7 +42,7 @@ namespace WpfApp1.Utilities
             {
                 if (!File.Exists(credPath))
                 {
-                    throw new FileNotFoundException($"Файл credentials.json не найден по пути: {credPath}");
+                    MessageBox.Show($"Файл credentials.json не найден по пути: {credPath}");
                 }
 
                 GoogleCredential credential;
@@ -63,17 +63,17 @@ namespace WpfApp1.Utilities
             }
         }
 
-
-        public static void LoadDirFromGoogleDrive(string path)
+        public static async Task LoadDirFromGoogleDrive(string path)
         {
             var request = _driveService.Files.List();
+            
+
             request.Q = $"'{mainIdFolder}' in parents and mimeType='application/vnd.google-apps.folder'";
 
-            try
-            {
-                var files = request.Execute().Files;
+            
+                var files = await request.ExecuteAsync();
 
-                if (files.Count == 0)
+                if (files.Files.Count == 0)
                 {
                     Debug.WriteLine("Папок нет");
                     Debug.WriteLine("СПИСОК ПУСТ DDDD");
@@ -81,50 +81,54 @@ namespace WpfApp1.Utilities
                 }
                 else
                 {
-                    foreach (var folder in files)
+                    foreach (var folder in files.Files)
                     {
                         string pathFolder = System.IO.Path.Combine(path, folder.Name);
-                        LoadTestsToLocalFolder(pathFolder, folder.Id);
+                        await LoadTestsToLocalFolder(pathFolder, folder.Id);
                     }
                 }
-            }
-            catch (TokenResponseException ex)
-            {
-                
-
-                    InitializeDriveService();
-                    LoadDirFromGoogleDrive(path);
-             
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Непредвиденная ошибка: {ex.Message}");
-            }
+            
+            //catch (TokenResponseException ex)
+            //{
+            //    await InitializeDriveService();
+            //    await LoadDirFromGoogleDrive(path);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine($"Непредвиденная ошибка: {ex.Message}");
+            //    MessageBox.Show($"Непредвиденная ошибка: {ex.Message}");
+            //}
         }
 
-      
-
-        public static void LoadTestsToLocalFolder(string path, string idFolder)
+        public static async Task LoadTestsToLocalFolder(string path, string idFolder)
         {
             var request = _driveService.Files.List();
             request.Q = $"'{idFolder}' in parents and mimeType='application/json'";
-            var files = request.Execute().Files;
+            request.Fields = "files(id, name, modifiedTime)";
+            var files = await request.ExecuteAsync();
 
-            if (files.Count == 0)
+            if (files.Files.Count == 0)
             {
                 Debug.WriteLine("СПИСОК ПУСТ DDDD");
                 return;
             }
 
-            foreach (var file in files)
+            foreach (var file in files.Files)
             {
-                DownloadFileToLocalFolderAsync(file.Id, file.Name, path);
+                string localFilePath = System.IO.Path.Combine(path, file.Name);
+
+                if (!System.IO.File.Exists(localFilePath) || IsFileModified(localFilePath, file.ModifiedTimeDateTimeOffset.GetValueOrDefault()))
+                {
+                    Debug.WriteLine($"{localFilePath}");
+                    Debug.WriteLine($"{file.Name} отредактированный? {IsFileModified(localFilePath, file.ModifiedTimeDateTimeOffset.GetValueOrDefault())} время{file.ModifiedTimeDateTimeOffset.GetValueOrDefault()}");
+                    await DownloadFileToLocalFolderAsync(file.Id, file.Name, path);
+                }
             }
 
-            Debug.WriteLine($"{files.Count} tests загружено на локальный диск.");
+            Debug.WriteLine($"{files.Files.Count} tests загружено на локальный диск.");
         }
 
-        private static void DownloadFileToLocalFolderAsync(string fileId, string fileName, string path)
+        private static async Task DownloadFileToLocalFolderAsync(string fileId, string fileName, string path)
         {
             var request = _driveService.Files.Get(fileId);
             var filePath = System.IO.Path.Combine(path, fileName);
@@ -137,7 +141,7 @@ namespace WpfApp1.Utilities
 
             using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
             {
-                request.Download(fileStream);
+                await request.DownloadAsync(fileStream);
             }
 
             Debug.WriteLine($"Файл {fileName} загружен на локальный диск.");
@@ -252,8 +256,9 @@ namespace WpfApp1.Utilities
 
         private static bool IsFileModified(string localFilePath, DateTimeOffset googleModifiedTime)
         {
-            var localModifiedTime = File.GetLastWriteTimeUtc(localFilePath);
-            return localModifiedTime > googleModifiedTime.UtcDateTime;
+            DateTime localModifiedTime = File.GetLastWriteTimeUtc(localFilePath);
+            Debug.WriteLine($"файл {localFilePath} был изменен {File.GetLastWriteTimeUtc(localFilePath)}");
+            return localModifiedTime < googleModifiedTime.UtcDateTime;
         }
     }
 }

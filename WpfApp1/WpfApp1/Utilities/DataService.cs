@@ -35,12 +35,12 @@ public class DataService
     {
         GoogleAPI.LoadDirFromGoogleDrive(path);
     }
-    public static void Initialize()
+    public static async Task Initialize()
     {
         if (!_isInitialized)
         {
             InitializeConfiguration();
-            GoogleAPI.Initialize();
+            await GoogleAPI.Initialize();
             GoogleAPI.LoadDirFromGoogleDrive(path);
 
             _isInitialized = true;
@@ -54,6 +54,8 @@ public class DataService
             string json = JsonConvert.SerializeObject(test, Newtonsoft.Json.Formatting.Indented);
             string filePath = Path.Combine(path, secondPartPath);
             File.WriteAllText(filePath, json);
+
+            Debug.WriteLine($"Тест {test.Title} сохранен по пути {filePath}");
         });
     }
 
@@ -64,25 +66,33 @@ public class DataService
         string dirPath = Path.Combine(path, folder);
         string[] files = Directory.GetFiles(dirPath, "*.json");
         //MessageBox.Show($"По пути {dirPath} находится {files.Length}");
-        foreach (string filePath in files)
+        try
         {
-            string json = File.ReadAllText(filePath);
+            foreach (string filePath in files)
+            {
+                string json = File.ReadAllText(filePath);
 
-            Test test = JsonConverter(json);
+                Test test = JsonConverter(json);
 
-            tests.Add(test);
+                tests.Add(test);
+            }
+
+            if (tests.Count == 0)
+            {
+                Debug.WriteLine("СПИСОК ПУСТ");
+            }
+            else
+            {
+                Debug.WriteLine($"{tests.Count} tests");
+            }
+
+            return tests;
+        }catch(IOException e)
+        {
+            MessageBox.Show("Повторите попытку чуть позже, тесты загружаются");
+            return null;
         }
 
-        if (tests.Count == 0)
-        {
-            Debug.WriteLine("СПИСОК ПУСТ");
-        }
-        else
-        {
-            Debug.WriteLine($"{tests.Count} tests");
-        }
-
-        return tests;
     }
     public static Test JsonConverter(string json)
     {

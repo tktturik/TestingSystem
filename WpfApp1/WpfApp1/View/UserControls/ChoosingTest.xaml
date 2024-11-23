@@ -45,7 +45,7 @@
               CommandParameter="ComputerLiteracy"
               IsChecked="False">
                 <Grid>
-                    <TextBlock Text="Компьютарная грамотность"
+                    <TextBlock Text="Компьютерная грамотность"
                    Style="{StaticResource TextStyle}"/>
                 </Grid>
             </u:TabBtn>
@@ -70,7 +70,8 @@
                             <Button Command="{Binding DataContext.EditTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0">
                                 <Image Source="/Image/EditIcon.png" Style="{StaticResource ImageStyle}"></Image>
                             </Button>
-                            <Button  Command="{Binding DataContext.DeleteTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0">
+                            <Button  Command="{Binding DataContext.DeleteTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" 
+                                     >
                                 <Image Source="/Image/RemoveIcon.png" Style="{StaticResource ImageStyle}"></Image>
                             </Button>
                         </StackPanel>
@@ -79,7 +80,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" >
             <Button Command="{Binding SyncFilesCommand}" BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Height="30" Width="30">
             <Image Source="\Image\syncIcon.png" Style="{StaticResource ImageStyle}"></Image>
         </Button>

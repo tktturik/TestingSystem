@@ -15,6 +15,7 @@
     <UserControl.Resources>
         <u:IntConverter x:Key="IntConvert"/>
         <u:ComboBoxItemContentConverter x:Key="ComboBoxItemConverter"/>
+        <u:ImageConverter x:Key="ImageConverter"/>
     </UserControl.Resources>
 
     <Grid>
@@ -32,8 +33,13 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical">
-                                <TextBox Tag="Введите вопрос" Style="{StaticResource QuestionTextBox}" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                                <ItemsControl ItemsSource="{Binding Answers}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Tag="Введите вопрос" Style="{StaticResource QuestionTextBox}" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <Button Content="-" Foreground="Black" Margin="20,-10,0,0" FontWeight="Bold" FontSize="30" Background="Transparent" BorderThickness="0" VerticalAlignment="Center" Command="{Binding DataContext.DeleteQuestionCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding }"></Button>
+                                </StackPanel>
+                                <!--<Image Source="{Binding ImageBytes, Converter={StaticResource ImageConverter}, Mode=TwoWay}" Width="100" Height="100" />
+                                <Button Content="Загрузить изображение" Command="{Binding DataContext.LoadImageCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" />-->
+                                    <ItemsControl ItemsSource="{Binding Answers}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
@@ -42,6 +48,8 @@
                                                           CommandParameter="{Binding}" Margin="20,20,0,0" />
                                                 <TextBox Tag="Введите ответ" Style="{StaticResource AnswerTextBox}"  Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                                 <TextBox Text="{Binding Points, Mode=TwoWay, Converter={StaticResource IntConvert}, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource AnswerTextBox}"  />
+                                                <Button Content="-" Foreground="Black" Margin="20,10,0,5" FontWeight="Bold" FontSize="30" Background="Transparent" BorderThickness="0" VerticalAlignment="Center" Command="{Binding DataContext.DeleteAnswerCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}"></Button>
+
                                             </StackPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>

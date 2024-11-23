@@ -49,12 +49,16 @@ namespace WpfApp1.ViewModels
         public ICommand SyncFilesCommand { get; }
         public ICommand SelectTabCommand { get; }
         public ICommand DownloadFilesCommand { get; }
+        public ICommand UpdateFilesCommand { get; }
+        
+
         private void DownloadFiles(object parametr)
         {
             DataService.LoadFiles();
         }
         private void SyncFiles(object parametr)
         {
+
             DataService.SyncFiles();
         }
         private void SelectTab(object parametr)
@@ -95,6 +99,7 @@ namespace WpfApp1.ViewModels
         }
         public ChoosingTestVM()
         {
+
             Tests = DataService.LoadTestsFromFolder("Python");
             EditTestCommand = new RelayCommand(EditTest);
             DeleteTestCommand = new RelayCommand(DeleteTest);
