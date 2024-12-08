@@ -91,10 +91,13 @@
                     <Border x:Name="Border"
                         Height="50"
                         Width="180"
-                        BorderThickness="0">
+                        BorderThickness="3"
+                        BorderBrush="#A6830E"
+                        CornerRadius="5"
+                            >
                         <Border.Background>
                             <SolidColorBrush x:Name="BorderBackground"
-                                         Color="#9a9548"
+                                         Color="#709a9548"
                                          />
                         </Border.Background>
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>

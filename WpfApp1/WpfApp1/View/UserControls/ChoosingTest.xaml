@@ -49,11 +49,18 @@
                    Style="{StaticResource TextStyle}"/>
                 </Grid>
             </u:TabBtn>
+            <Border BorderBrush="Purple" BorderThickness="2" CornerRadius="10" Padding="10">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Осталось попыток сегодня" Style="{StaticResource TextStyle}" TextWrapping="Wrap"></TextBlock>
+                    <TextBlock Text="{Binding Attemps}" Style="{StaticResource TextStyle}" TextWrapping="Wrap"></TextBlock>
+                </StackPanel>
+            </Border>
 
         </StackPanel>
         <ListView Grid.Row="1" ItemsSource="{Binding Tests}" SelectedItem="{Binding SelectedTest}"
                   Background="Transparent"
-                  BorderThickness="0">
+                  BorderThickness="0"
+                  HorizontalAlignment="Left">
                 <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

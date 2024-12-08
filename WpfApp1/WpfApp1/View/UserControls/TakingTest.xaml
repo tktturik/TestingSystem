@@ -48,7 +48,9 @@
         <Button Grid.Row="1"  Command="{Binding FinishTestCommand}" Style="{StaticResource CreateTestBtn}">
             <TextBlock Style="{StaticResource TextStyleBtn}" Text="Завершить тест"></TextBlock>
         </Button>
-        <TextBox Text="{Binding Experienced, Mode=OneWayToSource}" Grid.Row="1" Style="{StaticResource NameOfTestTB}" Tag="Кто проходит тест?" Width="auto" HorizontalAlignment="Left"
-                 Background="#BFA130" FontSize="25"></TextBox>
+        <Border Margin="30,0,0,10" CornerRadius="10" Grid.Row="1" BorderBrush="Purple" BorderThickness="3" Width="Auto" HorizontalAlignment="Left" Background="#70BFA130">
+            <TextBox Text="{Binding Experienced, Mode=OneWayToSource}" Style="{StaticResource NameOfTestTB}" Tag="Кто проходит тест?" Width="Auto" HorizontalAlignment="Left"
+                  FontSize="25" Margin="5"/>
+        </Border>
     </Grid>
 </UserControl>

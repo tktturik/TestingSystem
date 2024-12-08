@@ -53,7 +53,7 @@ namespace WpfApp1.View.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApp1;component/view/usercontrols/home.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/testingSystem;component/view/usercontrols/home.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\UserControls\Home.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

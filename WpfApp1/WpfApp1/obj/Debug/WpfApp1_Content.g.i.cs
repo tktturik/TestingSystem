@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/syncicon.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("appmanifest.txt")]
 
 

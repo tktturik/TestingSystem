@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using testingSystem.Models;
 using WpfApp1.Models;
 using WpfApp1.Utilities;
 
@@ -129,5 +130,29 @@ public class DataService
         }
     }
 
+    public static void SerializeAttemps(Attemps attemps)
+    {
+        Task.Run(() =>
+        {
+            string json = JsonConvert.SerializeObject(attemps, Newtonsoft.Json.Formatting.Indented);
+            string filePath = Path.Combine(path, "attemps.json");
+            File.WriteAllText(filePath, json);
+        });    
+    }
+    public static Attemps DeserializeAttemps()
+    {
+        try
+        {
+            string filePath = Path.Combine(path, "attemps.json");
+            string json = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<Attemps>(json);
+        }
+        catch (FileNotFoundException ex)
+        {
+            Attemps attemps = new Attemps() { CountAttemps = 3, LastUpdate = DateTime.Now };
+            SerializeAttemps(attemps);
+            return attemps;
+        }
+    }
 
 }

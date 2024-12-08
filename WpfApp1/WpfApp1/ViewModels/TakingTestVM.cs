@@ -19,6 +19,7 @@ using DocumentFormat.OpenXml;
 using System.IO;
 using Text = DocumentFormat.OpenXml.Wordprocessing.Text;
 using System.Configuration;
+using testingSystem.Models;
 
 namespace WpfApp1.ViewModels
 {
@@ -148,8 +149,8 @@ namespace WpfApp1.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка в CreateWordDocument: {ex.Message}");
-                Debug.WriteLine($"Ошибка в CreateWordDocument: {ex.Message}");
+                MessageBox.Show($"Ошибка в CreateWordDocument: {ex.Message} путь {filePath}");
+                Debug.WriteLine($"Ошибка в CreateWordDocument: {ex.Message} путь {filePath}");
             }
         }
         private async void SaveTemporaryFile(object parameter)
@@ -184,52 +185,90 @@ namespace WpfApp1.ViewModels
 
                 return sb.ToString();
             }
-            catch (Exception ex)
+            catch (DivideByZeroException ex)
+            {
+                MessageBox.Show($"В тесте максимальное количество баллов 0: {ex.Message}");
+                Debug.WriteLine($"Ошибка в FormatTestResults: {ex.Message}");
+                return string.Empty;
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show($"Ошибка в FormatTestResults: {ex.Message}");
+
                 Debug.WriteLine($"Ошибка в FormatTestResults: {ex.Message}");
                 return string.Empty;
             }
         }
+
         private void FinishTest(object parameter)
         {
-            if (string.IsNullOrWhiteSpace(Experienced) || Experienced.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length < 2)
+            try
             {
-                MessageBox.Show("Пожалуйста, введите свое имя и фамилию.");
-                return;
-            }
-            //int CountCorrect = 0;
-            int sumOfPoints = 0;
-            int maxPoints = 0;
-            foreach (Question question in questions)
-            {
-                int correctAnswersCount = question.Answers.Count(a => a.IsCorrectAnswer);
-                int selectedAnswersCount = question.Answers.Count(a=>a.IsSelected);
-                maxPoints += question.Answers.Sum(a => a.Points);
-                if (selectedAnswersCount <= correctAnswersCount)
+                //int attemptsAvailable = int.Parse(ConfigurationManager.AppSettings.Get("AttemptsAvailable"));
+                Attemps attemps = DataService.DeserializeAttemps();
+                if (attemps.CountAttemps <= 0)
                 {
-                    foreach (Answer answer in question.Answers)
+                    MessageBox.Show("Попытки на сегодня закончились");
+                    return;
+                }
+                if ((string.IsNullOrWhiteSpace(Experienced) || Experienced.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length < 2) && Experienced[0] != ' ')
+                {
+                    MessageBox.Show("Пожалуйста, введите свое имя и фамилию.");
+                    return;
+                }
+                //int CountCorrect = 0;
+                int sumOfPoints = 0;
+                int maxPoints = 0;
+                foreach (Question question in questions)
+                {
+                    int correctAnswersCount = question.Answers.Count(a => a.IsCorrectAnswer);
+                    int selectedAnswersCount = question.Answers.Count(a => a.IsSelected);
+                    maxPoints += question.Answers.Sum(a => a.Points);
+                    if (selectedAnswersCount <= correctAnswersCount)
                     {
-                        if (answer.IsCorrectAnswer && answer.IsSelected)
+                        foreach (Answer answer in question.Answers)
                         {
-                            sumOfPoints += answer.Points;
+                            if (answer.IsCorrectAnswer && answer.IsSelected)
+                            {
+                                sumOfPoints += answer.Points;
+                            }
                         }
                     }
                 }
-            }
-            string resultMessage = $"Набранные баллы: {sumOfPoints}";
-            MessageBox.Show(resultMessage);
-            string body = FormatTestResults(_test,sumOfPoints,maxPoints);
-            string tempFilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SkyNetTS\\Tests\\{Experienced}_{_test.Title}_{DateTime.Now}.docx";
-            CreateWordDocument(_test, sumOfPoints, maxPoints, tempFilePath);
-            if (MessageBox.Show("Отправлять результат?", "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
-                SendEmail(body, tempFilePath);
-            }
-            DataService.RemoveTest(_test, "tempTest.json");
+                string resultMessage = $"Набранные баллы: {sumOfPoints}";
+                MessageBox.Show(resultMessage);
+                string body = FormatTestResults(_test, sumOfPoints, maxPoints);
+                string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
+                string directoryPath = Path.Combine(appDataPath, "SkyNetTS", "Tests");
+                string fileName = $"{experienced}_{_test.Title}_{DateTime.Now:dd.MM.yyyy HH mm}.docx".Replace(":", " ");
+                string fullPath = Path.Combine(directoryPath, fileName);
+
+                CreateWordDocument(_test, sumOfPoints, maxPoints, fullPath);
+                if (MessageBox.Show("Отправлять результат?", "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    SendEmail(body, fullPath);
+                }
+
+                DataService.RemoveTest(_test, "tempTest.json");
+                attemps--;
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
+        //private void UpdateAttemps()
+        //{
+        //    int attemptsAvailable = int.Parse(ConfigurationManager.AppSettings.Get("AttemptsAvailable"));
+        //    attemptsAvailable--;
+        //    ConfigurationManager.AppSettings.Set("AttemptsAvailable", attemptsAvailable.ToString());
+        //    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        //    config.AppSettings.Settings["AttemptsAvailable"].Value = attemptsAvailable.ToString();
+        //    config.Save(ConfigurationSaveMode.Modified);
+        //    ConfigurationManager.RefreshSection("appSettings");
 
-    
+        //    Debug.WriteLine(ConfigurationManager.AppSettings.Get("AttemptsAvailable"));
+        //}
+
     }
 }

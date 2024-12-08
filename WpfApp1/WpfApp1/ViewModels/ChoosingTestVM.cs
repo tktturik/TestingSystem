@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Diagnostics;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System.IO;
+using System.Configuration;
+using testingSystem.Models;
 
 namespace WpfApp1.ViewModels
 {
@@ -20,6 +22,9 @@ namespace WpfApp1.ViewModels
         private NavigationVM _navigationVM;
         private Test selectedTest;
         private ObservableCollection<Test> tests { get; set; }
+        //private int attemps = int.Parse(ConfigurationManager.AppSettings.Get("AttemptsAvailable"));
+        private Attemps attemps;
+        //private DateTime timeToUpdateAttmeps = DateTime.Parse(ConfigurationManager.AppSettings.Get("LastResetTime"));
         public NavigationVM navigation
         {
             get { return _navigationVM; }
@@ -29,6 +34,31 @@ namespace WpfApp1.ViewModels
                 OnPropertyChanged();
             }
         }
+        //public DateTime TimeToUpdateAttmeps
+        //{
+        //    get
+        //    {
+        //        return timeToUpdateAttmeps;
+        //    }
+        //    set
+        //    {
+        //        timeToUpdateAttmeps = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+        public int Attemps
+        {
+            get
+            {
+                return attemps.CountAttemps;
+            }
+            set
+            {
+                attemps.CountAttemps = value;
+                OnPropertyChanged();
+            }
+        }
+
         public Test SelectedTest
         {
             get { return selectedTest; }
@@ -36,12 +66,17 @@ namespace WpfApp1.ViewModels
             {
                 selectedTest = value;
                 OnPropertyChanged();
-                if (selectedTest != null)
+                if (selectedTest != null && Attemps>0)
                 {
                     TakingTestVM takingTestVM = new TakingTestVM();
                     takingTestVM.SetTest(selectedTest);
                     _navigationVM.ShowSelectedTest(takingTestVM);
                 }
+                else
+                {
+                    MessageBox.Show("Попытки на сегодня закончились");
+                }
+            
             }
         }
         public ICommand EditTestCommand { get; }
@@ -100,18 +135,47 @@ namespace WpfApp1.ViewModels
         public ChoosingTestVM()
         {
 
-            Tests = DataService.LoadTestsFromFolder("Python");
-            EditTestCommand = new RelayCommand(EditTest);
-            DeleteTestCommand = new RelayCommand(DeleteTest);
-            SyncFilesCommand = new RelayCommand(SyncFiles);
-            SelectTabCommand = new RelayCommand(SelectTab);
-            DownloadFilesCommand = new RelayCommand(DownloadFiles);
+            try
+            {
+                Tests = DataService.LoadTestsFromFolder("Python");
+                EditTestCommand = new RelayCommand(EditTest);
+                DeleteTestCommand = new RelayCommand(DeleteTest);
+                SyncFilesCommand = new RelayCommand(SyncFiles);
+                SelectTabCommand = new RelayCommand(SelectTab);
+                DownloadFilesCommand = new RelayCommand(DownloadFiles);
+                attemps = DataService.DeserializeAttemps();
+                UpdateAttemps();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         public void SetNavigationVM(NavigationVM navigationVM)
         {
             navigation = navigationVM;
-
         }
+        private void UpdateAttemps()
+        {
+            if(DateTime.Now > attemps.LastUpdate.AddHours(1))
+            {
+                attemps.UpdateAttemps();
+            }
+        }
+//        private void SetAttmepsAndResetTime()
+//        {
+
+//            ConfigurationManager.AppSettings.Set("AttemptsAvailable", 3.ToString());
+//            ConfigurationManager.AppSettings.Set("LastTesetTime", DateTime.Now.ToString());
+
+//            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+//            config.AppSettings.Settings["AttemptsAvailable"].Value = 3.ToString();
+//            config.AppSettings.Settings["LastResetTime"].Value = DateTime.Now.ToString();
+//            config.Save(ConfigurationSaveMode.Modified);
+//            ConfigurationManager.RefreshSection("appSettings");
+
+//            Attemps = int.Parse(ConfigurationManager.AppSettings.Get("AttemptsAvailable"));
+//        }
     }
-}
+}   
