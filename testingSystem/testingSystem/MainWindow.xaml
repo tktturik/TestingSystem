@@ -28,7 +28,7 @@
                 <Button Style="{StaticResource NavigationBtn}" Command="{Binding ShowHomeViewCommand}" >
                     <TextBlock Style="{StaticResource TextStyle}" Text="Главная" ></TextBlock>
                 </Button>
-                <Button Command="{Binding ShowCreateTestViewCommand}" Style="{StaticResource NavigationBtn}" >
+                <Button Command="{Binding ShowCreateTestViewCommand}" Style="{StaticResource NavigationBtn}"  >
                     <TextBlock Style="{StaticResource TextStyle}" Text="Создать"></TextBlock>
                 </Button>
 

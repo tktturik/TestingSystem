@@ -151,6 +151,12 @@ namespace testingSystem.ViewModels
                 case "Компьютерная грамотность":
                     _test.Section = "ComputerLiteracy";
                     break;
+                case "Unity":
+                    _test.Section = "Unity";
+                    break;
+                case "Minecraft":
+                    _test.Section = "Minecraft";
+                    break;
                 default:
                     _test.Section = "Python";
                     break;

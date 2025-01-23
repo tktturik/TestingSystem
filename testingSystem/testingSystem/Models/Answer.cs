@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace testingSystem
 {
+    /// <summary>
+    /// Сущность Ответа, включает
+    /// Text - Текст ответа
+    /// IsCorrectAnswer - бульевое значение верности ответа
+    /// Points - количество баллов за ответ
+    /// </summary>
     public class Answer
     {
         public string Text { get; set; }

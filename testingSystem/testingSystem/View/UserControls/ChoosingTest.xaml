@@ -18,7 +18,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
+        <WrapPanel Orientation="Horizontal" Grid.Row="0">
             <u:TabBtn
     Style="{StaticResource TabBtn}"
               Command="{Binding SelectTabCommand}"
@@ -49,14 +49,36 @@
                    Style="{StaticResource TextStyle}"/>
                 </Grid>
             </u:TabBtn>
-            <Border BorderBrush="Purple" BorderThickness="2" CornerRadius="10" Padding="10">
+            <u:TabBtn
+Style="{StaticResource TabBtn}"
+          Command="{Binding SelectTabCommand}"
+          CommandParameter="Minecraft"
+          IsChecked="False">
+                <Grid>
+                    <TextBlock Text="Minecraft"
+               Style="{StaticResource TextStyle}"/>
+                </Grid>
+            </u:TabBtn>
+            <u:TabBtn
+Style="{StaticResource TabBtn}"
+          Command="{Binding SelectTabCommand}"
+          CommandParameter="Unity"
+          IsChecked="False">
+                <Grid>
+                    <TextBlock Text="Unity"
+               Style="{StaticResource TextStyle}"/>
+                </Grid>
+            </u:TabBtn>
+
+            <Border BorderBrush="Purple" BorderThickness="2" CornerRadius="10" Padding="10" >
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Осталось попыток сегодня" Style="{StaticResource TextStyle}" TextWrapping="Wrap"></TextBlock>
-                    <TextBlock Text="{Binding Attemps, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextStyle}" TextWrapping="Wrap"></TextBlock>
+                    <TextBlock Text="Осталось попыток сегодня" Style="{StaticResource TextStyle}" TextWrapping="Wrap"/>
+                    <TextBlock Text="{Binding Attemps, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextStyle}" TextWrapping="Wrap"/>
                 </StackPanel>
             </Border>
 
-        </StackPanel>
+        </WrapPanel>
+        
         <ListView Grid.Row="1" ItemsSource="{Binding Tests}" SelectedItem="{Binding SelectedTest}"
                   Background="Transparent"
                   BorderThickness="0"
@@ -74,10 +96,10 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
-                            <Button Command="{Binding DataContext.EditTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0">
+                            <Button  Command="{Binding DataContext.EditTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0">
                                 <Image Source="/Image/EditIcon.png" Style="{StaticResource ImageStyle}"></Image>
                             </Button>
-                            <Button  Command="{Binding DataContext.DeleteTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" 
+                            <Button Command="{Binding DataContext.DeleteTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" 
                                      >
                                 <Image Source="/Image/RemoveIcon.png" Style="{StaticResource ImageStyle}"></Image>
                             </Button>
@@ -88,7 +110,7 @@
         </ListView>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" >
-            <Button Command="{Binding SyncFilesCommand}" BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Height="30" Width="30">
+            <Button Command="{Binding SyncFilesCommand}" BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Height="30" Width="30" >
             <Image Source="\Image\syncIcon.png" Style="{StaticResource ImageStyle}"></Image>
         </Button>
         <Button Style="{StaticResource CreateTestBtn}" Command="{Binding DownloadFilesCommand}">

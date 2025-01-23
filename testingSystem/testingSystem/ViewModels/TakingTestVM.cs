@@ -128,8 +128,8 @@ namespace testingSystem.ViewModels
                     using (MailMessage mailMessage = new MailMessage())
                     {
                         mailMessage.From = new MailAddress(smtpUsername);
-                        mailMessage.To.Add("medvedshura1@gmail.com"); //skynet.college @mail.ru
-                        mailMessage.Subject = $"Результаты теста {_test.Title} ученика {experienced}";
+                        mailMessage.To.Add("skynet.college@mail.ru"); 
+                        mailMessage.Subject = $"Результаты теста {_test.Title} ученика {Test.Experienced}";
                         mailMessage.Body = body;
                         Attachment attachment = new Attachment(path);
                         mailMessage.Attachments.Add(attachment);
@@ -170,7 +170,7 @@ namespace testingSystem.ViewModels
 
                     Paragraph title = body.AppendChild(new Paragraph());
                     Run titleRun = title.AppendChild(new Run());
-                    titleRun.AppendChild(new Text($"Результаты теста ученика {experienced}:\nНабрано баллов {resultPoints} из {maxPoints}, что соответствует {resultPoints * 100 / maxPoints}%"));
+                    titleRun.AppendChild(new Text($"Результаты теста ученика {Test.Experienced}:\nНабрано баллов {resultPoints} из {maxPoints}, что соответствует {resultPoints * 100 / maxPoints}%"));
 
                     foreach (Question question in test.questions)
                     {
@@ -208,7 +208,7 @@ namespace testingSystem.ViewModels
             try
             {
                 StringBuilder sb = new StringBuilder();
-                sb.AppendLine($"Результаты теста ученика {experienced}:\nНабрано баллов {resultPoints} из {maxPoints}, " +
+                sb.AppendLine($"Результаты теста ученика {test.Experienced}:\nНабрано баллов {resultPoints} из {maxPoints}, " +
                     $"что соответствует {resultPoints* 100 / maxPoints  }%");
                 sb.AppendLine();
 
@@ -286,14 +286,13 @@ namespace testingSystem.ViewModels
                 string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
                 string directoryPath = Path.Combine(appDataPath, "SkyNetTS", "Tests");
-                string fileName = $"{experienced}_{_test.Title}_{DateTime.Now:dd.MM.yyyy HH mm}.docx".Replace(":", " ");
+                string fileName = $"{_test.Experienced}_{_test.Title}_{DateTime.Now:dd.MM.yyyy HH mm}.docx".Replace(":", " ");
                 string fullPath = Path.Combine(directoryPath, fileName);
 
                 CreateWordDocument(_test, sumOfPoints, maxPoints, fullPath);
-                if (MessageBox.Show("Отправлять результат?", "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                {
-                    SendEmail(body, fullPath);
-                }
+                MessageBox.Show("Отчет отправляется...");
+                SendEmail(body, fullPath);
+                
 
                 DataService.RemoveTest(_test, "tempTest.json");
                 attemps--;

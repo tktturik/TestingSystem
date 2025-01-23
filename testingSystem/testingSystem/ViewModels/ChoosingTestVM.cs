@@ -16,6 +16,9 @@ using testingSystem.ViewModels;
 
 namespace testingSystem.ViewModels
 {
+    /// <summary>
+    /// VM Отвечающая за поведение View - ChosingTest(Выбора тестов)
+    /// </summary>
     internal class ChoosingTestVM : ViewModelBase
     {
 
@@ -23,6 +26,7 @@ namespace testingSystem.ViewModels
         private ObservableCollection<Test> tests { get; set; }
         //private int attemps = int.Parse(ConfigurationManager.AppSettings.Get("AttemptsAvailable"));
         private Attemps attemps;
+        private string curTab;
         //private DateTime timeToUpdateAttmeps = DateTime.Parse(ConfigurationManager.AppSettings.Get("LastResetTime"));
         
         //public DateTime TimeToUpdateAttmeps
@@ -49,7 +53,9 @@ namespace testingSystem.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        /// <summary>
+        /// Открытие выбранного теста в ListView
+        /// </summary>
         public Test SelectedTest
         {
             get { return selectedTest; }
@@ -84,35 +90,52 @@ namespace testingSystem.ViewModels
         public ICommand DownloadFilesCommand { get; }
         public ICommand UpdateFilesCommand { get; }
         
-
-        private void DownloadFiles(object parametr)
+        /// <summary>
+        /// Вызов процесса загрузки файлов, тестов с GoogleDrive
+        /// </summary>
+        /// <param name="parametr"></param>
+        private async void DownloadFiles(object parametr)
         {
-            DataService.LoadFiles();
+            await DataService.LoadFiles();
+            Tests = DataService.LoadTestsFromFolder(curTab);
+            OnPropertyChanged();
         }
+        /// <summary>
+        /// Вызов синхранизации тестов
+        /// </summary>
+        /// <param name="parametr"></param>
         private void SyncFiles(object parametr)
         {
-
             DataService.SyncFiles();
         }
+        /// <summary>
+        /// Загрузка тестов определенной вкладки, parametr - параметр, передающийся с View
+        /// </summary>
+        /// <param name="parametr"></param>
         private void SelectTab(object parametr)
         {
-            string folder = Convert.ToString(parametr);
+            curTab = Convert.ToString(parametr);
 
-            Tests = DataService.LoadTestsFromFolder(folder);
+            Tests = DataService.LoadTestsFromFolder(curTab);
         }
-
+        /// <summary>
+        /// Открытие UserControl CreateTest, где будет тест, который нужен отредактировать
+        /// </summary>
+        /// <param name="parametr"></param>
         private void EditTest(object parametr)
         {
             if (parametr is Test testToUpdate)
             {
-                Debug.WriteLine("check");
-
                 CreateTestVM createTestVM = new CreateTestVM();
                 createTestVM.Test = testToUpdate;
-                navigation.ShowSelectedTest(createTestVM);
+                navigation.SetUserControl(createTestVM);
             }
 
         }
+        /// <summary>
+        /// Удаление теста с коллекции тестов и с компьютера
+        /// </summary>
+        /// <param name="parametr"></param>
         private void DeleteTest(object parametr)
         {
             if (parametr is Test testToDelete)
@@ -130,6 +153,9 @@ namespace testingSystem.ViewModels
                 OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// Конструктор, где десериализуются файл попыток на тест и инициализурются команды и Тесты папки Python
+        /// </summary>
         public ChoosingTestVM()
         {
             attemps = DataService.DeserializeAttemps();
@@ -137,7 +163,8 @@ namespace testingSystem.ViewModels
 
             try
             {
-                Tests = DataService.LoadTestsFromFolder("Python");
+                curTab = "Python";
+                Tests = DataService.LoadTestsFromFolder(curTab);
                 EditTestCommand = new RelayCommand(EditTest);
                 DeleteTestCommand = new RelayCommand(DeleteTest);
                 SyncFilesCommand = new RelayCommand(SyncFiles);
@@ -151,6 +178,9 @@ namespace testingSystem.ViewModels
         }
 
        
+        /// <summary>
+        /// Вызов обновления попыток, если прошло больше часа с последнего обновления
+        /// </summary>
         private void UpdateAttemps()
         {
             if(DateTime.Now > attemps.LastUpdate.AddHours(1))

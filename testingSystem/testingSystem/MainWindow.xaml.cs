@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Reflection;
 using testingSystem.View.UserControls;
 using testingSystem.ViewModels;
 
@@ -26,7 +27,8 @@ namespace testingSystem
         public MainWindow()
         {
             InitializeComponent();
-
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            DataService.UpdateVersrionFile(version);
         }
 
         

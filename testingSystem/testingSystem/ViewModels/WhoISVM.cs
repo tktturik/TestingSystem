@@ -87,13 +87,19 @@ namespace testingSystem.ViewModels
         }
         public ICommand StartTestCommad { get; }
 
-
+        /// <summary>
+        /// Открытие UserControl прохождения теста
+        /// </summary>
+        /// <param name="parameter"></param>
         private void OpenTakingTest(object parameter)
         {
             if(!string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Surname))
             {
                 takingTest.Test.Experienced = string.Join(" ", Name, Surname);
+                Debug.WriteLine($"{Name} {Surname}");
                 Debug.WriteLine($"{takingTest.Experienced}");
+                Debug.WriteLine($"{takingTest.Test.Experienced}");
+
                 navigation.SetUserControl(takingTest);
             }
             else

@@ -6,22 +6,29 @@ using System.Threading.Tasks;
 
 namespace testingSystem.Models
 {
+    /// <summary>
+    /// Сущность Попытки, включает 
+    /// LastUpdate - Дата последнего обновления попыток
+    /// CountAttemps - Количество оставшихся попыток
+    /// </summary>
     public class Attemps
     {
         public DateTime LastUpdate { get; set; }
         public int CountAttemps {  get; set; }
 
-        public Attemps() {
-        }
-
+        /// <summary>
+        /// Обновление попыток и сериализация текущего объекта
+        /// </summary>
+        /// <returns>Количество попыток</returns>
         public int UpdateAttemps()
         {
-            CountAttemps = 3;
+            CountAttemps = 1;
             LastUpdate = DateTime.Now;
             DataService.SerializeAttemps(this);
             return CountAttemps;
         }
      
+        
         public static Attemps operator --(Attemps attemps)
         {
             attemps.CountAttemps--;

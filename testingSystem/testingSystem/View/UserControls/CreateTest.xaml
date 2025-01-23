@@ -80,9 +80,11 @@
         <ComboBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="140" Height="45"
           SelectedItem="{Binding SelectedComboBoxItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ComboBoxItemConverter}}"
                   >
-            <ComboBoxItem Content="Python" Name="dd" />
+            <ComboBoxItem Content="Python"  />
             <ComboBoxItem Content="Roblox Studio" />
             <ComboBoxItem Content="Компьютерная грамотность" />
+            <ComboBoxItem Content="Unity" />
+            <ComboBoxItem Content="Minecraft" />
         </ComboBox>
     </Grid>
 </UserControl>

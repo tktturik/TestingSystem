@@ -143,7 +143,13 @@ namespace testingSystem.Utilities
             {
                 await request.DownloadAsync(fileStream);
             }
+            FileInfo fileInfo = new FileInfo(filePath);
 
+            if (fileInfo.Length == 0)
+            {
+                Debug.WriteLine($"Файл {fileInfo.Name} был загружен пустой");
+                await DownloadFileToLocalFolderAsync(fileId, fileName, path);
+            }
             Debug.WriteLine($"Файл {fileName} загружен на локальный диск.");
         }
 

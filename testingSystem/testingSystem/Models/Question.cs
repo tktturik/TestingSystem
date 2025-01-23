@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace testingSystem
 {
+    /// <summary>
+    /// Сущность Вопрос, включает Text - текст вопроса
+    /// Answers - коллекция ответов
+    /// 
+    /// </summary>
     public class Question
     {
         public string Text { get; set; }

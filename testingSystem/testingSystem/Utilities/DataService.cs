@@ -10,12 +10,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using testingSystem.Models;
-using testingSystem.Models;
 using testingSystem.Utilities;
 
+/// <summary>
+/// Класс отвечающий за работу с данными
+/// path - путь к директории с файлами
+/// 
+/// </summary>
 public class DataService
 {
-    private static string path;
+    private static string path; 
 
     private static bool _isInitialized;
 
@@ -23,19 +27,28 @@ public class DataService
     {
         InitializeConfiguration();
     }
+    /// <summary>
+    /// Инициализация конфигурации класса, создает директорию по path, если она не существует
+    /// </summary>
     private static void InitializeConfiguration()
     {
-        
         path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SkyNetTS\\Tests";
         if(!Directory.Exists(path))
         {
            Directory.CreateDirectory(path);
         }
     }
-    public static void LoadFiles()
+    /// <summary>
+    /// Запуск скачивания файлов с GoogleDrive
+    /// </summary>
+    public static async Task LoadFiles()
     {
-        GoogleAPI.LoadDirFromGoogleDrive(path);
+        await GoogleAPI.LoadDirFromGoogleDrive(path);
     }
+    /// <summary>
+    /// Инициализация GoogleAPI
+    /// </summary>
+    /// <returns></returns>
     public static async Task Initialize()
     {
         if (!_isInitialized)
@@ -47,7 +60,12 @@ public class DataService
             _isInitialized = true;
         }
     }
-
+    /// <summary>
+    /// Сохранение теста, он сериализуется и находится по path
+    /// </summary>
+    /// <param name="test">Тест, который будет сериализован</param>
+    /// <param name="secondPartPath">Имя файла</param>
+    /// <returns></returns>
     public  static Task SaveTest(Test test, string secondPartPath)
     {
         return Task.Run(() =>
@@ -60,7 +78,11 @@ public class DataService
         });
     }
 
-
+    /// <summary>
+    /// Загрузка тестов с папки, все тесты с директории path десериализуются и добавляются в коллекцию, которая возвращается
+    /// </summary>
+    /// <param name="folder"></param>
+    /// <returns>Коллекцию тестов</returns>
     public static ObservableCollection<Test> LoadTestsFromFolder(string folder)
     {
         ObservableCollection<Test> tests = new ObservableCollection<Test>();
@@ -78,15 +100,6 @@ public class DataService
                 tests.Add(test);
             }
 
-            if (tests.Count == 0)
-            {
-                Debug.WriteLine("СПИСОК ПУСТ");
-            }
-            else
-            {
-                Debug.WriteLine($"{tests.Count} tests");
-            }
-
             return tests;
         }catch(IOException e)
         {
@@ -95,13 +108,22 @@ public class DataService
         }
 
     }
+    /// <summary>
+    /// Десериализация теста
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns>Десериализованный объект Test</returns>
     public static Test JsonConverter(string json)
     {
-
         return JsonConvert.DeserializeObject<Test>(json);
     }
 
-
+    /// <summary>
+    /// Удаляет тест
+    /// </summary>
+    /// <param name="test"></param>
+    /// <param name="secondPartPath"></param>
+    /// <returns></returns>
     public static bool RemoveTest(Test test, string secondPartPath)
     {
         string filePath = Path.Combine(path, secondPartPath);
@@ -112,15 +134,26 @@ public class DataService
         }
         return false;
     }
-
+    /// <summary>
+    /// Запуск синхранизации файлов текущего компьютера с GoogleDrive
+    /// </summary>
     public static void SyncFiles()
     {
         var a = GoogleAPI.SyncLocalFilesWithGoogleDrive(path);
     }
+    /// <summary>
+    /// Проверка существования файла
+    /// </summary>
+    /// <param name="secondPartPath"></param>
+    /// <returns>True, если файл существует
+    /// False, если нет</returns>
     public static bool FileExists(string secondPartPath)
     {
         return File.Exists(Path.Combine(path, secondPartPath));
     }
+    /// <summary>
+    /// Удаление всех временных файлов
+    /// </summary>
     public static void DeleteTempFile()
     {
         var files = Directory.GetFiles(path, "temp*");
@@ -129,7 +162,10 @@ public class DataService
             File.Delete(file);
         }
     }
-
+    /// <summary>
+    /// Сериализация объекта попыток
+    /// </summary>
+    /// <param name="attemps"></param>
     public static void SerializeAttemps(Attemps attemps)
     {
         Task.Run(() =>
@@ -139,6 +175,10 @@ public class DataService
             File.WriteAllText(filePath, json);
         });    
     }
+    /// <summary>
+    /// Десериазация файла в объект попыток
+    /// </summary>
+    /// <returns></returns>
     public static Attemps DeserializeAttemps()
     {
         try
@@ -149,10 +189,14 @@ public class DataService
         }
         catch (FileNotFoundException ex)
         {
-            Attemps attemps = new Attemps() { CountAttemps = 3, LastUpdate = DateTime.Now };
+            Attemps attemps = new Attemps() { CountAttemps = 1, LastUpdate = DateTime.Now };
             SerializeAttemps(attemps);
             return attemps;
         }
+    }
+    public static void UpdateVersrionFile(Version version)
+    {
+        File.WriteAllText("versions.txt",version.ToString());
     }
 
 }
