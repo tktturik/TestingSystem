@@ -17,10 +17,12 @@ namespace testingSystem
         public string Text { get; set; }
         public ObservableCollection<Answer> Answers { get; set; }
         public byte[] ImageBytes { get; set; }
+        
 
         public Question()
         {
             Answers = new ObservableCollection<Answer>();
+            
         }
     }
 }

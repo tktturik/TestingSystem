@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DocumentFormat.OpenXml, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.3.1.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
@@ -55,6 +58,9 @@
     </Reference>
     <Reference Include="Google.Apis.Drive.v3, Version=1.68.0.3508, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.Drive.v3.1.68.0.3508\lib\net462\Google.Apis.Drive.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="HandyControl, Version=3.5.1.0, Culture=neutral, PublicKeyToken=45be8712787a1e5b, processorArchitecture=MSIL">
+      <HintPath>..\packages\HandyControl.3.5.1\lib\net472\HandyControl.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -88,16 +94,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Attemps.cs" />
+    <Compile Include="Utilities\AnswerCheckBox.cs" />
     <Compile Include="Utilities\ComboBoxItemConverter.cs" />
     <Compile Include="Utilities\DataService.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Test.cs" />
+    <Compile Include="Utilities\Email.cs" />
     <Compile Include="Utilities\GoogleAPI.cs" />
     <Compile Include="Utilities\ImageConverter.cs" />
     <Compile Include="Utilities\IntConvert.cs" />
     <Compile Include="Utilities\TabBtn.cs" />
     <Compile Include="Utilities\UserControlFactory.cs" />
     <Compile Include="Utilities\ViewModelBase.cs" />
+    <Compile Include="Utilities\WordDocument.cs" />
     <Compile Include="ViewModels\ChoosingTestVM.cs" />
     <Compile Include="ViewModels\CreateTestVM.cs" />
     <Compile Include="Models\Question.cs" />
@@ -106,6 +115,7 @@
     <Compile Include="ViewModels\MyFilesVM.cs" />
     <Compile Include="ViewModels\NavigationVM.cs" />
     <Compile Include="ViewModels\PersonalAccountVM.cs" />
+    <Compile Include="ViewModels\ResultTestVM.cs" />
     <Compile Include="ViewModels\SettingsVM.cs" />
     <Compile Include="ViewModels\TakingTestVM.cs" />
     <Compile Include="ViewModels\TasksVM.cs" />
@@ -134,6 +144,9 @@
     <Compile Include="View\UserControls\Tasks.xaml.cs">
       <DependentUpon>Tasks.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\TestResult.xaml.cs">
+      <DependentUpon>TestResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\WhoIs.xaml.cs">
       <DependentUpon>WhoIs.xaml</DependentUpon>
     </Compile>
@@ -157,9 +170,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\ImageStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ListBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\PageStyle.xaml">
       <SubType>Designer</SubType>
@@ -206,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserControls\Tasks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\TestResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -258,6 +283,8 @@
     <Resource Include="Image\HomeImage.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\logo.png" />
+    <Resource Include="icon.ico" />
     <Content Include="Image\arrow-left.svg" />
     <Resource Include="Image\user.png" />
     <Resource Include="Image\backicon.png" />

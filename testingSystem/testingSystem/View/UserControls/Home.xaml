@@ -12,7 +12,7 @@
     </UserControl.DataContext>
     <Grid>
         <Grid>
-            <Image Source="\Image\HomeImage.jpg" Width="300"/>
+            <Image Source="\Image\logo.png" Width="300"/>
         </Grid>
     </Grid>
 </UserControl>

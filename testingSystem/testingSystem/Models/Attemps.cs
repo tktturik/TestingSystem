@@ -27,6 +27,11 @@ namespace testingSystem.Models
             DataService.SerializeAttemps(this);
             return CountAttemps;
         }
+        public Attemps()
+        {
+            CountAttemps = 1;
+            LastUpdate = DateTime.Now;
+        }
      
         
         public static Attemps operator --(Attemps attemps)

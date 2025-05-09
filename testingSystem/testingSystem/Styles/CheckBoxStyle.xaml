@@ -48,5 +48,36 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="AnswerCheckBox" TargetType="CheckBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Border x:Name="Border" 
+                        Background="Transparent" 
+                        BorderThickness="0" 
+                        Padding="5"
+                        CornerRadius="10">
+                        
+                        <ContentPresenter x:Name="ContentPresenter" 
+                                      VerticalAlignment="Center" 
+                                      HorizontalAlignment="Left" 
+                                      Margin="5,0,0,0"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- Триггер для состояния IsChecked -->
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#800080"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                            <Setter TargetName="ContentPresenter" Property="TextElement.FontSize" Value="20"/>
+                        </Trigger>
+                        <!-- Триггер для состояния IsMouseOver -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#ddb93b"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 </ResourceDictionary>

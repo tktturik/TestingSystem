@@ -4,6 +4,7 @@
         <Setter Property="Foreground" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
+        
         <Style.Triggers>
             <DataTrigger Binding="{Binding Path=Text, RelativeSource={RelativeSource AncestorType=TextBox}}" Value="">
                 <Setter Property="Foreground" Value="Black"/>

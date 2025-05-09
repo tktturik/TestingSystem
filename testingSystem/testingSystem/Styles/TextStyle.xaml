@@ -23,7 +23,7 @@
         <Setter Property="HorizontalAlignment"
                 Value="Center" />
         <Setter Property="Foreground"
-                Value="Black" />
+                Value="#fdd330" />
         <Setter Property="FontSize"
                 Value="20" />
         <Setter Property="FontWeight"
@@ -43,6 +43,57 @@
                 Value="10" />
         <Setter Property="FontWeight"
                 Value="Bold"/>
+    </Style>
+    <Style x:Key="ResultAnswerText" TargetType="Border">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="#47046e"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="5"/>
+        <Style.Triggers>
+           
+
+            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                <Setter Property="Background" Value="LightCoral"/>
+                <Setter Property="BorderBrush" Value="DarkRed"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsCorrectAnswer}" Value="True">
+                <Setter Property="Background" Value="LightGreen"/>
+                <Setter Property="BorderBrush" Value="DarkGreen"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ResultAnswerTextBlock" TargetType="TextBlock" BasedOn="{StaticResource TakingTestText}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                <Setter Property="Foreground" Value="DarkRed"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsCorrectAnswer}" Value="True">
+                <Setter Property="Foreground" Value="DarkGreen"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="PointsTextStyle" TargetType="TextBlock" BasedOn="{StaticResource TakingTestText}">
+        <Setter Property="Foreground" Value="Gray"></Setter>
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding IsCorrectAnswer}" Value="True"></Condition>
+                    <Condition Binding="{Binding IsSelected}" Value="True"></Condition>
+                </MultiDataTrigger.Conditions>
+                <Setter Property="Foreground" Value="Gray"></Setter>
+            </MultiDataTrigger>
+            <DataTrigger Binding="{Binding IsCorrectAnswer}" Value="False">
+                <Setter Property="Foreground" Value="Transparent"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsSelected}" Value="False">
+                <Setter Property="Foreground" Value="Transparent"/>
+            </DataTrigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

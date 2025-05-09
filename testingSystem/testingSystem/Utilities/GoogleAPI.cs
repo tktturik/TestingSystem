@@ -155,6 +155,7 @@ namespace testingSystem.Utilities
 
         public static async Task SyncLocalFilesWithGoogleDrive(string localFolderPath)
         {
+            Debug.WriteLine("AAAAAAAAAAA");
             var googleFolders = await GetFoldersInFolder(mainIdFolder);
             var localFolders = Directory.GetDirectories(localFolderPath);
 

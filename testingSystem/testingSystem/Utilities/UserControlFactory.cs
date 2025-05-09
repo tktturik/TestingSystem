@@ -22,7 +22,9 @@ public class UserControlFactory
             { typeof(SettingsVM), () => new Settings() },
             { typeof(MyFilesVM), () => new MyFiles() },
             { typeof(PersonalAccountVM), () => new PersonalAccount() },
-            { typeof(WhoISVM), () => new WhoIs() }
+            { typeof(WhoISVM), () => new WhoIs() },
+            { typeof(ResultTestVM), () => new TestResult() }
+
         };
     }
 

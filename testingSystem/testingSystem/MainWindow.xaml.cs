@@ -29,11 +29,15 @@ namespace testingSystem
             InitializeComponent();
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             DataService.UpdateVersrionFile(version);
+            this.Closing += MainWindow_Closing;
         }
 
-        
+        private  void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            e.Cancel = true;
+        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             if (CurrContentControl.Content is TakingTest takingTest)
             {
@@ -41,14 +45,14 @@ namespace testingSystem
 
                 if (takingTestVM != null)
                 {
-                    var result = MessageBox.Show("Вы уверены, что хотите завершить тест?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    var result = MessageBox.Show("Сначала завершите тестирование", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-                    if (result == MessageBoxResult.Yes) 
-                    {
-                        takingTestVM.FinishTest(null); 
-                        DataService.DeleteTempFile(); 
-                        Application.Current.Shutdown();
-                    }
+                    //if (result == MessageBoxResult.Yes) 
+                    //{
+                    //    await Task.Run(() => takingTestVM.FinishTest(null));
+                    //    DataService.DeleteTempFile(); 
+                    //    Application.Current.Shutdown();
+                    //}
                 }
             }
             else

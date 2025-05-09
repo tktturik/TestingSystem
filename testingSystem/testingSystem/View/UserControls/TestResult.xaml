@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="testingSystem.View.UserControls.TestResult"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:testingSystem.ViewModels"
+             xmlns:local="clr-namespace:testingSystem.View.UserControls"
+             mc:Ignorable="d" 
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="Transparent"
+             Width="700" Height="700">
+
+    <UserControl.DataContext>
+        <vm:ResultTestVM />
+    </UserControl.DataContext>
+    <Border Background="{DynamicResource BackgroundBrush}" CornerRadius="20" BorderThickness="0">
+    <Grid>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock Text="Результаты:" 
+                       Style="{StaticResource TextBlockLarge}" 
+                       HorizontalAlignment="Center" 
+                       Margin="10"
+                       Padding="10"
+                       Grid.Row="0"/>
+                    <TextBlock Text="{Binding Result}" Style="{StaticResource TextBlockLarge}">
+                        
+                    </TextBlock>
+                </WrapPanel>
+                <Border Margin="10" Grid.Row="1">
+                <hc:ScrollViewer IsInertiaEnabled="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanMouseWheel="True">
+                    <ItemsControl x:Name="ResultsContainer" ItemsSource="{Binding Questions}" Width="500" HorizontalAlignment="Stretch">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" Margin="0,10" HorizontalAlignment="Stretch" >
+                                    <!-- Вопрос -->
+                                    <TextBlock Text="{Binding Text}" 
+                                               Style="{StaticResource TakingTestText}" 
+                                               FontWeight="Bold" 
+                                               TextWrapping="Wrap"/>
+
+                                    <!-- Ответы -->
+                                    <ItemsControl ItemsSource="{Binding Answers}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <WrapPanel Orientation="Vertical" Margin="10,0" HorizontalAlignment="Stretch">
+                                                    <Border Style="{StaticResource ResultAnswerText}">
+                                                    <TextBlock Text="{Binding Text}" 
+                                                         Style="{StaticResource ResultAnswerTextBlock}"
+                                                         TextWrapping="Wrap"/>
+                                                    </Border>
+
+                                                    <TextBlock Text="{Binding Points, StringFormat='({0} балл)'}" 
+                                                               Style="{StaticResource PointsTextStyle}" 
+                                                               Margin="5,0,0,0"
+                                                               TextWrapping="Wrap"
+                                                               HorizontalAlignment="Left"/>
+                                                </WrapPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </hc:ScrollViewer>
+            </Border>
+                <WrapPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Vertical">
+                    <TextBlock>
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockLargeBold}">
+                                <Setter Property="Text" Value="Отчет отправляется"/>
+                                <Setter Property="Padding" Value="10"></Setter>
+                                <Setter Property="Margin" Value="10"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ReportIsSend}" Value="True">
+                                        <Setter Property="Text" Value="Отчет отправлен"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <hc:WaveProgressBar Minimum="0" Maximum="100" 
+                        Value="{Binding ReportProgress}" 
+                        Width="70" Height="70" 
+                        WaveThickness="7" 
+                        WaveStroke="Aqua" 
+                        ShowText="False" 
+                        Background="LightGray">
+                       
+                    </hc:WaveProgressBar>
+                </WrapPanel>
+        </Grid>
+
+        <Button Width="22" 
+                Height="22" 
+                Command="hc:ControlCommands.Close" 
+                Style="{StaticResource ButtonIcon}" 
+                Foreground="{DynamicResource PrimaryBrush}" 
+                hc:IconElement.Geometry="{StaticResource ErrorGeometry}" 
+                Padding="0" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                Margin="0,4,4,0"
+                IsEnabled="{Binding ReportIsSend}"/>
+    </Grid>
+    </Border>
+</UserControl>

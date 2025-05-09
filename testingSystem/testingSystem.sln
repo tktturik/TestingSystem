@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testingSystem", "testingSys
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Launcher", "Launcher\Launcher.csproj", "{797CFE62-C0EA-4D53-8D15-22AA705EFC70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization", "Authorization\Authorization.csproj", "{F4923FB2-0077-41CB-B9DD-D9F7B4A5BC3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{797CFE62-C0EA-4D53-8D15-22AA705EFC70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{797CFE62-C0EA-4D53-8D15-22AA705EFC70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{797CFE62-C0EA-4D53-8D15-22AA705EFC70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4923FB2-0077-41CB-B9DD-D9F7B4A5BC3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4923FB2-0077-41CB-B9DD-D9F7B4A5BC3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4923FB2-0077-41CB-B9DD-D9F7B4A5BC3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4923FB2-0077-41CB-B9DD-D9F7B4A5BC3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

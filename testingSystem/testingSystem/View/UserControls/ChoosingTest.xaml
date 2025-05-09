@@ -6,6 +6,7 @@
              xmlns:vm ="clr-namespace:testingSystem.ViewModels"
              xmlns:local="clr-namespace:testingSystem.View.UserControls"
              xmlns:u="clr-namespace:testingSystem.Utilities"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
@@ -76,18 +77,20 @@ Style="{StaticResource TabBtn}"
                     <TextBlock Text="{Binding Attemps, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextStyle}" TextWrapping="Wrap"/>
                 </StackPanel>
             </Border>
+            
 
         </WrapPanel>
         
-        <ListView Grid.Row="1" ItemsSource="{Binding Tests}" SelectedItem="{Binding SelectedTest}"
+        <ListBox Grid.Row="1" ItemsSource="{Binding Tests, Mode=TwoWay}" SelectedItem="{Binding SelectedTest}" 
                   Background="Transparent"
                   BorderThickness="0"
-                  HorizontalAlignment="Left">
-            <ListView.ItemTemplate>
+                  Style="{StaticResource ModernListBoxStyle}"
+                  >
+            <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="550" />
+                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
@@ -96,26 +99,27 @@ Style="{StaticResource TabBtn}"
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
-                            <Button  Command="{Binding DataContext.EditTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0">
+                            <Button  Command="{Binding DataContext.EditTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" Visibility="Collapsed" IsEnabled="False">
                                 <Image Source="/Image/EditIcon.png" Style="{StaticResource ImageStyle}"></Image>
                             </Button>
-                            <Button Command="{Binding DataContext.DeleteTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" 
-                                     >
+                            <Button Command="{Binding DataContext.DeleteTestCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" Visibility="Collapsed" IsEnabled="False">
                                 <Image Source="/Image/RemoveIcon.png" Style="{StaticResource ImageStyle}"></Image>
                             </Button>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" >
-            <Button Command="{Binding SyncFilesCommand}" BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Height="30" Width="30" >
+            <Button Command="{Binding SyncFilesCommand}" BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Height="30" Width="30" Visibility="Collapsed" IsEnabled="False">
             <Image Source="\Image\syncIcon.png" Style="{StaticResource ImageStyle}"></Image>
         </Button>
-        <Button Style="{StaticResource CreateTestBtn}" Command="{Binding DownloadFilesCommand}">
+        
+        <!--<Button Style="{StaticResource CreateTestBtn}" Command="{Binding DownloadFilesCommand}">
             <TextBlock Text="Загрузить" Style="{StaticResource TextStyleBtn}"></TextBlock>
-        </Button>
+        </Button>-->
+            
         </StackPanel>
     </Grid>
 </UserControl>

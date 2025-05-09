@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:testingSystem.View.UserControls"
              xmlns:u="clr-namespace:testingSystem.Utilities"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:vm ="clr-namespace:testingSystem.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -21,39 +22,42 @@
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Left" Margin="20,0,0,0" Orientation="Horizontal">
-            <Button Command="{Binding DataContext.BackBtnCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" Background="Transparent" BorderThickness="0">
-                <Image Source="/Image/backicon.png" Style="{StaticResource ImageStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
-            </Button>
+            <Button Command="{Binding DataContext.BackBtnCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" Style="{StaticResource ButtonIcon}" Foreground="Black" Background="Transparent" hc:IconElement.Geometry ="{StaticResource LeftGeometry}"></Button>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Style="{StaticResource TextStyle}" Text="{Binding NameOfTest, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ></TextBlock>
             </StackPanel>
         </StackPanel>
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+        <hc:ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="QuestionsContainer">
-                <ItemsControl ItemsSource="{Binding Questions}">
+               <ItemsControl ItemsSource="{Binding Questions}" AlternationCount="{Binding Questions.Count}">
+    <ItemsControl.ItemTemplate>
+        <DataTemplate>
+                <StackPanel Orientation="Vertical">
+                                <!-- Текст вопроса -->
+                <TextBlock Text="{Binding Text}" Style="{StaticResource TakingTestText}" Foreground="Black"/>
+                <!-- Ответы -->
+                <ItemsControl ItemsSource="{Binding Answers}" AlternationCount="{Binding Answers.Count}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding Text}" Style="{StaticResource TakingTestText}" Foreground="Black"/>
-                                <!--<Image Source="{Binding ImageBytes, Converter={StaticResource ImageConverter}, Mode=TwoWay}" Width="100" Height="100" />-->
-                                <ItemsControl ItemsSource="{Binding Answers}">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <CheckBox Style="{StaticResource CustomCheckBoxStyle}" IsChecked="{Binding IsSelected, Mode=TwoWay}"
-                                                  Command="{Binding DataContext.SaveTemporaryFileCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                                />
-                                                <TextBlock Text="{Binding Text}" Style="{StaticResource TakingTestText}" />
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </StackPanel>
+                            <WrapPanel Orientation="Horizontal" Margin="40,5,0,0">
+                                <!--<TextBlock Text="{Binding (ItemsControl.AlternationIndex), RelativeSource={RelativeSource AncestorType=ContentPresenter}, StringFormat=' {0}'}"
+                                           Style="{StaticResource TakingTestText}" Foreground="Black"/>-->
+                                <!-- Чекбокс и текст ответа -->
+                                <CheckBox Style="{StaticResource AnswerCheckBox}" 
+                                          IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                          Command="{Binding DataContext.SaveTemporaryFileCommand, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                    <TextBlock Text="{Binding Text}" Style="{StaticResource TakingTestText}" TextWrapping="Wrap"/>
+                                </CheckBox>
+                            </WrapPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </StackPanel>
-        </ScrollViewer>
+        </DataTemplate>
+    </ItemsControl.ItemTemplate>
+</ItemsControl>
+            </StackPanel>
+        </hc:ScrollViewer>
         <Button Grid.Row="2"  Command="{Binding FinishTestCommand}" Style="{StaticResource CreateTestBtn}">
             <TextBlock Style="{StaticResource TextStyleBtn}" Text="Завершить тест"></TextBlock>
         </Button>

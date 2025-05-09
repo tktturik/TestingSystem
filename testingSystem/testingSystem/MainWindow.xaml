@@ -7,65 +7,71 @@
          AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Background="Transparent">
+        Background="Transparent"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+
+>
 
     <Window.DataContext>
         <vm:NavigationVM/>
     </Window.DataContext>
 
-
-
-    <Grid Background="#fdd330">
-
+    <Grid Background="{StaticResource PrimaryBrush2}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Grid>
 
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Border HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Background="Transparent">
+            <Border.Effect>
+                <DropShadowEffect Direction="0"
+                          ShadowDepth="10"
+                          Color="Black"
+                          Opacity="0.1"
+                          BlurRadius="20"/>
+            </Border.Effect>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="10">
 
                 <Button Style="{StaticResource NavigationBtn}" Command="{Binding ShowHomeViewCommand}" >
-                    <TextBlock Style="{StaticResource TextStyle}" Text="Главная" ></TextBlock>
-                </Button>
-                <Button Command="{Binding ShowCreateTestViewCommand}" Style="{StaticResource NavigationBtn}"  >
-                    <TextBlock Style="{StaticResource TextStyle}" Text="Создать"></TextBlock>
-                </Button>
+                        <TextBlock Style="{StaticResource TextStyle}" Text="Главная" ></TextBlock>
+                    </Button>
+                    <Button Command="{Binding ShowCreateTestViewCommand}" Style="{StaticResource NavigationBtn}"  Visibility="Visible" IsEnabled="False">
+                        <TextBlock Style="{StaticResource TextStyle}" Text="Создать"></TextBlock>
+                    </Button>
 
-                <Button Command="{Binding ShowTakeTestViewCommand}" Style="{StaticResource NavigationBtn}">
-                    <TextBlock Style="{StaticResource TextStyle}" Text="Пройти"></TextBlock>
-                </Button>
-                <Button Command="{Binding ShowMyFilesViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Collapsed" IsEnabled="False">
-                    <TextBlock Style="{StaticResource TextStyle}" Text="Мои файлы"></TextBlock>
-                </Button>
-                <Button Command="{Binding ShowTasksViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Collapsed" IsEnabled="False">
-                    <TextBlock Style="{StaticResource TextStyle}" Text="Задания"></TextBlock>
-                </Button>
-                <Button Command="{Binding ShowPersonalAccountViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Collapsed" IsEnabled="False">
-                    <TextBlock Style="{StaticResource TextStyle}" Text="Личный Каб"></TextBlock>
-                </Button>
-                <Button Command="{Binding ShowSettingsViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Collapsed" IsEnabled="False">
-                    <TextBlock Style="{StaticResource TextStyle}" Text="Настройки"></TextBlock>
-                </Button>
-            </StackPanel>
-        </Grid>
+                    <Button Command="{Binding ShowTakeTestViewCommand}" Style="{StaticResource NavigationBtn}">
+                        <TextBlock Style="{StaticResource TextStyle}" Text="Пройти"></TextBlock>
+                    </Button>
+                    <Button Command="{Binding ShowMyFilesViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Visible" IsEnabled="False">
+                        <TextBlock Style="{StaticResource TextStyle}" Text="Мои файлы"></TextBlock>
+                    </Button>
+                    <Button Command="{Binding ShowTasksViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Visible" IsEnabled="False">
+                        <TextBlock Style="{StaticResource TextStyle}" Text="Задания"></TextBlock>
+                    </Button>
+                    <Button Command="{Binding ShowPersonalAccountViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Visible" IsEnabled="False">
+                        <TextBlock Style="{StaticResource TextStyle}" Text="Личный Каб"></TextBlock>
+                    </Button>
+                    <Button Command="{Binding ShowSettingsViewCommand}" Style="{StaticResource NavigationBtn}" Visibility="Visible" IsEnabled="False">
+                        <TextBlock Style="{StaticResource TextStyle}" Text="Настройки"></TextBlock>
+                    </Button>
+                </StackPanel>
+            
+        </Border>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" 
-                Content="x" FontSize="30" 
-                Foreground="Black" 
-                HorizontalAlignment="Right" 
-                VerticalAlignment="Top" Margin="0,0,20,0" 
-                BorderThickness="0"
-                Background="Transparent" Click="Button_Click"
-                Panel.ZIndex="1"></Button>
-            <Border Grid.RowSpan="2">
-                <Border.Background>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Panel.ZIndex="1" HorizontalAlignment="Right">
+                <Button x:Name="CloseBtn" Height="40"  Style="{StaticResource ButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource ErrorGeometry}" Click="Button_Click"/>
+            </StackPanel>
+            <Border Grid.RowSpan="2" Background="Transparent" >
+                <!--<Border.Background>
                     <ImageBrush ImageSource="/Image/backgroundV2.png"></ImageBrush>
-                </Border.Background>
+                </Border.Background>-->
             </Border>
             <ContentControl x:Name="CurrContentControl" Content="{Binding UserControl}" Grid.Row="1"/>
         </Grid>

@@ -26,10 +26,10 @@
                         <TextBlock Style="{StaticResource TextStyle}" Text="Максимальный балл:"></TextBlock>
                         <TextBlock Style="{StaticResource TextStyle}" Text="{Binding MaxPoints}"></TextBlock>
                     </StackPanel>
-                    <TextBlock Style="{StaticResource TextStyle}" Text="Введите имя и фамилию"></TextBlock>
-                    <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource AnswerTextBox}" HorizontalAlignment="Left" Tag="Имя" Margin="50,10,10,10"></TextBox>
-                    <TextBox Text="{Binding Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource AnswerTextBox}" HorizontalAlignment="Left" Tag="Фамилия" Margin="50,10,10,10"></TextBox>
-                    <Button Style="{StaticResource CreateTestBtn}" Command="{Binding StartTestCommad}">
+                    <TextBlock Style="{StaticResource TextStyle}" Text="Введите имя и фамилию" ></TextBlock>
+                    <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource AnswerTextBox}" HorizontalAlignment="Left" Tag=" Имя" Margin="50,10,10,10" IsTabStop="True" TabIndex="0"></TextBox>
+                    <TextBox Text="{Binding Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource AnswerTextBox}" HorizontalAlignment="Left" Tag=" Фамилия" Margin="50,10,10,10" IsTabStop="True" TabIndex="1"></TextBox>
+                    <Button Style="{StaticResource CreateTestBtn}" Command="{Binding StartTestCommad}" IsTabStop="True" TabIndex="2">
                         <TextBlock Style="{StaticResource TextStyleBtn}" Text="Начать тест"></TextBlock>
                     </Button>
                 </StackPanel>

@@ -83,30 +83,34 @@ public class DataService
     /// </summary>
     /// <param name="folder"></param>
     /// <returns>Коллекцию тестов</returns>
-    public static ObservableCollection<Test> LoadTestsFromFolder(string folder)
+    public static ObservableCollection<Test> LoadTestsFromFolder(string folder, Action<int> progressCallback = null)
     {
         ObservableCollection<Test> tests = new ObservableCollection<Test>();
         string dirPath = Path.Combine(path, folder);
         string[] files = Directory.GetFiles(dirPath, "*.json");
-        //MessageBox.Show($"По пути {dirPath} находится {files.Length}");
+
         try
         {
-            foreach (string filePath in files)
+            for (int i = 0; i < files.Length; i++)
             {
+                string filePath = files[i];
                 string json = File.ReadAllText(filePath);
 
                 Test test = JsonConverter(json);
-
                 tests.Add(test);
+
+                // Обновляем прогресс
+                int progress = (int)((i + 1) / (double)files.Length * 100);
+                progressCallback?.Invoke(progress);
             }
 
             return tests;
-        }catch(IOException e)
+        }
+        catch (IOException e)
         {
             MessageBox.Show("Повторите попытку чуть позже, тесты загружаются");
             return null;
         }
-
     }
     /// <summary>
     /// Десериализация теста
@@ -189,14 +193,40 @@ public class DataService
         }
         catch (FileNotFoundException ex)
         {
-            Attemps attemps = new Attemps() { CountAttemps = 1, LastUpdate = DateTime.Now };
+            Attemps attemps = new Attemps();
             SerializeAttemps(attemps);
             return attemps;
         }
     }
+    /// <summary>
+    /// Обновление текущей версии приложения в текстовом файле
+    /// </summary>
+    /// <param name="version"></param>
     public static void UpdateVersrionFile(Version version)
     {
         File.WriteAllText("versions.txt",version.ToString());
     }
+    /// <summary>
+    /// Вызывов метода создания документа Word в корневой папке
+    /// </summary>
+    /// <param name="test"></param>
+    /// <param name="resultPoints"></param>
+    /// <param name="maxPoints"></param>
+    /// <returns>Полный путь файла</returns>
+    public static string CreateReportDocument(Test test,int resultPoints, int maxPoints)
+    {
+        string fileName = $"{test.Experienced}_{test.Title}_{DateTime.Now:dd.MM.yyyy HH mm}.docx".Replace(":", " ");
+        string fullPath = Path.Combine(path, fileName);
+        if (WordDocument.CreateWordDocument(test, resultPoints, maxPoints, fullPath))
+        {
+            return fullPath;
+        }
+        else
+        {
+            return "";
+        }
+    }
+
+    
 
 }

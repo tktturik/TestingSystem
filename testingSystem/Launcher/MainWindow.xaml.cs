@@ -144,7 +144,6 @@ namespace Launcher
             Directory.Delete(tempExtractPath, true);
             File.Delete(tempZipPath);
 
-            // Выключаем режим "неопределённого прогресса" после завершения
             Dispatcher.Invoke(() =>
             {
                 DownloadProgressBar.IsIndeterminate = false;

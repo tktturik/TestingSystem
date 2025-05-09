@@ -53,6 +53,29 @@ namespace testingSystem.ViewModels
                 OnPropertyChanged();
             }
         }
+        private int _downloadProgress;
+        private bool _isDownloadIndeterminate;
+
+        public int DownloadProgress
+        {
+            get => _downloadProgress;
+            set
+            {
+                _downloadProgress = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsDownloadIndeterminate
+        {
+            get => _isDownloadIndeterminate;
+            set
+            {
+                _isDownloadIndeterminate = value;
+                OnPropertyChanged();
+            }
+        }
+
         /// <summary>
         /// Открытие выбранного теста в ListView
         /// </summary>
@@ -116,7 +139,18 @@ namespace testingSystem.ViewModels
         {
             curTab = Convert.ToString(parametr);
 
-            Tests = DataService.LoadTestsFromFolder(curTab);
+            IsDownloadIndeterminate = true;
+
+            Tests = DataService.LoadTestsFromFolder(curTab, progress =>
+            {
+                DownloadProgress = progress;
+                if (progress == 100)
+                {
+                    IsDownloadIndeterminate = false; 
+                }
+            });
+
+            OnPropertyChanged(nameof(Tests));
         }
         /// <summary>
         /// Открытие UserControl CreateTest, где будет тест, который нужен отредактировать

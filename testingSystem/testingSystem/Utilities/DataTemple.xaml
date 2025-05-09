@@ -34,6 +34,9 @@
     <DataTemplate DataType="{x:Type vm:WhoISVM}">
         <view:WhoIs/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ResultTestVM}">
+        <view:TestResult/>
+    </DataTemplate>
 
 
 

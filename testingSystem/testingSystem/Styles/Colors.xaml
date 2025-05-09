@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="PrimaryColor">#FAC424</Color>
+    <Color x:Key="TriggeredBtnColor">#ddb93b</Color>
+    <Color x:Key="HighlightColor">#eae157</Color>
+    <Color x:Key="AccentColor">#800080</Color>
+    <Color x:Key="DarkPurpleColor">#6E006E</Color>
+    <Color x:Key="LightPurpleColor">#9a9548</Color>
+    <Color x:Key="AccentColor2">#32448D</Color>
+    <SolidColorBrush x:Key="PrimaryBrush2" Color="{StaticResource PrimaryColor}"/>
+</ResourceDictionary>

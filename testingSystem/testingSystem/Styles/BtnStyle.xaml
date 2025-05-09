@@ -1,6 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:testingSystem.Utilities">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
                 
     <Style x:Key="NavigationBtn"
            TargetType="Button">
@@ -9,8 +12,9 @@
                    Value="Center"/>
         <Setter Property="VerticalAlignment"
                     Value="Center"/>
-        
 
+       
+        
         <Setter Property="Template">
             <Setter.Value>
             <ControlTemplate TargetType="Button">
@@ -20,7 +24,7 @@
                         BorderThickness="0">
                     <Border.Background>
                         <SolidColorBrush x:Name="BorderBackground"
-                                         Color="#fdd330"
+                                         Color="{StaticResource PrimaryColor}"
                                          />
                     </Border.Background>
 
@@ -46,8 +50,8 @@
                                 <Storyboard>
                                     <ColorAnimation Storyboard.TargetName="BorderBackground"
                                                     Storyboard.TargetProperty="Color"
-                                                    From="#fdd330"
-                                                    To="#ddb93b"
+                                                    From="{StaticResource PrimaryColor}"
+                                                    To="{StaticResource TriggeredBtnColor}"
                                                     Duration="0:0:0.3">
 
                                     </ColorAnimation>
@@ -61,8 +65,8 @@
                                     <ColorAnimation
                                         Storyboard.TargetName="BorderBackground"
                                         Storyboard.TargetProperty="Color"
-                                        From="#ddb93b"
-                                        To="#fdd330"
+                                        From="{StaticResource TriggeredBtnColor}"
+                                        To="{StaticResource PrimaryColor}"
                                         Duration="0:0:0.3">
                                     </ColorAnimation>
                                 </Storyboard>
@@ -92,13 +96,12 @@
                         Height="50"
                         Width="180"
                         BorderThickness="3"
-                        BorderBrush="#A6830E"
+                        BorderBrush="#800080"
                         CornerRadius="5"
                             >
                         <Border.Background>
                             <SolidColorBrush x:Name="BorderBackground"
-                                         Color="#709a9548"
-                                         />
+                                         Color="{StaticResource AccentColor}"/>
                         </Border.Background>
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
@@ -124,8 +127,8 @@
                                 <Storyboard>
                                     <ColorAnimation Storyboard.TargetName="BorderBackground"
                                                     Storyboard.TargetProperty="Color"
-                                                    From="#9a9548"
-                                                    To="#86823a"
+                                                    From="#800080"
+                                                    To="#6E006E"
                                                     Duration="0:0:0.3">
 
                                     </ColorAnimation>
@@ -139,8 +142,8 @@
                                     <ColorAnimation
                                         Storyboard.TargetName="BorderBackground"
                                         Storyboard.TargetProperty="Color"
-                                        From="#86823a"
-                                        To="#9a9548"
+                                        From="#6E006E"
+                                        To="#800080"
                                         Duration="0:0:0.3">
                                     </ColorAnimation>
                                 </Storyboard>
@@ -181,7 +184,7 @@
 
                         <Border.Background>
                             <SolidColorBrush x:Name="BorderBackground"
-                                             Color="#fdd330" />
+                                             Color="{StaticResource PrimaryColor}" />
                         </Border.Background>
 
                         <Grid>
@@ -210,8 +213,8 @@
                                 <Storyboard>
                                     <ColorAnimation Storyboard.TargetName="BorderBackground"
                                                     Storyboard.TargetProperty="Color"
-                                                    From="#fdd330"
-                                                    To="#ddb93b"
+                                                    From="{StaticResource PrimaryColor}"
+                                                    To="{StaticResource TriggeredBtnColor}"
                                                     Duration="0:0:0.3" />
                                 </Storyboard>
                             </BeginStoryboard>
@@ -225,8 +228,8 @@
                                 <Storyboard>
                                     <ColorAnimation Storyboard.TargetName="BorderBackground"
                                                     Storyboard.TargetProperty="Color"
-                                                    From="#ddb93b"
-                                                    To="#fdd330"
+                                                    From="{StaticResource TriggeredBtnColor}"
+                                                    To="{StaticResource PrimaryColor}"
                                                     Duration="0:0:0.3" />
                                 </Storyboard>
                             </BeginStoryboard>
