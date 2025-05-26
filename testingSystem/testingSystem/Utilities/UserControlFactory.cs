@@ -23,7 +23,8 @@ public class UserControlFactory
             { typeof(MyFilesVM), () => new MyFiles() },
             { typeof(PersonalAccountVM), () => new PersonalAccount() },
             { typeof(WhoISVM), () => new WhoIs() },
-            { typeof(ResultTestVM), () => new TestResult() }
+            { typeof(ResultTestVM), () => new TestResult() },
+            {typeof(AuthVM), () => new AuthModalWindow() }
 
         };
     }

@@ -1,0 +1,602 @@
+{
+	"info": {
+		"_postman_id": "41ab98c8-6677-4f6d-96af-173690db6c58",
+		"name": "kurs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44776070"
+	},
+	"item": [
+		{
+			"name": "GET | get_users",
+			"item": [
+				{
+					"name": "temporary_token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Поле temporary_token существует\", () => {\r",
+									"    pm.expect(response.temporary_token).to.be.a('string').and.not.empty;\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"temp_token\", response.temporary_token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://damfold.duckdns.org/temporary_token",
+							"protocol": "https",
+							"host": [
+								"damfold",
+								"duckdns",
+								"org"
+							],
+							"path": [
+								"temporary_token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус 200 ОК\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ответ содержит корректный json\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"const users = pm.response.json();\r",
+									"pm.test(\"В ответе есть массив\", () => {\r",
+									"    pm.expect(users).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"users.forEach(user => {\r",
+									"    pm.test(`Пользователь с ID=${user.id} без путсых полей`, () => {\r",
+									"        pm.expect(user.first_name?.trim()).to.not.be.empty;\r",
+									"        pm.expect(user.middle_name?.trim()).to.not.be.empty;\r",
+									"        pm.expect(user.last_name?.trim()).to.not.be.empty;\r",
+									"        pm.expect(user.id).to.exist;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.environment.unset(\"temp_token\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{temp_token}} ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://damfold.duckdns.org/get_users",
+							"protocol": "https",
+							"host": [
+								"damfold",
+								"duckdns",
+								"org"
+							],
+							"path": [
+								"get_users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST | send_code",
+			"item": [
+				{
+					"name": "temporary_token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Поле temporary_token существует и не пустое\", () => {\r",
+									"    pm.expect(response.temporary_token).to.be.a('string').and.not.empty;\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"temp_token\", response.temporary_token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://damfold.duckdns.org/temporary_token",
+							"protocol": "https",
+							"host": [
+								"damfold",
+								"duckdns",
+								"org"
+							],
+							"path": [
+								"temporary_token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send_code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус 200 ОК\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ответ содержит корректное поле status\", function() {\r",
+									"    const expectedResponse = {\r",
+									"        \"status\": \"success\"\r",
+									"    };\r",
+									"    pm.expect(pm.response.json()).to.deep.equal(expectedResponse);\r",
+									"});\r",
+									"\r",
+									"pm.environment.unset(\"temp_token\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{temp_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": {{id}},\r\n    \"code\": \"{{code}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://damfold.duckdns.org/send_code",
+							"protocol": "https",
+							"host": [
+								"damfold",
+								"duckdns",
+								"org"
+							],
+							"path": [
+								"send_code"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST | verify",
+			"item": [
+				{
+					"name": "temporary_token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Поле temporary_token существует\", () => {\r",
+									"    pm.expect(response.temporary_token).to.be.a('string').and.not.empty;\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"temp_token\", response.temporary_token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://damfold.duckdns.org/temporary_token",
+							"protocol": "https",
+							"host": [
+								"damfold",
+								"duckdns",
+								"org"
+							],
+							"path": [
+								"temporary_token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Ответ содержит json\", function() {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Наличие полей токена, типа и пользователя\", function() {\r",
+									"    pm.expect(response).to.have.all.keys(\r",
+									"        'access_token',\r",
+									"        'token_type',\r",
+									"        'user'\r",
+									"    );\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Поля токена не пустые\", function() {\r",
+									"    pm.expect(response.access_token).to.be.a('string').that.is.not.empty;\r",
+									"    pm.expect(response.token_type).to.be.a('string').that.is.not.empty;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Поле user имеет все атрибуты\", function() {\r",
+									"    pm.expect(response.user).to.be.an('object').that.has.all.keys(\r",
+									"        'first_name',\r",
+									"        'middle_name',\r",
+									"        'last_name',\r",
+									"        'phone_number',\r",
+									"        'chat_id',\r",
+									"        'role',\r",
+									"        'points'\r",
+									"    );\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Атрибуты user заполнены и валидны\", function() {\r",
+									"    const user = response.user;\r",
+									"\r",
+									"    pm.expect(user.first_name).to.be.a('string').that.is.not.empty;\r",
+									"    pm.expect(user.middle_name).to.be.a('string').that.is.not.empty;\r",
+									"    pm.expect(user.last_name).to.be.a('string').that.is.not.empty;\r",
+									"    pm.expect(user.phone_number).to.be.a('string').that.is.not.empty;\r",
+									"    pm.expect(user.role).to.be.a('string').that.is.not.empty;\r",
+									"    pm.expect(user.chat_id).to.be.a('number');\r",
+									"    pm.expect(user.points).to.be.a('number');\r",
+									"});\r",
+									"\r",
+									"pm.environment.unset(\"temp_token\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{temp_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"flag\": \"{{flag}}\",\r\n  \"id\": {{id}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://damfold.duckdns.org/verify",
+							"protocol": "https",
+							"host": [
+								"damfold",
+								"duckdns",
+								"org"
+							],
+							"path": [
+								"verify"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "temporary_token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Статус 200 ОК\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Ответ содержит json\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Поле temporary_token существует и не пустое\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    pm.expect(responseData).to.have.property('temporary_token');\r",
+							"    pm.expect(responseData.temporary_token).to.be.a('string').that.is.not.empty;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://damfold.duckdns.org/temporary_token",
+					"protocol": "https",
+					"host": [
+						"damfold",
+						"duckdns",
+						"org"
+					],
+					"path": [
+						"temporary_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send_code (without token)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Неправильный токен 401 статус\", () => {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"id\": 1,\r\n    \"code\": \"666666\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://damfold.duckdns.org/send_code",
+					"protocol": "https",
+					"host": [
+						"damfold",
+						"duckdns",
+						"org"
+					],
+					"path": [
+						"send_code"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify (without token)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Неправильный токен 401 статус\", () => {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"flag\": \"SUCCESS_ACCESS\",\r\n  \"id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://damfold.duckdns.org/verify",
+					"protocol": "https",
+					"host": [
+						"damfold",
+						"duckdns",
+						"org"
+					],
+					"path": [
+						"verify"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_users (without token)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Неправильный токен статус 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://damfold.duckdns.org/get_users",
+					"protocol": "https",
+					"host": [
+						"damfold",
+						"duckdns",
+						"org"
+					],
+					"path": [
+						"get_users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

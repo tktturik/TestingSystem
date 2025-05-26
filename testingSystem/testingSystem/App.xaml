@@ -10,7 +10,6 @@
             <ResourceDictionary.MergedDictionaries>
 
                
-                <ResourceDictionary Source="Utilities/DataTemple.xaml" />
                 <ResourceDictionary Source="Styles/BtnStyle.xaml"/>
                 <ResourceDictionary Source="Styles/TextStyle.xaml"/>
                 <ResourceDictionary Source="Styles/TextBoxStyle.xaml"/>
@@ -23,7 +22,10 @@
 
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
-                
+
+                <ResourceDictionary Source="Utilities/DataTemple.xaml" />
+
+
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

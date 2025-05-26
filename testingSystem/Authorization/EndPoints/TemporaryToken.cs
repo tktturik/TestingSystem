@@ -8,26 +8,27 @@ using System.Threading.Tasks;
 
 namespace Authorization.EndPoints
 {
-    public class TemporaryToken : IEndPointStrategy
-    {
-        public async Task<string> GetDataAsync()
+    public class TemporaryToken: BaseEndPointClass
+    {  
+        /// <summary>
+        /// Получение временного токена
+        /// </summary>
+        /// <param name="httpClient"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public override async Task<string> GetDataAsync(HttpClient httpClient)
         {
-            const string _endpoint = "temporary_token";
-            HttpResponseMessage _response = await HttpClient.GetAsync(_endpoint);
 
-            _response.EnsureSuccessStatusCode();
-
-            string _jsonResponse = await _response.Content.ReadAsStringAsync();
-
+            string _jsonResponse = await ExecuteGetAsync(httpClient, "temporary_token");
 
             using (JsonDocument document = JsonDocument.Parse(_jsonResponse))
             {
                 if (document.RootElement.TryGetProperty("temporary_token", out JsonElement tokenElement))
                 {
-                    TempToken = tokenElement.GetString();
-                    return TempToken;
+                    return tokenElement.GetString();
                 }
             }
-            throw new Exception("Field 'temporary_token' not found in response")        }
+            throw new Exception("Поле 'temporary_token' не найдено");
+        }
     }
 }

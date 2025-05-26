@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HandyControl.Controls;
+
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;

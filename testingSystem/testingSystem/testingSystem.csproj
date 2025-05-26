@@ -41,6 +41,9 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Authorization">
+      <HintPath>..\Authorization\bin\Debug\Authorization.dll</HintPath>
+    </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.3.1.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
@@ -94,6 +97,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Attemps.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Utilities\AnswerCheckBox.cs" />
     <Compile Include="Utilities\ComboBoxItemConverter.cs" />
     <Compile Include="Utilities\DataService.cs" />
@@ -107,6 +111,7 @@
     <Compile Include="Utilities\UserControlFactory.cs" />
     <Compile Include="Utilities\ViewModelBase.cs" />
     <Compile Include="Utilities\WordDocument.cs" />
+    <Compile Include="ViewModels\AuthVM.cs" />
     <Compile Include="ViewModels\ChoosingTestVM.cs" />
     <Compile Include="ViewModels\CreateTestVM.cs" />
     <Compile Include="Models\Question.cs" />
@@ -120,6 +125,9 @@
     <Compile Include="ViewModels\TakingTestVM.cs" />
     <Compile Include="ViewModels\TasksVM.cs" />
     <Compile Include="ViewModels\WhoISVM.cs" />
+    <Compile Include="View\UserControls\AuthModalWindow.xaml.cs">
+      <DependentUpon>AuthModalWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\ChoosingTest.xaml.cs">
       <DependentUpon>ChoosingTest.xaml</DependentUpon>
     </Compile>
@@ -195,6 +203,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Utilities\DataTemple.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\AuthModalWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

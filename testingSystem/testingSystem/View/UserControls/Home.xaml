@@ -13,6 +13,7 @@
     <Grid>
         <Grid>
             <Image Source="\Image\logo.png" Width="300"/>
+            <Button Command="{Binding TestBut}"></Button>
         </Grid>
     </Grid>
 </UserControl>
