@@ -12,20 +12,20 @@
 
 Тесты сохраняются на данном этапе локально на компьютере
 
-![image](![{5BCCCDBA-E4AB-46D7-91BE-D1CDB66A6FB1}](https://github.com/user-attachments/assets/01f4a001-aacc-489c-b60d-bd73a4b5ac4f)
+![{5BCCCDBA-E4AB-46D7-91BE-D1CDB66A6FB1}](https://github.com/user-attachments/assets/01f4a001-aacc-489c-b60d-bd73a4b5ac4f)
 
 
 ## Интерфейс прохождения теста
 
 Открывая вкладку "Пройти", появляется список существующих тестов, которые загрузились с Google Drive, также тесты распределены по разделам. 
 
-![image](![{DF5C35B7-7E66-4EC8-B8C2-8ACD4965F87A}](https://github.com/user-attachments/assets/b56ea241-e830-4a86-bc0a-1380540650ec)
+![{DF5C35B7-7E66-4EC8-B8C2-8ACD4965F87A}](https://github.com/user-attachments/assets/b56ea241-e830-4a86-bc0a-1380540650ec)
 
 
 ## Интерфейс прохождения теста
 Выбирав тест на прохождение, открывается интерфейс прохождения
 
-![image](![{21258120-F7EF-4525-A698-F883096E989F}](https://github.com/user-attachments/assets/ddbf5b17-178a-4d85-b5a6-9a745612afc6)
+![{21258120-F7EF-4525-A698-F883096E989F}](https://github.com/user-attachments/assets/ddbf5b17-178a-4d85-b5a6-9a745612afc6)
 
 
 По кнопке "Завершить тест" подсчитываются верные ответы и их баллы, результаты тестирования отображаются в открывашимся модальном окне. 
