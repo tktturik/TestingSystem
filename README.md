@@ -12,24 +12,28 @@
 
 Тесты сохраняются на данном этапе локально на компьютере
 
-![image](https://github.com/user-attachments/assets/29595a0f-7b35-4c5a-a664-256a89b3c5f8)
+![image](![{5BCCCDBA-E4AB-46D7-91BE-D1CDB66A6FB1}](https://github.com/user-attachments/assets/01f4a001-aacc-489c-b60d-bd73a4b5ac4f)
+
 
 ## Интерфейс прохождения теста
 
 Открывая вкладку "Пройти", появляется список существующих тестов, которые загрузились с Google Drive, также тесты распределены по разделам. 
 
-![image](https://github.com/user-attachments/assets/222cc8f4-763d-4f33-b9ef-f2152851dfb6)
+![image](![{DF5C35B7-7E66-4EC8-B8C2-8ACD4965F87A}](https://github.com/user-attachments/assets/b56ea241-e830-4a86-bc0a-1380540650ec)
 
-Ниже находится кнопка, которая синхронизирует локальные тесты с Google Drive
-
-![image](https://github.com/user-attachments/assets/d1b45a2c-b54f-44f6-8153-8d63889972fd)
 
 ## Интерфейс прохождения теста
 Выбирав тест на прохождение, открывается интерфейс прохождения
 
-![image](https://github.com/user-attachments/assets/0caef91c-188f-4bcc-a29a-76ec28af1320)
+![image](![{21258120-F7EF-4525-A698-F883096E989F}](https://github.com/user-attachments/assets/ddbf5b17-178a-4d85-b5a6-9a745612afc6)
 
-После указания ответов и Имя тестируемого, по кнопке "Завершить тест" подсчитываются верные ответы и их баллы, результаты отправляются письмом на электронную почту
+
+По кнопке "Завершить тест" подсчитываются верные ответы и их баллы, результаты тестирования отображаются в открывашимся модальном окне. 
+
+![{1E5AEC81-49D8-4D1B-8671-0C9F15601A2D}](https://github.com/user-attachments/assets/f5f7b6d0-ec01-4e49-a267-6bc27cc57c0e)
+
+
+Также в фоне они отправляются отчетом на почту в виде .docx файла
 
 ![image](https://github.com/user-attachments/assets/bb176cea-cab6-4b15-88ed-87f8b25a1402)
 
